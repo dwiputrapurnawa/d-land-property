@@ -22,12 +22,14 @@
   <!-- Sidebar -->
   <div class="flex min-h-screen">
     <aside class="w-64 bg-blue-600 text-white flex flex-col">
-      <div class="p-4 text-center text-xl font-bold border-b border-blue-500">
+      <div class="p-4 text-center text-xl font-bold border-b border-blue-500 flex-cols-2">
+        <img src="/images/logo.png" class="w-10 h-10" alt="" srcset="">
         <a href="{{ route('admin.panel') }}" class="text-white">Admin Panel</a>
       </div>
       <nav class="flex flex-col mt-4">
         <a href="{{ route('admin.panel') }}" class="px-4 py-2 hover:bg-blue-700 {{ Route::is('admin.panel') ? 'bg-blue-700' : '' }}">Dashboard</a>
         <a href="{{ route("admin.project") }}" class="px-4 py-2 hover:bg-blue-700 {{ Route::is('admin.project') ? 'bg-blue-700' : '' }}">Project</a>
+        <a href="{{ route("admin.company") }}" class="px-4 py-2 hover:bg-blue-700 {{ Route::is('admin.company') ? 'bg-blue-700' : '' }}">Company</a>
         {{-- <a href="#" class="px-4 py-2 hover:bg-blue-700">News</a> --}}
         <a href="{{ route("admin.logout") }}" class="px-4 py-2 hover:bg-blue-700">Logout</a>
       </nav>

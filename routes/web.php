@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PanelController;
@@ -28,6 +29,8 @@ Route::prefix('admin')->group(function () {
 Route::prefix('admin')->middleware(IsAdminMiddleware::class)->group(function () {
     Route::get('/panel', [PanelController::class, 'index'])->name('admin.panel');
     Route::get('/panel/project', [ProjectController::class, 'index'])->name('admin.project');
+    Route::get('/panel/company', [CompanyController::class, 'index'])->name('admin.company');
+    Route::put('/panel/company/update/{id}', [CompanyController::class, 'update'])->name('admin.company.update');
     Route::get('/panel/project/create', [ProjectController::class, 'create'])->name('admin.project.create');
     Route::post('/panel/project/insert', [ProjectController::class, 'insert'])->name('admin.project.insert');
     Route::get('/panel/project/edit/{slug}', [ProjectController::class, 'edit'])->name('admin.project.edit');

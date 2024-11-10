@@ -81,3 +81,8 @@
 .dropdown-content a:hover {
   background-color: #ddd;
 }
+
+    /* Adding smooth transition for focus states */
+    input, textarea, button {
+      transition: all 0.3s ease-in-out;
+    }
