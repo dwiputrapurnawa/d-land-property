@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/master.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
+<script>
+    // Define locale from Laravel's app locale
+    const locale = "{{ app()->getLocale() }}";
+</script>
 <body class="font-sans">
 
     @yield('content')

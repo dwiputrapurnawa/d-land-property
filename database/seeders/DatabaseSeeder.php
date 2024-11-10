@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Company;
+use App\Models\LandingPage;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,9 +17,20 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        User::create([
+            'name' => 'Administrator',
+            'username' => 'admin',
+            'password' => bcrypt('admin'),
+            'role' => 'admin',
+        ]);
+
+        Company::create([
+            'name' => "D'Land Property",
+            'address' => "Jalan Raya Kampus Udayana No. 18x Jimbaran, Kuta Selatan, Badung 80361",
+            'phone' => "6212345678910",
+            'email' => "info.dlandproperty@gmail.com",
+            'logo' => "/images/logo.png",
+            'instagram' => "https://www.instagram.com/dland.property/",
         ]);
     }
 }

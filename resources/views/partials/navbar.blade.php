@@ -5,18 +5,18 @@
 
         <!-- Logo -->
         <div class="flex items-center">
-          <a href="#">
+          <a href="/">
             <img src="/images/logo.png" alt="Logo" class="h-10 w-auto"> <!-- Replace with your image URL and size -->
           </a>
         </div>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-16 max-md:space-x-8">
-          <a href="#" class="text-white text-sm font-light underline-animation">Projects</a>
-          <a href="#" class="text-white text-sm font-light underline-animation">About Us</a>
-          <a href="#" class="text-white text-sm font-light underline-animation">Management</a>
-          <a href="#" class="text-white text-sm font-light underline-animation">About Bali</a>
-          <a href="#" class="text-white text-sm font-light underline-animation">News</a>
+          <a href="#section_projects" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_project') }}</a>
+          <a href="#section_about_us" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_about_us') }}</a>
+          <a href="#section_management" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_managements') }}</a>
+          <a href="#section_about_bali" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_about_bali') }}</a>
+          <a href="#section_news" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_news') }}</a>
           
          <!-- Custom Language Selector -->
          <div class="relative">
@@ -44,7 +44,7 @@
         </div>
 
           <a href="#" class="text-white text-sm font-light underline-animation flex items-center">
-            Request Call 
+            {{ __('landing.navbar_request_call') }}
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ml-2 w-4 h-4">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
@@ -69,11 +69,11 @@
     <div id="mobileMenu" class="hidden md:hidden flex-col">
       
       <ul class="px-5 space-y-2 backdrop-filter backdrop-blur-lg">
-        <li><a href="#" class="text-white text-sm font-light underline-animation">Projects</a></li>
-        <li><a href="#" class="text-white text-sm font-light underline-animation">About Us</a></li>
-        <li><a href="#" class="text-white text-sm font-light underline-animation">Management</a></li>
-        <li><a href="#" class="text-white text-sm font-light underline-animation">About Bali</a></li>
-        <li><a href="#" class="text-white text-sm font-light underline-animation">News</a></li>
+        <li><a href="#" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_project') }}</a></li>
+        <li><a href="#" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_about_us') }}</a></li>
+        <li><a href="#" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_managements') }}</a></li>
+        <li><a href="#" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_about_bali') }}</a></li>
+        <li><a href="#" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_news') }}</a></li>
         <li>
                  <!-- Custom Language Selector -->
        <div class="relative">
@@ -102,7 +102,7 @@
         </li>
         <li>
           <a href="#" class="text-white text-sm font-light underline-animation flex items-center">
-            Request Call 
+            {{ __('landing.navbar_request_call') }} 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ml-2 w-4 h-4">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    D'Land Properties - Home
+    D'Land Property - Home
 @endsection
 
 @section('content')
@@ -15,5 +15,15 @@
     @include('sections.project_showcase')
     
     @include('sections.projects')
+
+    @include('sections.contact_us')
+
+    @include('sections.social')
+
+    @include('sections.image')
+
+    @include('sections.footer')
+
+    @include('modal.whatsapp_overlay')
 
 @endsection

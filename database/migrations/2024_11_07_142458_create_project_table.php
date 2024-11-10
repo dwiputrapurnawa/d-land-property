@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->float('roi')->nullable();
+            $table->enum('status', ['draft', 'publish'])->default('draft');
             $table->timestamps();
         });
     }

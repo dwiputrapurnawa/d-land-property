@@ -48,13 +48,7 @@
       .animate-fade-in-up {
         animation: fade-in-up 1.5s ease-in-out forwards;
       }
-      
-      .dropdown {
-        display: none; /* Initially hide the dropdown */
-    }
-    .dropdown.active {
-        display: block; /* Show the dropdown when active */
-    }
+
 
     .no-select {
       user-select: none;
@@ -88,4 +82,66 @@
     border-radius: inherit;
 }
 
-    
+
+html {
+  scroll-behavior: smooth;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.dropdown::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+  background-color: rgb(82, 82, 91); /* Dark thumb color */
+  border-radius: 10px; /* Rounded thumb */
+  border: 2px solid #e5e7eb; /* Border around thumb */
+}
+
+.dropdown::-webkit-scrollbar-track {
+  border-radius: 10px; /* Rounded track */
+}
+
+.dropdown::-webkit-scrollbar-corner {
+  background-color: #f3f4f6; /* Optional: color for corner */
+}
+
+.box:hover {
+  translate: 0 -20px;
+  transform: translateY();
+  transition: all 0.3s ease-in-out;
+}
+
+
+.box:hover .underline-animation::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: white; /* Tailwind's 'blue-500' */
+  transition: width 0.3s ease-in-out;
+}
+
+.box:hover .underline-animation::after {
+  width: 100%;
+}
+
+.custom-select {
+  background-color: transparent;
+}
+
+.dropdown {
+  display: none; /* Initially hide the dropdown */
+}
+.dropdown.active {
+  display: block; /* Show the dropdown when active */
+}
