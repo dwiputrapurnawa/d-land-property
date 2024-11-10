@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'headline_1' => 'Komersial',
-    'headline_2' => 'Real Estat',
+    'headline_1' => 'Properti',
+    'headline_2' => 'Komersial',
     'headline_3' => 'di Bali',
     'subheadline' => 'Ruang yang tenang yang menawarkan kemewahan dan kesempatan investasi yang unik',
     'about_us_paragraph_1' => "D'Land Properties mengkhususkan diri dalam menawarkan real estat premium di lokasi-lokasi paling dicari di Bali dengan harga yang kompetitif. Perusahaan ini berkomitmen untuk memberikan pengalaman pencarian dan akuisisi properti yang lancar.",

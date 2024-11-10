@@ -47,7 +47,7 @@
     <div>
       <label class="block text-gray-700 font-semibold" for="phone">Phone</label>
       <input type="tel" id="phone" name="phone" placeholder="Contact number"
-        class="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="{{ $company->address }}">
+        class="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="{{ $company->phone }}">
     </div>
 
     <!-- Email -->
