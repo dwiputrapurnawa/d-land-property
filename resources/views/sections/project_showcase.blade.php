@@ -28,7 +28,9 @@
   
       <div class="mt-10 flex flex-col relative">
         <!-- Phone Image (Responsive) -->
-        <img id="phone-img" src="/images/phone.png" class="absolute bottom-[-100px] right-4 z-10 animated-element opacity-0 transition duration-300 ease-in-out w-[200px] sm:w-[250px] md:w-[300px] hidden sm:block">
+        <img id="phone-img" src="/images/phone.png" class="absolute bottom-0 sm:bottom-[-100px] right-4 z-10 animated-element opacity-0 transition duration-300 ease-in-out w-[150px] sm:w-[200px] md:w-[250px]">
+
+
         
         <!-- Project Presentation Section -->
         <section id="project-presentation" class="z-10 absolute flex flex-col rounded-none max-w-[90%] sm:max-w-[762px] bottom-5 left-2 sm:bottom-10 sm:left-[-100px] backdrop-filter backdrop-blur-lg animated-element opacity-0 transition duration-300 ease-in-out md:left-[-50px]">
@@ -39,7 +41,7 @@
                 <div class="flex flex-col w-full sm:w-[66%] relative">
                   <div class="flex flex-col w-full text-white sm:mt-10 relative dropdown-parent">
                     <div class="flex gap-5 justify-between text-lg sm:text-xl tracking-wide">
-                      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/ebd2ccfec695f7fdf0e404b65f70b98781a20adfa5ca1c1569f7b335c9d92cc0?placeholderIfAbsent=true&apiKey=d2a041474570455ea3b193ed2249e743" alt="logo" class="object-contain shrink-0 w-10 sm:w-12 rounded-none aspect-[0.96]" />
+                      <img loading="lazy" src="{{ asset('images/downloads.png') }}" alt="logo" class="object-contain shrink-0 w-10 sm:w-12 rounded-none aspect-[0.96]" />
                       <h2 class="my-auto text-sm sm:text-base w-[200px] sm:w-[268px]">{{ __('landing.projects_showcase_get_project_presentation') }}</h2>
                     </div>
                     <div class="flex items-center self-start mt-6 sm:mt-16 text-sm sm:text-base h-full">
@@ -47,12 +49,12 @@
                           <span class="text-sm font-light inline-flex items-center no-select">
                               <img src="/images/id-icon.png" class="w-6 h-6 mr-2" alt="">
                           </span>
-                          <svg class="w-4 h-4 mt-1 arrow-up" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6" />
-                          </svg>
-                          <svg class="w-4 h-4 mt-2 hidden arrow-down" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6-6 6 6" />
-                          </svg>
+
+                          <div class="mx-2">
+                            <img src="{{ asset('images/arrow-up.png') }}" alt="" class="arrow-up hidden">
+                            <img src="{{ asset('images/arrow-down.png') }}" alt="" class="arrow-down">
+                          </div>
+                  
                   
                           <!-- Dropdown -->
                           <div class="dropdown absolute top-full left-0 mt-2 w-full bg-zinc-600 text-white rounded-lg shadow-lg z-10 transition duration-300 ease-in-out max-h-48 overflow-y-scroll flex-col">

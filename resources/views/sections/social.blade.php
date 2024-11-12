@@ -1,4 +1,4 @@
-<section class="bg-black text-white px-4 md:px-8 lg:px-16 h-screen">
+<section class="bg-black text-white px-4 md:px-8 lg:px-16">
   <div class="w-full flex flex-col lg:flex-row gap-8 h-full relative">
       {{-- Section A --}}
       <div class="flex flex-col lg:w-1/3 z-50 lg:-ml-16 h-full absolute">
@@ -20,23 +20,27 @@
     </div>
 </div>
 
-
-      {{-- Section B --}}
-      <div class="flex-col w-[80%] lg:ml-auto py-16 animated-element opacity-0 transition duration-300 ease-in-out">
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              
-            @for ($i = 1; $i <= 6; $i++)
-              <div class="relative aspect-square">
-                <img
-                    src="/images/instagram-post-{{ $i }}.png"
-                    alt="Instagram post 1"
-                    class="absolute inset-0 w-full h-full object-cover rounded-lg"
-                    loading="lazy"
-                />
-                <img src="/images/stack.png" class="absolute top-3 right-3 w-5 h-5" alt="" srcset="">
+      <div class="flex-col w-[80%] lg:ml-auto py-16 mb-10 pl-10">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-4">
+          @for ($i = 1; $i <= 6; $i++)
+            <div class="relative aspect-square animated-element opacity-0 transition duration-900 ease-in-out">
+              <img
+                  src="/images/instagram-post-{{ $i }}.png"
+                  alt="Instagram post {{ $i }}"
+                  class="absolute inset-0 w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+              />
+              <img 
+                  src="/images/stack.png" 
+                  class="absolute top-3 right-3 w-5 h-5" 
+                  alt="Stack icon"
+                  srcset=""
+              />
             </div>
-            @endfor
-          </div>
+          @endfor
+        </div>
+      </div>
+      
       </div>
   </div>
 </section>

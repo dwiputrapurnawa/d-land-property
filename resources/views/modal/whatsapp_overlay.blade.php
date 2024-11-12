@@ -1,7 +1,9 @@
 <!-- Modal Structure -->
 <div id="whatsappModal" class="fixed inset-0 flex items-center justify-center z-50 hidden bg-black bg-opacity-40">
     <div class="relative flex flex-col text-white max-w-[600px] mx-auto rounded-lg overflow-hidden">
-        <button id="closeModalBtn" class="absolute top-4 right-4 text-white text-2xl focus:outline-none">✖</button>
+        <button id="closeModalBtn" class="absolute top-4 right-4 text-white text-2xl focus:outline-none z-50">
+            <img src="{{ asset('images/exit-button.png') }}" alt="">
+        </button>
         
         <header class="flex flex-col items-center px-6 sm:px-10 md:px-20 pt-8 sm:pt-10 md:pt-14 pb-6 sm:pb-8 w-full shadow-2xl bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg">
             <div class="flex flex-col max-w-full w-full sm:w-[272px]">

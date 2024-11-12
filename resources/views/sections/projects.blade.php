@@ -10,8 +10,9 @@
         <div class="relative w-full">
             <img loading="lazy" src="{{ asset('storage/' . $project->image) }}" class="object-contain w-full aspect-[1.63] animated-element opacity-0 transition duration-300 ease-in-out" alt="Project visual representation" />
             
+            
             <!-- Button container positioned at the bottom-right for large screens and centered on mobile -->
-            <div class="box absolute bottom-0 md:right-4 right-1/2 transform md:translate-x-0 translate-x-1/2 translate-y-1/2 bg-transparent backdrop-blur-lg px-4 md:px-5 pt-8 md:pt-10 pb-12 md:pb-20 ">
+            <div class="hidden md:block box absolute bottom-0 md:right-4 right-1/2 transform md:translate-x-0 translate-x-1/2 translate-y-1/2 bg-transparent backdrop-blur-lg px-4 md:px-5 pt-8 md:pt-10 pb-12 md:pb-20 ">
               <a href="/">
                   <span class="text-xs md:text-sm px-1.5 py-0.5 md:px-6 md:py-3 border border-white text-white rounded-full font-semibold bg-transparent backdrop-blur-md shadow-lg hover:bg-opacity-20 block text-sm">{{ __('landing.view_project') }}</span>
               </a>

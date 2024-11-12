@@ -1,4 +1,4 @@
-<footer class="flex flex-col bg-neutral-900 text-white">
+<footer class="flex flex-col bg-neutral-900 text-white z-50">
     <div class="flex flex-col pb-6 w-full max-w-[1686px] mx-auto px-4 lg:px-8">
       <div class="flex flex-wrap gap-10 mt-24 md:mt-10 animated-element opacity-0 transition duration-300 ease-in-out">
         <section class="w-full lg:w-1/3">
