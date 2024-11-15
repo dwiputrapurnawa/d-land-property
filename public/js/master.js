@@ -177,6 +177,22 @@ $(function () {
             $("#whatsappModal").addClass("hidden");
         }
     });
+    // Open the modal
+    $(".openRequestCallModalBtn").click(function () {
+        $("#requestCallModal").removeClass("hidden");
+    });
+
+    // Close the modal when clicking the close button
+    $("#requestModalCloseBtn").click(function () {
+        $("#requestCallModal").addClass("hidden");
+    });
+
+    // Close the modal when clicking outside of it
+    $(window).click(function (event) {
+        if ($(event.target).is("#requestCallModal")) {
+            $("#requestCallModal").addClass("hidden");
+        }
+    });
 
     function adjustWidth() {
         $("[name='country_code']").each(function () {
@@ -275,5 +291,119 @@ $(function () {
                 .find(".hr-input")
                 .addClass("border-white");
         },
+    });
+
+    $(".getConsultationButton").click(function (event) {
+        event.preventDefault();
+
+        const form = $(this).parents(".contact-us-form");
+
+        const name = form.find("[name='name']").val();
+        const email = form.find("[name='email']").val();
+        const messenger = form.find("[name='messenger']").val();
+        const countryCode = form.find("[name='country_code']").val();
+        const phoneNumber = form.find("[name='phone']").val();
+        const fullNumber = countryCode + phoneNumber;
+
+        const companyNumber = $("[name='company_number']").val();
+
+        const url = $("[name='contact-us-url']").val();
+
+        if (name === "" || email === "" || phoneNumber === "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Please fill in all fields.",
+            });
+
+            return;
+        }
+
+        if (messenger === "whatsapp") {
+            const message = encodeURIComponent(
+                `Hello, I am ${name}, interested in a consultation.`
+            );
+            const whatsappURL = `https://wa.me/${companyNumber}?text=${message}`;
+
+            // Redirect to WhatsApp with the pre-filled message
+            window.open(whatsappURL, "_blank");
+        }
+
+        $(this).attr("disabled", true);
+
+        // Optional: send data to backend via AJAX
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: {
+                name: name,
+                email: email,
+                phone: fullNumber,
+                messenger: messenger,
+            },
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+            success: function (response) {
+                console.log("Consultation request received");
+                form.find("[name='name']").val("");
+                form.find("[name='email']").val("");
+                form.find("[name='phone']").val("");
+            },
+            error: function (error) {
+                console.log(error.responseText);
+                form.find("[name='name']").val("");
+                form.find("[name='email']").val("");
+                form.find("[name='phone']").val("");
+            },
+        });
+
+        $(this).attr("disabled", false);
+    });
+
+    $(".get-presentation-btn").click(function (event) {
+        const countryCode = $(
+            "#project-presentation [name='country_code']"
+        ).val();
+        const phoneNumber = $("#project-presentation [name='phone']").val();
+        const fullNumber = countryCode + phoneNumber;
+
+        const companyNumber = $("[name='company_number']").val();
+
+        console.log("fullNumber:", fullNumber);
+
+        const url = $("[name='project-presentation-url']").val();
+
+        try {
+            const message = encodeURIComponent(
+                `I'd like to receive the project presentation.`
+            );
+            const whatsappURL = `https://wa.me/${companyNumber}?text=${message}`;
+
+            // Redirect to WhatsApp with the pre-filled message
+            window.open(whatsappURL, "_blank");
+
+            // Optional: send data to backend via AJAX
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: {
+                    phone: fullNumber,
+                },
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                        "content"
+                    ),
+                },
+                success: function (response) {
+                    console.log("Project Presentation request received");
+                },
+                error: function (error) {
+                    console.log(error.responseText);
+                },
+            });
+        } catch (error) {
+            console.error(error);
+        }
     });
 });

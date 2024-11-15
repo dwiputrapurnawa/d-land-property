@@ -3,32 +3,31 @@
     <!-- Form Column -->
     <div data-layername="column" class="flex flex-col w-[33%] max-md:w-full">
       <div class="flex flex-col items-start self-stretch my-auto w-full text-xl max-md:mt-10 max-md:max-w-full relative">
-        <h2 data-layername="interestedInMakingAProfitableInvestmentButUnfamiliarWithTheMarketSpecifics" class="animated-element opacity-0 transition duration-300 ease-in-out self-stretch text-4xl tracking-wider leading-10 text-white max-md:max-w-full">
+        <h2 class="animated-element opacity-0 transition duration-300 ease-in-out self-stretch text-4xl tracking-wider leading-10 text-white max-md:max-w-full">
           {{ __('landing.contact_us') }}
         </h2>
-        <form class="w-full">
+        <form class="w-full contact-us-form" method="POST">
+          <input type="hidden" name="contact-us-url" value="{{ route('consultation.store') }}">
           <div class="mt-8 animated-element opacity-0 transition duration-300 ease-in-out">
             <label for="name" class="tracking-wider text-zinc-400">{{ __('landing.name_text') }}</label>
-            <input type="text" id="name" name="name" class="w-full bg-transparent border-b border-zinc-400 mt-2 pb-2 focus:outline-none focus:border-white hover:border-white" required>
+            <input type="text" name="name" class="w-full bg-transparent border-b border-zinc-400 mt-2 pb-2 focus:outline-none focus:border-white hover:border-white" required>
           </div>
           <div class="mt-6 animated-element opacity-0 transition duration-300 ease-in-out">
             <label for="email" class="tracking-wider text-zinc-400">{{ __('landing.email_text') }}</label>
-            <input type="email" id="email" name="email" class="w-full bg-transparent border-b border-zinc-400 mt-2 pb-2 focus:outline-none focus:border-white hover:border-white" required>
+            <input type="email" name="email" class="w-full bg-transparent border-b border-zinc-400 mt-2 pb-2 focus:outline-none focus:border-white hover:border-white" required>
           </div>
           <div class="mt-6 animated-element opacity-0 transition duration-300 ease-in-out">
             <label for="messenger" class="tracking-wider text-zinc-400">{{ __('landing.choose_messenger_text') }}</label>
             <div class="relative">
               <select id="messenger" name="messenger" class="w-full bg-transparent border-b border-zinc-400 mt-2 pb-2 appearance-none focus:outline-none focus:border-white hover:border-white">
                 <option value="whatsapp">WhatsApp</option>
-                <option value="telegram">Telegram</option>
-                <option value="signal">Signal</option>
               </select>
               <svg class="w-4 h-4 mt-1 absolute right-0 bottom-3 object-contain aspect-[1.64] w-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6" />
               </svg>
             </div>
           </div>
-          <div class="mt-6 relative dropdown-parent animated-element opacity-0 transition duration-300 ease-in-out">
+          <div class="mt-6 relative dropdown-parent animated-element opacity-0 transition duration-300 ease-in-out z-50">
             <label for="phone" class="tracking-wider text-zinc-400 block">{{ __('landing.phone_text') }}</label>
             <div class="flex w-full items-center self-start">
               <div class="flex flex-col w-[15%]">
@@ -72,7 +71,18 @@
               </div>
             </div>
             <hr class="shrink-0 mt-3.5 h-px border border-zinc-400 border-solid hr-input" />
+
+           
+          
           </div>
+
+          <button
+          class="getConsultationButton mt-10 w-full px-8 py-3 text-base sm:text-lg tracking-wide text-white font-[410] border border-solid border-zinc-400 rounded-[30px] hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-500 transition-colors animated-element opacity-0 transition duration-300 ease-in-out"
+          aria-label="Get a consultation"
+        >
+          GET A CONSULTATION
+        </button>
+         
           <p class="mt-24 text-sm tracking-wide font-[405] text-zinc-400 w-[400px] max-md:mt-10">
             {{ __('landing.contact_us_agreement') }}
           </p>

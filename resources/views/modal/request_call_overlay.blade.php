@@ -1,42 +1,64 @@
-<section class="flex flex-col text-xl text-white max-w-[600px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col px-6 sm:px-10 md:px-20 py-12 sm:py-16 md:py-24 w-full shadow-2xl bg-white bg-opacity-10 rounded-lg">
-      <h2 class="self-center text-2xl sm:text-3xl tracking-wider leading-tight sm:leading-10 text-center mb-8 sm:mb-12">
-        Leave your details with the correct number and our specialists will advise you on any questions you may have
-      </h2>
-      <form class="mt-8 sm:mt-12 md:mt-16 space-y-6 sm:space-y-8">
-        <div>
-          <label for="name" class="block tracking-wider mb-2 text-lg sm:text-xl">Name</label>
-          <input type="text" id="name" name="name" class="w-full bg-transparent border-b border-white pb-2 focus:outline-none focus:border-opacity-75 transition-colors" required aria-required="true">
-        </div>
-        <div>
-          <label for="email" class="block tracking-wider mb-2 text-lg sm:text-xl">Your email</label>
-          <input type="email" id="email" name="email" class="w-full bg-transparent border-b border-white pb-2 focus:outline-none focus:border-opacity-75 transition-colors" required aria-required="true">
-        </div>
-        <div>
-          <label for="messenger" class="block tracking-wider mb-2 text-lg sm:text-xl">Choose a messenger</label>
-          <div class="relative">
-            <select id="messenger" name="messenger" class="w-full bg-transparent border-b border-white pb-2 appearance-none focus:outline-none focus:border-opacity-75 transition-colors">
-              <option value="whatsapp">WhatsApp</option>
-              <option value="telegram">Telegram</option>
-              <option value="viber">Viber</option>
-            </select>
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/fd589c53f10e9c73ab039af7d896263d897e47f4da28286b28cbc488ab13ceb3?placeholderIfAbsent=true&apiKey=d2a041474570455ea3b193ed2249e743" alt="" class="absolute right-0 bottom-2 w-[18px] pointer-events-none" aria-hidden="true">
+<div id="requestCallModal" class="fixed inset-0 flex items-center justify-center z-50 hidden bg-black bg-opacity-40">
+  <div class="relative flex flex-col text-white w-full max-w-md mx-auto rounded-lg overflow-hidden sm:max-w-sm md:max-w-md">
+    <button id="requestModalCloseBtn" class="absolute top-3 right-3 text-white text-xl focus:outline-none z-50">
+      <img src="{{ asset('images/exit-button.png') }}" class="w-4 h-4" alt="Close">
+    </button>
+
+    <header class="flex flex-col items-center px-4 py-6 sm:px-6 md:px-8 w-full shadow-2xl bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg">
+      <div class="w-full max-w-xs">
+        <h2 class="text-center text-xl sm:text-2xl tracking-wider leading-8 font-light mb-6 sm:mb-8">
+          Leave your details with the correct number and our specialists will advise you on any questions you may have
+        </h2>
+
+        <form class="w-full contact-us-form">
+          <input type="hidden" name="contact-us-url" value="{{ route('consultation.store') }}">
+          <div class="mt-4">
+            <label for="name" class="tracking-wider text-white text-sm">{{ __('landing.name_text') }}</label>
+            <input type="text" name="name" class="w-full bg-transparent border-b border-white mt-1 pb-1 focus:outline-none focus:border-white" required>
           </div>
-        </div>
-        <div>
-          <label for="phone" class="block tracking-wider mb-2 text-lg sm:text-xl">Your phone number</label>
-          <div class="flex items-center border-b border-white">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/700af79c2cec41312bbfba10f9a528dd9f92d26374ecffd741ac5381013e09fd?placeholderIfAbsent=true&apiKey=d2a041474570455ea3b193ed2249e743" alt="Country flag" class="w-[27px] mr-2">
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/45eb312feaefd5021a20e0c8d3ba5c4a41aae88ad3338be3de0c0e5397e156b4?placeholderIfAbsent=true&apiKey=d2a041474570455ea3b193ed2249e743" alt="" class="w-[17px] mr-2" aria-hidden="true">
-            <input type="tel" id="phone" name="phone" value="+62 (999)-999-99-999" class="w-full bg-transparent pb-2 focus:outline-none focus:border-opacity-75 transition-colors" required aria-required="true">
+          <div class="mt-4">
+            <label for="email" class="tracking-wider text-white text-sm">{{ __('landing.email_text') }}</label>
+            <input type="email" name="email" class="w-full bg-transparent border-b border-white mt-1 pb-1 focus:outline-none focus:border-white" required>
           </div>
-        </div>
-        <button type="submit" class="w-full px-8 sm:px-16 py-3 sm:py-4 mt-8 sm:mt-12 text-base sm:text-lg tracking-wide border border-white border-solid font-medium rounded-full hover:bg-white hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 transition-colors">
-          GET A CONSULTATION
-        </button>
-      </form>
-      <p class="mt-8 sm:mt-12 text-xs sm:text-sm tracking-wide font-normal text-center">
-        By clicking the button, you consent to the processing of personal data and agree to the privacy policy
-      </p>
-    </div>
-  </section>
+          <div class="mt-4">
+            <label for="messenger" class="tracking-wider text-white text-sm">{{ __('landing.choose_messenger_text') }}</label>
+            <div class="relative">
+              <select id="messenger" name="messenger" class="w-full bg-transparent border-b border-white mt-1 pb-1 appearance-none focus:outline-none focus:border-white">
+                <option value="whatsapp">WhatsApp</option>
+              </select>
+              <svg class="w-4 h-4 absolute right-0 bottom-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+          </div>
+          <div class="mt-4 relative dropdown-parent">
+            <label for="phone" class="tracking-wider text-white text-sm">{{ __('landing.phone_text') }}</label>
+            <div class="flex items-center">
+              <div class="w-1/5">
+                <div class="country-code-select bg-transparent text-white text-sm p-1 cursor-pointer flex items-center justify-between">
+                  <span class="inline-flex items-center no-select">
+                    <img src="/images/id-icon.png" class="w-4 h-4 mr-1" alt="">
+                  </span>
+                  <svg class="w-3 h-3 arrow-up" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+              </div>
+              <input type="text" name="country_code" class="w-[15%] bg-transparent focus:outline-none text-sm" value="+62" readonly>
+              <input type="number" name="phone" class="bg-transparent focus:outline-none w-full text-sm" required>
+            </div>
+            <hr class="mt-3.5 border border-white">
+          </div>
+
+          <button class="getConsultationButton mt-6 w-full px-6 py-3 text-base text-white font-semibold border border-solid border-white rounded-full hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-500 transition duration-200">
+            GET A CONSULTATION
+          </button>
+
+          <p class="mt-12 text-xs tracking-wide text-center font-light text-white">
+            {{ __('landing.contact_us_agreement') }}
+          </p>
+        </form>
+      </div>
+    </header>
+  </div>
+</div>

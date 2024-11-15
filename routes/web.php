@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ManagementPageController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectPageController;
+use App\Http\Controllers\ProjectPresentationController;
 use App\Http\Middleware\IsAdminMiddleware;
 use App\Http\Middleware\LanguageSwitcher;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +46,10 @@ Route::prefix('admin')->middleware(IsAdminMiddleware::class)->group(function () 
 
 Route::get('/activity', [ActivityController::class, 'activity_list'])->name('get.activity');
 Route::get('/project', [ProjectController::class, 'project_list'])->name('get.project');
+
+Route::get('/projects', [ProjectPageController::class, 'index'])->name('projects.page');
+Route::get('/about-us', [AboutUsController::class, 'index'])->name('about.us.page');
+Route::get('/management', [ManagementPageController::class, 'index'])->name('management.page');
+
+Route::post('/consultation', [ConsultationController::class, 'store'])->name('consultation.store');
+Route::post('/project-presentation', [ProjectPresentationController::class, 'store'])->name('project.presentation.store');

@@ -1,4 +1,49 @@
-  /* Add custom styles for underline effect */
+@font-face {
+  font-family: 'Century 751';
+  src: url('/fonts/Century 751 Italic BT.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Sequel Sans Light';
+  src: url('/fonts/Sequel Sans Light Body.ttf') format('truetype');
+  font-weight: lighter;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sequel Sans Bold';
+  src: url('/fonts/Sequel Sans Bold Body.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+/* 
+body {
+  font-family: 'Sequel Sans';
+} */
+
+.font-century {
+  font-family: 'Century 751';
+}
+
+.outline-layer {
+  color: white;
+  font-family: 'Century 751';
+  /* Add a slight offset and color to simulate the outline */
+  -webkit-text-stroke: 1px gray; /* Optional if you want to add stroke */
+}
+
+.outline-layer-sans {
+  font-family: 'Sequel Sans Bold';            /* Make it bold */
+  color: white;             /* Make the text color transparent */
+  -webkit-text-stroke: 1px grey; /* Outline the text with 1px black stroke */
+}
+
+
+
+
+
+/* Add custom styles for underline effect */
   .underline-animation {
     position: relative;
   }
@@ -15,6 +60,24 @@
   }
 
   .underline-animation:hover::after {
+    width: 100%;
+  }
+  .underline-animation-black {
+    position: relative;
+  }
+
+  .underline-animation-black::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: black; /* Tailwind's 'blue-500' */
+    transition: width 0.3s ease-in-out;
+  }
+
+  .underline-animation-black:hover::after {
     width: 100%;
   }
 

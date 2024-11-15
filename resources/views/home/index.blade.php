@@ -6,6 +6,8 @@
 
 @section('content')
 
+    <input type="hidden" name="company_number" value="{{ $company->phone }}">
+
     @include('sections.headline')
 
     @include('sections.about_us')
@@ -25,5 +27,7 @@
     @include('sections.footer')
 
     @include('modal.whatsapp_overlay')
+
+    @include('modal.request_call_overlay')
 
 @endsection

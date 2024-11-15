@@ -1,34 +1,39 @@
 <section class="section_project_showcase" class="flex z-10 flex-col -mt-3 w-full px-5 md:px-40">
-    <div class="pl-5 pb-40 md:pl-10">
+    <div class="pl-10 pr-10 pb-40 md:px-32 md:py-20">
       <!-- Heading -->
       <h1 class="text-2xl sm:text-4xl tracking-wider leading-10 w-full sm:w-[872px] md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out">
-        {{ __('landing.projects_showcase_title') }}
+        {{ __('landing.projects_showcase_title_1') }} <span class="inline-block transform scale-x-150">—</span> {{ __('landing.projects_showcase_title_2') }}
       </h1>
   
-      <div class="w-full max-w-[981px] mx-auto">
-        <!-- ROI Information (Responsive) -->
-        <div class="flex gap-8 justify-between items-center mt-8 sm:mt-12 text-sm sm:text-xl md:text-2xl tracking-wider leading-none text-center animated-element opacity-0 transition duration-300 ease-in-out">
-          <p>{{ __('landing.projects_showcase_text') }}</p>
-          <p>ROI 13%</p>
-          <p>70%</p>
-        </div>
-      </div>
-        <!-- Horizontal Line (Responsive) -->
-        <hr class="shrink-0 mt-4 w-full h-px border border-solid border-zinc-800">
+      <div class="w-full max-w-[981px] mx-auto mt-32">
+        <!-- Upper Section -->
+        <div class="flex sm:flex-row gap-8 justify-between items-center mt-8 sm:mt-12 text-sm sm:text-xl md:text-2xl tracking-wider leading-none text-center animated-element opacity-0 transition duration-300 ease-in-out">
+          
+          <div class="flex-col space-y-10 w-full h-full">
+            <p class="text-xl md:text-4xl">{{ __('landing.projects_showcase_text') }}</p>
+            <p class="sm:text-xs text-gray-900">{{ __('landing.projects_showcase_capital_gain') }}</p>
+          </div>
       
-      <div class="w-full max-w-[981px] mx-auto">
-        <!-- Capital Gain, Rental Cash Flow, Occupancy Rate Text (Responsive) -->
-        <div class="flex gap-8 justify-between items-center mt-4 text-xs sm:text-base md:text-lg font-medium text-center animated-element opacity-0 transition duration-300 ease-in-out">
-          <p>{{ __('landing.projects_showcase_capital_gain') }}</p>
-          <p>{{ __('landing.projects_showcase_rental_cash_flow') }}</p>
-          <p>{{ __('landing.projects_showcase_occupancy_rate') }}</p>
+          <div class="flex-col space-y-10 w-full">
+            <p class="text-xl md:text-4xl">ROI 13%</p>
+            <p class="sm:text-xs text-gray-900">{{ __('landing.projects_showcase_rental_cash_flow') }}</p>
+          </div>
+      
+          <div class="flex-col space-y-10 w-full">
+            <p class="text-xl md:text-4xl">70%</p>
+            <p class="sm:text-xs text-gray-900">{{ __('landing.projects_showcase_occupancy_rate') }}</p>
+          </div>
+          
         </div>
       </div>
+      
+      
+      <hr class="w-full h-px border border-solid border-zinc-800 relative bottom-10">  <!-- Horizontal Line (Responsive) -->
       
   
       <div class="mt-10 flex flex-col relative">
         <!-- Phone Image (Responsive) -->
-        <img id="phone-img" src="/images/phone.png" class="absolute bottom-0 sm:bottom-[-100px] right-4 z-10 animated-element opacity-0 transition duration-300 ease-in-out w-[150px] sm:w-[200px] md:w-[250px]">
+        <img id="phone-img" src="/images/phone.png" class="absolute bottom-0 sm:bottom-[-100px] right-4 z-10 animated-element opacity-0 transition duration-300 ease-in-out w-[150px] sm:w-[200px] md:w-[300px]">
 
 
         
@@ -78,6 +83,7 @@
                               <div class="flex-col w-full flex-grow">
                                   <input type="number" name="phone" class="bg-transparent focus:outline-none w-full h-full border-l-0" required>
                               </div>
+                              <input type="hidden" name="project-presentation-url" value="{{ route('project.presentation.store') }}">
                           </div>
                       </div>
                   </div>
@@ -93,7 +99,7 @@
                 <!-- Right Side (WhatsApp Button) -->
                 <div class="flex flex-col sm:ml-5 w-full relative">
                   <div class="flex flex-col grow mt-10 sm:mt-28 text-xs sm:text-sm tracking-wide text-white font-[410] w-full">
-                    <button class="absolute bottom-0 px-2 w-full py-2 border border-white border-solid rounded-[30px] text-white hover:bg-slate-600">{{ __('landing.projects_showcase_get_in_whatsapp') }}</button>
+                    <button class="get-presentation-btn absolute bottom-0 right-10 px-3 w-auto py-3 border border-white border-solid rounded-[30px] text-white hover:bg-zinc-700">{{ __('landing.projects_showcase_get_in_whatsapp') }}</button>
                   </div>
 
                  

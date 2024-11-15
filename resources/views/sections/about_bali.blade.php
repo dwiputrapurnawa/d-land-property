@@ -4,23 +4,23 @@
         <img loading="lazy" src="/images/bali.png" alt="Scenic view of Bali" class="object-fill absolute inset-0 w-full h-full md:h-[95%]">
         
         <!-- Heading -->
-        <h1 class="relative text-4xl sm:text-6xl md:text-8xl font-medium tracking-tighter leading-none text-center animated-element opacity-0 transition duration-300 ease-in-out">
+        <h1 class="font-century relative text-4xl sm:text-6xl md:text-8xl font-medium tracking-tighter leading-none text-center animated-element opacity-0 transition duration-300 ease-in-out">
             Bali
         </h1>
         
         <!-- Subheading / Description -->
-        <p class="relative mt-6 sm:mt-8 md:mt-12 text-lg sm:text-2xl md:text-4xl leading-8 sm:leading-9 md:leading-10 w-full md:w-[618px] max-w-full text-center animated-element opacity-0 transition duration-300 ease-in-out">
+        <p class="relative mt-6 sm:mt-8 md:mt-12 text-lg sm:text-2xl md:text-3xl font-thin leading-8 sm:leading-9 md:leading-10 w-full md:w-[618px] max-w-full text-start animated-element opacity-0 transition duration-300 ease-in-out">
             <span>{{ __('landing.about_bali_subtitle_1') }}</span>
             <span>{{ __('landing.about_bali_subtitle_2') }}</span>
-            <span class="italic font-medium">{{ __('landing.about_bali_subtitle_3') }}</span>
+            <span class="italic font-medium font-century">{{ __('landing.about_bali_subtitle_3') }}</span>
             <span>{{ __('landing.about_bali_subtitle_4') }}</span>
-            <span class="italic font-medium">{{ __('landing.about_bali_subtitle_5') }}</span>
+            <span class="italic font-medium font-century">{{ __('landing.about_bali_subtitle_5') }}</span>
         </p>
 
         <!-- Footer Section -->
         <div class="flex relative z-10 flex-col sm:flex-row items-center sm:items-start gap-5 mt-10 sm:mt-16 md:mt-36 mb-0 w-full text-center sm:text-left">
             <!-- Info Text -->
-            <p class="text-sm sm:text-base font-light self-start animated-element opacity-0 transition duration-300 ease-in-out">
+            <p class="sm:self-auto mt-20 text-sm sm:text-base font-thin self-start animated-element opacity-0 transition duration-300 ease-in-out">
                 {{ __('landing.about_bali_info_text') }}
             </p>
             
