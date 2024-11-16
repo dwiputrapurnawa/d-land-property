@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    D'Land Property - About Bali
+    D'Land Property - News
 @endsection
 
 @section('content')
@@ -10,16 +10,12 @@
 
     @include('partials.navbar_black')
 
-    @include('sections.about_bali_headline');
+    @include('sections.news_headline');
+
+    @include('sections.headline_news');
+
+    @include('sections.news_list');
       
-    @include('sections.awards');
-
-    @include('sections.benefits');
-
-    @include('sections.bali_tourism');
-
-    @include('sections.bali_tourism_places');
- 
     @include('sections.contact_us')
 
     <hr class="bg-white w-full">

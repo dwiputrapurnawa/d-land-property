@@ -16,7 +16,7 @@
           <a href="{{ route('about.us.page') }}" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_about_us') }}</a>
           <a href="{{ route('management.page') }}" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_managements') }}</a>
           <a href="{{ route('about.bali.page') }}" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_about_bali') }}</a>
-          <a href="#section_news" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_news') }}</a>
+          <a href="{{ route('news.page') }}" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_news') }}</a>
           
          <!-- Custom Language Selector -->
          <div class="relative">
@@ -73,7 +73,7 @@
         <li><a href="{{ route('about.us.page') }}" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_about_us') }}</a></li>
         <li><a href="{{ route('management.page') }}" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_managements') }}</a></li>
         <li><a href="{{ route('about.bali.page') }}" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_about_bali') }}</a></li>
-        <li><a href="#" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_news') }}</a></li>
+        <li><a href="{{ route('news.page') }}" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_news') }}</a></li>
         <li>
                  <!-- Custom Language Selector -->
        <div class="relative">

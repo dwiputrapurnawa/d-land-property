@@ -21,10 +21,10 @@
           <ul class="flex flex-col gap-5 list-none p-0">
             <li><a href="{{ route('projects.page') }}" class="underline-animation">{{ __('landing.navbar_project') }}</a></li>
             <li><a href="{{ route('about.us.page') }}" class="underline-animation">{{ __('landing.navbar_about_us') }}</a></li>
-            <li><a href="#section_management" class="underline-animation">{{ __('landing.navbar_managements') }}</a></li>
-            <li><a href="#section_about_bali" class="underline-animation">{{ __('landing.navbar_about_bali') }}</a></li>
-            <li><a href="#section_news" class="underline-animation">{{ __('landing.navbar_news') }}</a></li>
-            <li><a href="#section_request_call" class="underline-animation">{{ __('landing.navbar_request_call') }}</a></li>
+            <li><a href="{{ route('management.page') }}" class="underline-animation">{{ __('landing.navbar_managements') }}</a></li>
+            <li><a href="{{ route('about.bali.page') }}" class="underline-animation">{{ __('landing.navbar_about_bali') }}</a></li>
+            <li><a href="{{ route('news.page') }}" class="underline-animation">{{ __('landing.navbar_news') }}</a></li>
+            <li><button class="underline-animation openRequestCallModalBtn">{{ __('landing.navbar_request_call') }}</button></li>
           </ul>
         </nav>
         <div class="w-full lg:w-1/3 mt-10 lg:mt-0">

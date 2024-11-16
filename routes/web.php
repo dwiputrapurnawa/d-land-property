@@ -8,6 +8,7 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ManagementPageController;
+use App\Http\Controllers\NewsPageController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectPageController;
@@ -51,6 +52,7 @@ Route::get('/project', [ProjectController::class, 'project_list'])->name('get.pr
 Route::get('/projects', [ProjectPageController::class, 'index'])->name('projects.page');
 Route::get('/about-us', [AboutUsController::class, 'index'])->name('about.us.page');
 Route::get('/about-bali', [AboutBaliPageController::class, 'index'])->name('about.bali.page');
+Route::get('/news', [NewsPageController::class, 'index'])->name('news.page');
 Route::get('/management', [ManagementPageController::class, 'index'])->name('management.page');
 
 Route::post('/consultation', [ConsultationController::class, 'store'])->name('consultation.store');
