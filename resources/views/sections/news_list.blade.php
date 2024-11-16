@@ -1,9 +1,9 @@
 <section class="w-full h-full flex">
-    <div class="grid grid-cols-2 gap-4 container">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 container">
 
-        <section class="text-base font-[405] max-w-[258px] text-zinc-800 px-4 sm:px-0 sm:max-w-none sm:w-full md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
-            <div class="w-full h-full pl-16">
-                <article class="w-1/2 mb-16">
+        <section class="text-base font-[405] text-zinc-800 px-4 sm:px-0 sm:max-w-none sm:w-full md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
+            <div class="w-full h-full pl-16 flex flex-col">
+                <article class="w-full md:w-1/2 mb-16">
                     <header class="flex flex-col sm:flex-row gap-2 sm:gap-5 sm:justify-between w-full">
                       <time datetime="2024-10-07" class="text-sm">October 7, 2024</time>
                       <span class="text-sm">Press Release</span>
@@ -18,7 +18,7 @@
                       </svg>
                     </a>
                   </article>
-                  <article class="w-1/2">
+                  <article class="w-full md:w-1/2">
                     <header class="flex flex-col sm:flex-row gap-2 sm:gap-5 sm:justify-between w-full">
                       <time datetime="2024-10-07" class="text-sm">October 7, 2024</time>
                       <span class="text-sm">Press Release</span>
@@ -38,7 +38,7 @@
 
 
       
-          <div class="w-full h-full flex gap-6 grid grid-cols-2">
+          <div class="w-full h-full flex gap-6 grid grid-cols-1 md:grid-cols-2">
             <div class="flex flex-col text-base font-[405] max-w-[535px] text-zinc-800 mx-auto px-4 md:px-0 ml-auto">
                 <img
                   loading="lazy"
