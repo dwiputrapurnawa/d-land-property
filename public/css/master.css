@@ -38,6 +38,11 @@ body {
   color: white;             /* Make the text color transparent */
   -webkit-text-stroke: 1px grey; /* Outline the text with 1px black stroke */
 }
+.outline-layer-sans-light {
+  font-family: 'Sequel Sans Light';            /* Make it bold */
+  color: white;             /* Make the text color transparent */
+  -webkit-text-stroke: 1px grey; /* Outline the text with 1px black stroke */
+}
 
 
 

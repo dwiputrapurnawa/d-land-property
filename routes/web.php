@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutBaliPageController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\CompanyController;
@@ -49,6 +50,7 @@ Route::get('/project', [ProjectController::class, 'project_list'])->name('get.pr
 
 Route::get('/projects', [ProjectPageController::class, 'index'])->name('projects.page');
 Route::get('/about-us', [AboutUsController::class, 'index'])->name('about.us.page');
+Route::get('/about-bali', [AboutBaliPageController::class, 'index'])->name('about.bali.page');
 Route::get('/management', [ManagementPageController::class, 'index'])->name('management.page');
 
 Route::post('/consultation', [ConsultationController::class, 'store'])->name('consultation.store');
