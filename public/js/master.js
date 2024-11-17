@@ -17,6 +17,42 @@ $(function () {
         );
     }
 
+    function changePhoneCode() {
+        $(".phone-code").on("click", function (event) {
+            const img_path = $(this).data("img");
+            const selectedDial = $(this).data("dial");
+
+            $(this).parents(".country-code-select").find("span").text("");
+            $(this)
+                .parents(".dropdown-parent")
+                .find(".country-code-select span")
+                .prepend(
+                    `<img src="${img_path}" alt="${selectedDial}" class="w-9 h-9 mr-2">`
+                );
+
+            $(this)
+                .parents(".dropdown-parent")
+                .find('[name="country_code"]')
+                .attr("readonly", false);
+
+            $(this)
+                .parents(".dropdown-parent")
+                .find('[name="country_code"]')
+                .val(selectedDial);
+
+            $(this)
+                .parents(".dropdown-parent")
+                .find('[name="country_code"]')
+                .attr("readonly", true);
+
+            $(this).closest(".arrow-up").toggleClass("hidden");
+            $(this).closest(".arrow-down").toggleClass("hidden");
+
+            adjustWidth();
+        });
+    }
+
+    changePhoneCode();
     setLanguage();
 
     $(document).on("click", function (event) {
@@ -223,41 +259,20 @@ $(function () {
     // Call the function initially to set the width
     adjustWidth();
 
-    $(".country-code-select").on("click", function () {
+    $(document).on("click", function (event) {
+        // Check if the click happened outside the dropdown container
+        if (!$(event.target).closest(".country-code-select").length) {
+            $(".dropdown").removeClass("active");
+            $(".arrow-up").addClass("hidden");
+            $(".arrow-down").removeClass("hidden");
+        }
+    });
+
+    $(".country-code-select").on("click", function (event) {
+        event.stopPropagation(); // Prevent the click inside the dropdown from triggering the document click event
         $(this).find(".dropdown").toggleClass("active");
         $(this).find(".arrow-up").toggleClass("hidden");
         $(this).find(".arrow-down").toggleClass("hidden");
-    });
-
-    $(".dropdown div").on("click", function () {
-        const img_path = $(this).data("img");
-        const selectedDial = $(this).data("dial");
-
-        $(this).parents(".country-code-select").find("span").text("");
-        $(this)
-            .parents(".dropdown-parent")
-            .find(".country-code-select span")
-            .prepend(
-                `<img src="${img_path}" alt="${selectedDial}" class="w-6 h-6 mr-2">`
-            );
-
-        $(this)
-            .parents(".dropdown-parent")
-            .find('[name="country_code"]')
-            .attr("readonly", false);
-
-        $(this)
-            .parents(".dropdown-parent")
-            .find('[name="country_code"]')
-            .val(selectedDial);
-
-        $(this)
-            .parents(".dropdown-parent")
-            .find('[name="country_code"]')
-            .attr("readonly", true);
-
-        $(this).closest(".arrow-up").toggleClass("hidden");
-        $(this).closest(".arrow-down").toggleClass("hidden");
     });
 
     $(".country-code-select, [name='country_code'], [name='phone']").on({
@@ -405,5 +420,61 @@ $(function () {
         } catch (error) {
             console.error(error);
         }
+    });
+
+    $(".input-search").on("click", function (e) {
+        e.stopPropagation();
+    });
+
+    $(".input-search").on("change keyup", function () {
+        const searchInput = $(this).val();
+
+        const url = $("[name='get-phone-code-url']").val();
+        var item_container = $(this)
+            .parents(".dropdown")
+            .find(".item-dropdown");
+
+        $.ajax({
+            url: url,
+            type: "GET",
+            data: {
+                search: searchInput,
+                _token: $('meta[name="csrf-token"]').attr("content"),
+            },
+            success: function (response) {
+                item_container.empty();
+
+                response.forEach((country) => {
+                    const option = `<div class="p-2 cursor-pointer flex items-center phone-code" data-value="${country.country_code}" data-dial="+${country.phone_code}" data-img="/flags/${country.country_code}.svg">
+                        <img src="/flags/${country.country_code}.svg" class="w-6 h-6 mr-2" alt=""> ${country.country_name} (+${country.phone_code})
+                      </div>`;
+
+                    item_container.append(option);
+                });
+
+                changePhoneCode();
+            },
+            error: function (error) {
+                console.log(error.responseText);
+            },
+        });
+    });
+
+    const $input = $(".input-search");
+    const $dropdown = $(".item-dropdown");
+
+    // Blur input when clicking outside of dropdown
+    $input.on("blur", function () {
+        setTimeout(() => {
+            if (!$dropdown.is(":hover")) {
+                // Only blur if the dropdown is not hovered
+                $input.blur();
+            }
+        }, 0);
+    });
+
+    // Prevent input blur when clicking on the dropdown
+    $dropdown.on("mousedown", function (e) {
+        e.preventDefault(); // Prevent focus change
     });
 });

@@ -18,6 +18,8 @@
 </script>
 <body class="font-sans">
 
+    <input type="hidden" name="get-phone-code-url" value="{{ route('get.phone.codes') }}">
+
     @yield('content')
 
 

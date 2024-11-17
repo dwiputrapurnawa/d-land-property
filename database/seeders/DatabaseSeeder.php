@@ -27,10 +27,12 @@ class DatabaseSeeder extends Seeder
         Company::create([
             'name' => "D'Land Property",
             'address' => "Jalan Raya Kampus Udayana No. 18x Jimbaran, Kuta Selatan, Badung 80361",
-            'phone' => "6212345678910",
+            'phone' => "+6212345678910",
             'email' => "info.dlandproperty@gmail.com",
             'logo' => "/images/logo.png",
             'instagram' => "https://www.instagram.com/dland.property/",
         ]);
+
+        $this->call([PhoneCountryCodeSeeder::class]);
     }
 }

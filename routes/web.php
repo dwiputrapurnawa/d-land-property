@@ -10,6 +10,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ManagementPageController;
 use App\Http\Controllers\NewsPageController;
 use App\Http\Controllers\PanelController;
+use App\Http\Controllers\PhoneCountryController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectPageController;
 use App\Http\Controllers\ProjectPresentationController;
@@ -57,3 +58,5 @@ Route::get('/management', [ManagementPageController::class, 'index'])->name('man
 
 Route::post('/consultation', [ConsultationController::class, 'store'])->name('consultation.store');
 Route::post('/project-presentation', [ProjectPresentationController::class, 'store'])->name('project.presentation.store');
+
+Route::get('/phone-country-codes', [PhoneCountryController::class, 'get_phone_code'])->name('get.phone.codes');

@@ -35,13 +35,27 @@
             <label for="phone" class="tracking-wider text-white text-sm">{{ __('landing.phone_text') }}</label>
             <div class="flex items-center">
               <div class="w-1/5">
-                <div class="country-code-select bg-transparent text-white text-sm p-1 cursor-pointer flex items-center justify-between">
-                  <span class="inline-flex items-center no-select">
-                    <img src="/images/id-icon.png" class="w-4 h-4 mr-1" alt="">
+                <div class="country-code-select bg-transparent text-white p-2 cursor-pointer flex items-center justify-between">
+                  <span class="text-sm font-light inline-flex items-center no-select">
+                    <img src="{{ asset('flags/ID.svg') }}" class="w-9 h-9 mr-2" alt="">
                   </span>
-                  <svg class="w-3 h-3 arrow-up" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-4 h-4 mt-1 arrow-up" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6" />
                   </svg>
+                  <svg class="w-4 h-4 mt-2 hidden arrow-down" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6-6 6 6" />
+                  </svg>
+
+
+                    <!-- Dropdown -->
+                <div class="dropdown absolute top-full left-0 mt-2 w-full bg-zinc-600 text-white rounded-lg shadow-lg z-10 transition duration-300 ease-in-out max-h-48 overflow-y-scroll flex-col">
+                  <input type="text" class="w-full bg-zinc-600 py-2 px-4 input-search border-none focus:outline-none" name="search" placeholder="Search ...">
+
+                      <div class="item-dropdown">
+              
+                      </div>
+                </div>
+
                 </div>
               </div>
               <input type="text" name="country_code" class="w-[15%] bg-transparent focus:outline-none text-sm" value="+62" readonly>

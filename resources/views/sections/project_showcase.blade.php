@@ -52,7 +52,7 @@
                     <div class="flex items-center self-start mt-6 sm:mt-16 text-sm sm:text-base h-full">
                       <div class="country-code-select bg-transparent text-white p-2 cursor-pointer flex items-center justify-between">
                           <span class="text-sm font-light inline-flex items-center no-select">
-                              <img src="/images/id-icon.png" class="w-6 h-6 mr-2" alt="">
+                              <img src="{{ asset('flags/ID.svg') }}" class="w-9 h-9 mr-2" alt="">
                           </span>
 
                           <div class="mx-2">
@@ -63,13 +63,12 @@
                   
                           <!-- Dropdown -->
                           <div class="dropdown absolute top-full left-0 mt-2 w-full bg-zinc-600 text-white rounded-lg shadow-lg z-10 transition duration-300 ease-in-out max-h-48 overflow-y-scroll flex-col">
-                              <div class="p-2 cursor-pointer flex items-center" data-value="id" data-dial="+62" data-img="/images/id-icon.png">
-                                  <img src="/images/id-icon.png" class="w-6 h-6 mr-2" alt=""> Indonesia (+62)
+                            <input type="text" class="w-full bg-zinc-600 py-2 px-4 input-search border-none focus:outline-none" name="search" placeholder="Search ...">
+
+                              <div class="item-dropdown">
+              
                               </div>
-                              <div class="p-2 cursor-pointer flex items-center" data-value="en" data-dial="+44" data-img="/images/en-icon.png">
-                                  <img src="/images/en-icon.png" class="w-6 h-6 mr-2" alt=""> United Kingdom (+44)
-                              </div>
-                              <!-- More items can be added here -->
+                            
                           </div>
                       </div>
                   
