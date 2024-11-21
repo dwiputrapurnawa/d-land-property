@@ -17,10 +17,10 @@
   font-weight: bold;
   font-style: normal;
 }
-/* 
+
 body {
-  font-family: 'Sequel Sans';
-} */
+  font-family: 'Sequel Sans Light';
+}
 
 .font-century {
   font-family: 'Century 751';
@@ -36,12 +36,12 @@ body {
 .outline-layer-sans {
   font-family: 'Sequel Sans Bold';            /* Make it bold */
   color: white;             /* Make the text color transparent */
-  -webkit-text-stroke: 1px grey; /* Outline the text with 1px black stroke */
+  -webkit-text-stroke: 1px black; /* Outline the text with 1px black stroke */
 }
 .outline-layer-sans-light {
   font-family: 'Sequel Sans Light';            /* Make it bold */
   color: white;             /* Make the text color transparent */
-  -webkit-text-stroke: 1px grey; /* Outline the text with 1px black stroke */
+  -webkit-text-stroke: 1px black; /* Outline the text with 1px black stroke */
 }
 
 

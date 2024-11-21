@@ -10,15 +10,13 @@
 
     @include('partials.navbar_black')
 
-    @include('sections.news_headline');
+    @include('sections.news_headline')
 
-    @include('sections.headline_news');
+    @include('sections.headline_news')
 
-    @include('sections.news_list');
+    @include('sections.news_list')
       
     @include('sections.contact_us')
-
-    <hr class="bg-white w-full">
 
     @include('sections.footer')
 

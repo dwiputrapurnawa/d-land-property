@@ -9,17 +9,15 @@
 <input type="hidden" name="company_number" value="{{ $company->phone }}">
 
 
-  @include('sections.management_headline');
+  @include('sections.management_headline')
 
-  @include('sections.make_your_investment');
+  @include('sections.make_your_investment')
   
-  @include('sections.ensuring_your_property');
+  @include('sections.ensuring_your_property')
 
-  @include('sections.our_success_is_yours');
+  @include('sections.our_success_is_yours')
   
   @include('sections.contact_us')
-
-  <hr class="bg-white w-full">
 
   @include('sections.footer')
 

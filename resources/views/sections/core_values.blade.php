@@ -3,7 +3,7 @@
     <div class="lg:w-1/3 flex flex-col">
         <p class="text-sm text-gray-400 uppercase tracking-wider mb-4 animated-element opacity-0 transition duration-300 ease-in-out">Core Values</p>
         <h1 class="text-4xl lg:text-5xl font-light text-gray-900 animated-element opacity-0 transition duration-300 ease-in-out">
-            Personal <span class="italic font-semibold font-century">Approach</span>
+            Personal<br><span class="italic font-semibold font-century">Approach</span>
         </h1>
     </div>
 
@@ -13,7 +13,7 @@
             <!-- Value Item 1 -->
             <div class="flex flex-col lg:flex-row items-start lg:space-x-8">
                 <!-- Number -->
-                <div class="text-4xl lg:text-8xl font-light text-gray-300 mb-4 lg:mb-0">
+                <div class="text-8xl font-light text-gray-300 mb-4 lg:mb-0">
                     <span class="inset-0 text-transparent text-white -z-10 outline-layer animated-element opacity-0 transition duration-300 ease-in-out">01</span>
                 </div>
                 <!-- Description -->
@@ -27,7 +27,7 @@
             <!-- Value Item 2 -->
             <div class="flex flex-col lg:flex-row items-start lg:space-x-8">
                 <!-- Number -->
-                <div class="text-4xl lg:text-8xl font-light text-gray-300 mb-4 lg:mb-0">
+                <div class="text-8xl font-light text-gray-300 mb-4 lg:mb-0">
                     <span class="inset-0 text-transparent text-white -z-10 outline-layer animated-element opacity-0 transition duration-300 ease-in-out">02</span>
                 </div>
                 <!-- Description -->
@@ -41,7 +41,7 @@
             <!-- Value Item 3 -->
             <div class="flex flex-col lg:flex-row items-start lg:space-x-8">
                 <!-- Number -->
-                <div class="text-4xl lg:text-8xl font-light text-gray-300 mb-4 lg:mb-0">
+                <div class="text-8xl font-light text-gray-300 mb-4 lg:mb-0">
                     <span class="inset-0 text-transparent text-white -z-10 outline-layer animated-element opacity-0 transition duration-300 ease-in-out">03</span>
                 </div>
                 <!-- Description -->

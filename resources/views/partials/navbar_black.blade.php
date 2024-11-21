@@ -56,8 +56,10 @@
         <!-- Mobile Menu Button -->
         <div class="flex items-center md:hidden">
           <button id="menuButton" class="text-black focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <rect x="9" y="5" width="12" height="2" /> <!-- Top bar flipped to the right -->
+              <rect x="3" y="11" width="18" height="2" /> <!-- Center bar remains full width -->
+              <rect x="9" y="17" width="12" height="2" /> <!-- Bottom bar flipped to the right -->
             </svg>
           </button>
         </div>

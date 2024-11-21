@@ -5,8 +5,15 @@ return [
     'headline_2' => 'Komersial',
     'headline_3' => 'di Bali',
     'subheadline' => 'Ruang yang tenang yang menawarkan kemewahan dan kesempatan investasi yang unik',
-    'about_us_paragraph_1' => "D'Land Properties mengkhususkan diri dalam menawarkan real estat premium di lokasi-lokasi paling dicari di Bali dengan harga yang kompetitif. Perusahaan ini berkomitmen untuk memberikan pengalaman pencarian dan akuisisi properti yang lancar.",
-    'about_us_paragraph_2' => "Perusahaan kami menyediakan properti di lokasi utama dengan harga yang kompetitif. Anda dapat sepenuhnya mendelegasikan prosesnya kepada kami dan mendapatkan hasil yang diinginkan.",
+    'about_us_text_1' => "D'Land Properties",
+    'about_us_text_2' => "mengkhususkan diri dalam menawarkan properti real estat premium di lokasi paling diminati di Bali dengan harga yang kompetitif. Perusahaan ini berkomitmen untuk menyediakan",
+    'about_us_text_3' => "pengalaman pencarian dan akuisisi properti",
+    'about_us_text_4' => "yang mulus.",
+
+    'about_us_text_5' => "Perusahaan kami menyediakan properti di",
+    'about_us_text_6' => "lokasi strategis",
+    'about_us_text_7' => "dengan harga yang kompetitif. Anda dapat sepenuhnya mempercayakan prosesnya kepada kami dan menerima hasil yang diinginkan.",
+
     'about_bali_subtitle_1' => "Pemandangan gunung yang spektakuler",
     'about_bali_subtitle_2' => "dan",
     'about_bali_subtitle_3' => "pantai tropis",

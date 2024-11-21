@@ -5,7 +5,7 @@
             <h3 class="mt-6 text-6xl font-normal leading-[64px] max-md:mr-1 max-md:text-4xl max-md:leading-10">
                 Ensuring <br> your property <br> <span class="italic font-century animated-element opacity-0 transition duration-300 ease-in-out">Maintained</span>
             </h3>
-            <p class="mt-36 text-xl tracking-wider leading-9 max-md:mt-10 animated-element opacity-0 transition duration-300 ease-in-out">
+            <p class="mt-36 text-xl leading-9 max-md:mt-10 animated-element opacity-0 transition duration-300 ease-in-out">
                 We ensure your Property is immaculately maintained, even while you unwind, allowing you to fully experience the joys of genuine comfort.
             </p>
         </div>

@@ -1,4 +1,23 @@
 $(function () {
+    $('[name="phone"]').inputmask({
+        mask: "(999)-999-99-999",
+        placeholder: " ",
+        showMaskOnHover: false,
+        showMaskOnFocus: false,
+        clearMaskOnLostFocus: true,
+        onBeforePaste: function (pastedValue, opts) {
+            // Remove any non-numeric characters when pasting
+            return pastedValue.replace(/\D/g, "");
+        },
+    });
+
+    $('[name="phone"]').on("input", function () {
+        // Replace any non-numeric characters with an empty string
+        var value = $(this).val().replace(/[^\d]/g, "");
+        // Set the formatted value back
+        $(this).val(value);
+    });
+
     function setLanguage() {
         const flagPath = {
             en: {
@@ -259,14 +278,14 @@ $(function () {
     // Call the function initially to set the width
     adjustWidth();
 
-    $(document).on("click", function (event) {
-        // Check if the click happened outside the dropdown container
-        if (!$(event.target).closest(".country-code-select").length) {
-            $(".dropdown").removeClass("active");
-            $(".arrow-up").addClass("hidden");
-            $(".arrow-down").removeClass("hidden");
-        }
-    });
+    // $(document).on("click", function (event) {
+    //     // Check if the click happened outside the dropdown container
+    //     if (!$(event.target).closest(".country-code-select").length) {
+    //         $(".dropdown").removeClass("active");
+    //         $(".arrow-up").addClass("hidden");
+    //         $(".arrow-down").removeClass("hidden");
+    //     }
+    // });
 
     $(".country-code-select").on("click", function (event) {
         event.stopPropagation(); // Prevent the click inside the dropdown from triggering the document click event

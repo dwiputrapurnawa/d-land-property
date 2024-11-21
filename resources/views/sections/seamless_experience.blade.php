@@ -5,7 +5,7 @@
         <p class="text-sm text-base text-gray-400 uppercase tracking-wider mb-4 animated-element opacity-0 transition duration-300 ease-in-out">About Us</p>
         <!-- Main Heading: Seamless Experience -->
         <h1 class="text-4xl lg:text-5xl font-light text-gray-900 animated-element opacity-0 transition duration-300 ease-in-out">
-            Seamless <span class="italic font-semibold font-century">Experience</span>
+            Seamless <br><span class="italic font-semibold font-century">Experience</span>
         </h1>
     </div>
 

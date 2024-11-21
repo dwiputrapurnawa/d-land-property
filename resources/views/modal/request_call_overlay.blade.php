@@ -59,7 +59,7 @@
                 </div>
               </div>
               <input type="text" name="country_code" class="w-[15%] bg-transparent focus:outline-none text-sm" value="+62" readonly>
-              <input type="number" name="phone" class="bg-transparent focus:outline-none w-full text-sm" required>
+              <input type="text" name="phone" class="bg-transparent focus:outline-none w-full text-sm" required>
             </div>
             <hr class="mt-3.5 border border-white">
           </div>

@@ -1,23 +1,29 @@
 <section data-layername="contactUs" class="bg-black text-white mt-10">
-  <div class="flex gap-5 max-md:flex-col px-20 py-40">
+
+  <div class="flex flex-col block md:hidden">
+    <img loading="lazy" src="{{ asset('images/contact_us_cover.png') }}" alt="Investment market visualization" class="object-cover grow w-full max-md:mt-10 max-md:max-w-full">
+  </div>
+
+  <div class="flex gap-5 max-md:flex-col px-12 pb-40 md:py-40">
+    
     <!-- Form Column -->
-    <div data-layername="column" class="flex flex-col w-[33%] max-md:w-full">
+    <div class="flex flex-col w-[33%] max-md:w-full">
       <div class="flex flex-col items-start self-stretch my-auto w-full text-xl max-md:mt-10 max-md:max-w-full relative">
-        <h2 class="animated-element opacity-0 transition duration-300 ease-in-out self-stretch text-4xl tracking-wider leading-10 text-white max-md:max-w-full">
+        <h2 class="animated-element opacity-0 transition duration-300 ease-in-out self-stretch text-xl sm:text-3xl text-center sm:text-start tracking-wider text-white max-md:max-w-full">
           {{ __('landing.contact_us') }}
         </h2>
         <form class="w-full contact-us-form" method="POST">
           <input type="hidden" name="contact-us-url" value="{{ route('consultation.store') }}">
           <div class="mt-8 animated-element opacity-0 transition duration-300 ease-in-out">
-            <label for="name" class="tracking-wider text-zinc-400">{{ __('landing.name_text') }}</label>
+            <label for="name" class="text-lg text-zinc-400">{{ __('landing.name_text') }}</label>
             <input type="text" name="name" class="w-full bg-transparent border-b border-zinc-400 mt-2 pb-2 focus:outline-none focus:border-white hover:border-white" required>
           </div>
           <div class="mt-6 animated-element opacity-0 transition duration-300 ease-in-out">
-            <label for="email" class="tracking-wider text-zinc-400">{{ __('landing.email_text') }}</label>
+            <label for="email" class="text-lg text-zinc-400">{{ __('landing.email_text') }}</label>
             <input type="email" name="email" class="w-full bg-transparent border-b border-zinc-400 mt-2 pb-2 focus:outline-none focus:border-white hover:border-white" required>
           </div>
           <div class="mt-6 animated-element opacity-0 transition duration-300 ease-in-out">
-            <label for="messenger" class="tracking-wider text-zinc-400">{{ __('landing.choose_messenger_text') }}</label>
+            <label for="messenger" class="text-lg text-zinc-400">{{ __('landing.choose_messenger_text') }}</label>
             <div class="relative">
               <select id="messenger" name="messenger" class="w-full bg-transparent border-b border-zinc-400 mt-2 pb-2 appearance-none focus:outline-none focus:border-white hover:border-white">
                 <option value="whatsapp">WhatsApp</option>
@@ -28,7 +34,7 @@
             </div>
           </div>
           <div class="mt-6 relative dropdown-parent animated-element opacity-0 transition duration-300 ease-in-out z-50">
-            <label for="phone" class="tracking-wider text-zinc-400 block">{{ __('landing.phone_text') }}</label>
+            <label for="phone" class="text-lg text-zinc-400 block">{{ __('landing.phone_text') }}</label>
             <div class="flex w-full items-center self-start">
               <div class="flex flex-col w-[15%]">
                 <div class="country-code-select bg-transparent text-white p-2 cursor-pointer flex items-center justify-between">
@@ -63,7 +69,7 @@
                   <input type="text" name="country_code" class="focus:outline-none bg-transparent" value="+62" readonly>
                 </div>
                 <div class="flex-col w-full">
-                  <input type="number" name="phone" class="bg-transparent focus:outline-none w-full" required>
+                  <input type="text" name="phone" class="bg-transparent focus:outline-none w-full" required>
                 </div>
               </div>
             </div>
@@ -80,16 +86,18 @@
           GET A CONSULTATION
         </button>
          
-          <p class="mt-24 text-sm tracking-wide font-[405] text-zinc-400 w-[400px] max-md:mt-10">
-            {{ __('landing.contact_us_agreement') }}
-          </p>
+        <p class="mt-10 text-sm tracking-wide font-[405] text-zinc-400 w-full max-md:mt-10 text-center">
+          {{ __('landing.contact_us_agreement') }}
+        </p>
+        
         </form>
       </div>
     </div>
 
-    <!-- Image Column -->
-    <div data-layername="column" class="flex flex-col ml-5 w-[67%] max-md:w-full">
-      <img loading="lazy" src="/images/contact_us_cover.png" alt="Investment market visualization" class="object-contain grow w-full aspect-[1.59] max-md:mt-10 max-md:max-w-full">
-    </div>
+   <!-- Image Column -->
+<div class="flex flex-col sm:ml-5 w-[67%] max-md:w-full hidden md:block">
+  <img loading="lazy" src="{{ asset('images/contact_us_cover.png') }}" alt="Investment market visualization" class="object-fill grow w-full max-md:mt-10 max-md:max-w-full">
+</div>
+
   </div>
 </section>

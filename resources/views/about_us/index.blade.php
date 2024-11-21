@@ -10,19 +10,18 @@
 
     @include('partials.navbar_black')
 
-    @include('sections.about_us_header');
+    @include('sections.about_us_header')
 
-    @include('sections.seamless_experience');
+    @include('sections.seamless_experience')
 
-    @include('sections.about_us_image');
+    @include('sections.about_us_image')
 
-    @include('sections.core_values');
+    @include('sections.core_values')
 
-    @include('sections.our_team');
+    @include('sections.our_team')
     
     @include('sections.contact_us')
 
-    <hr class="bg-white w-full">
 
     @include('sections.footer')
 

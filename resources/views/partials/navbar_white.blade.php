@@ -6,7 +6,7 @@
         <!-- Logo -->
         <div class="flex items-center">
           <a href="/">
-            <img src="/images/logo.png" alt="Logo" class="h-16 w-auto"> <!-- Replace with your image URL and size -->
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-12 ml-5 md:h-16 w-auto"> <!-- Replace with your image URL and size -->
           </a>
         </div>
 
@@ -56,9 +56,15 @@
         <!-- Mobile Menu Button -->
         <div class="flex items-center md:hidden">
           <button id="menuButton" class="text-white focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <rect x="9" y="5" width="12" height="2" /> <!-- Top bar flipped to the right -->
+              <rect x="3" y="11" width="18" height="2" /> <!-- Center bar remains full width -->
+              <rect x="9" y="17" width="12" height="2" /> <!-- Bottom bar flipped to the right -->
             </svg>
+            
+            
+            
+            
           </button>
         </div>
 
@@ -66,9 +72,9 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden md:hidden flex-col">
+    <div id="mobileMenu" class="hidden md:hidden flex-col h-screen z-50">
       
-      <ul class="px-5 space-y-2 backdrop-filter backdrop-blur-lg">
+      <ul class="px-5 space-y-2 backdrop-filter backdrop-blur-lg z-50">
         <li><a href="{{ route('projects.page') }}" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_project') }}</a></li>
         <li><a href="{{ route('about.us.page') }}" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_about_us') }}</a></li>
         <li><a href="{{ route('management.page') }}" class="text-white text-sm font-light underline-animation">{{ __('landing.navbar_managements') }}</a></li>

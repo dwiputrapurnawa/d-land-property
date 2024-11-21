@@ -1,6 +1,6 @@
 <section class="w-full justify-items-center mb-[18%]">
 
-    <h1 class="text-6xl mb-16 animated-element opacity-0 transition duration-300 ease-in-out">Bali <span class="font-century italic">Tourism Places</span></h1>
+    <h1 class="text-4xl text-center md:text-6xl mb-16 animated-element opacity-0 transition duration-300 ease-in-out">Bali <span class="font-century italic">Tourism Places</span></h1>
 
     <div class="grid grid-cols-1 md:grid-cols-4 justify-items-center gap-5 mx-16">
 

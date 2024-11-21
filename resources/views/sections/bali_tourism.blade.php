@@ -1,13 +1,14 @@
-<section class="w-full h-full mb-12 lg:mb-28">
+<section class="w-full h-full mb-12 lg:mb-28 justify-items-center">
 
-    <img src="{{ asset('images/bali-tourism-cover.png') }}" class="w-full h-full" alt="">
+  <img src="{{ asset('images/bali-tourism-cover.png') }}" class="object-center object-cover h-full w-full" alt="">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 container p-32 justify-items-center">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 container py-20 px-8">
 
       <div class="lg:w-3/5 flex flex-col mb-10">
         <p class="text-sm text-gray-400 uppercase tracking-wider mb-4 animated-element opacity-0 transition duration-300 ease-in-out">ANALYTICS</p>
         <h1 class="text-4xl lg:text-5xl font-light text-gray-900 animated-element opacity-0 transition duration-300 ease-in-out">
-          Bali Tourism <span class="italic font-semibold font-century">Statistics</span>
+          Bali Tourism <br><span class="italic font-semibold font-century">Statistics</span>
         </h1>
       </div>
 
