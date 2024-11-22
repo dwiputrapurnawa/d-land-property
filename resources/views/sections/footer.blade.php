@@ -21,12 +21,12 @@
     </section>
     <nav class="w-full lg:w-1/4 mt-10 lg:mt-0 lg:pt-36 px-10">
       <ul class="flex flex-col gap-5 list-none">
-        <li><a href="{{ route('projects.page') }}" class="underline-animation">{{ __('landing.navbar_project') }}</a></li>
-        <li><a href="{{ route('about.us.page') }}" class="underline-animation">{{ __('landing.navbar_about_us') }}</a></li>
-        <li><a href="{{ route('management.page') }}" class="underline-animation">{{ __('landing.navbar_managements') }}</a></li>
-        <li><a href="{{ route('about.bali.page') }}" class="underline-animation">{{ __('landing.navbar_about_bali') }}</a></li>
-        <li><a href="{{ route('news.page') }}" class="underline-animation">{{ __('landing.navbar_news') }}</a></li>
-        <li><button class="underline-animation openRequestCallModalBtn">{{ __('landing.navbar_request_call') }}</button></li>
+        <li><a href="{{ route('projects.page') }}" class="underline-animation uppercase">{{ __('landing.navbar_project') }}</a></li>
+        <li><a href="{{ route('about.us.page') }}" class="underline-animation uppercase">{{ __('landing.navbar_about_us') }}</a></li>
+        <li><a href="{{ route('management.page') }}" class="underline-animation uppercase">{{ __('landing.navbar_managements') }}</a></li>
+        <li><a href="{{ route('about.bali.page') }}" class="underline-animation uppercase">{{ __('landing.navbar_about_bali') }}</a></li>
+        <li><a href="{{ route('news.page') }}" class="underline-animation uppercase">{{ __('landing.navbar_news') }}</a></li>
+        <li><button class="underline-animation openRequestCallModalBtn uppercase">{{ __('landing.navbar_request_call') }}</button></li>
       </ul>
     </nav>
     <div class="w-full lg:w-1/3 mt-10 lg:mt-0 border-l border-zinc-800">

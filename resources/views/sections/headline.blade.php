@@ -1,7 +1,7 @@
 <section id="section_headline" class="flex flex-col bg-right bg-bottom bg-cover bg-[url('/images/hero-mobile.png')] sm:bg-[url('/images/hero.png')]">
     <header class="relative h-screen">
  
-     <div class="absolute bottom-10 left-5 md:bottom-10 md:left-10 lg:bottom-16 lg:left-16 z-10 animated-element opacity-0 transition duration-300 ease-in-out">
+     <div class="absolute bottom-10 left-5 md:bottom-10 md:left-10 lg:bottom-16 lg:left-16 z-5 animated-element opacity-0 transition duration-300 ease-in-out">
          <p class="text-sm md:text-base lg:text-lg text-white font-light font-thin max-w-[250px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[400px]">
             {{ __('landing.subheadline') }}
          </p>

@@ -74,22 +74,6 @@ $(function () {
     changePhoneCode();
     setLanguage();
 
-    $(document).on("click", function (event) {
-        // Check if the clicked element is not the menu or the button
-        if (
-            !$(event.target).closest("#menuButton").length &&
-            !$(event.target).closest("#mobileMenu").length
-        ) {
-            // Hide the menu
-            $("#mobileMenu").addClass("hidden");
-        }
-    });
-
-    $("#menuButton").on("click", function (event) {
-        event.stopPropagation();
-        $("#mobileMenu").toggleClass("hidden");
-    });
-
     // Toggle dropdown visibility
     $("#customSelect").click(function () {
         $("#dropdown").toggleClass("active");
@@ -495,5 +479,104 @@ $(function () {
     // Prevent input blur when clicking on the dropdown
     $dropdown.on("mousedown", function (e) {
         e.preventDefault(); // Prevent focus change
+    });
+
+    function isNotMobileScreen() {
+        const screenWidth = $(window).width();
+        return screenWidth >= 768; // Returns true if screen is tablet or larger
+    }
+
+    $("#burger-menu").on("click", function (event) {
+        $(this).toggleClass("active");
+
+        if ($(this).hasClass("active")) {
+            // Apply transformations
+            $(this).find(".bar").eq(0).addClass("translate-y-2 rotate-45 w-6");
+            $(this).find(".bar").eq(1).addClass("opacity-0");
+            $(this)
+                .find(".bar")
+                .eq(2)
+                .addClass("-translate-y-2 -rotate-45 w-6");
+
+            event.stopPropagation();
+            $("#mobileMenu").removeClass("hidden");
+
+            $("body").addClass("overflow-hidden");
+
+            $(this).parents("nav").addClass("bg-white");
+            $(this).parents("nav").removeClass("text-white");
+            $(this).parents("nav").addClass("text-black");
+            $("#logo-company").attr("src", "images/logo-substract.png");
+            $(this)
+                .parents("nav")
+                .removeClass(
+                    "hover:backdrop-filter hover:backdrop-blur-lg hover:bg-opacity-30"
+                );
+            $("#openModalBtn").addClass("hidden");
+        } else {
+            // Revert transformations
+            $(this)
+                .find(".bar")
+                .eq(0)
+                .removeClass("translate-y-2 rotate-45 w-6");
+            $(this).find(".bar").eq(1).removeClass("opacity-0");
+            $(this)
+                .find(".bar")
+                .eq(2)
+                .removeClass("-translate-y-2 -rotate-45 w-6");
+
+            event.stopPropagation();
+            $("#mobileMenu").addClass("hidden");
+
+            $("body").removeClass("overflow-hidden");
+            $(this).parents("nav").removeClass("bg-white");
+            $(this).parents("nav").addClass("text-white");
+            $(this).parents("nav").removeClass("text-black");
+            $("#logo-company").attr("src", "images/logo.png");
+            $(this)
+                .parents("nav")
+                .addClass(
+                    "hover:backdrop-filter hover:backdrop-blur-lg hover:bg-opacity-30"
+                );
+            $("#openModalBtn").removeClass("hidden");
+        }
+    });
+
+    $(window).on("resize", function (event) {
+        // Stop propagation if necessary
+        event.stopPropagation(); // Prevents the resize event from propagating further
+        console.log("Resize event triggered");
+
+        if (isNotMobileScreen()) {
+            console.log("Not a mobile screen (tablet or larger)");
+
+            $(".bar").eq(0).removeClass("translate-y-2 rotate-45 w-6");
+            $(".bar").eq(1).removeClass("opacity-0");
+            $(".bar").eq(2).removeClass("-translate-y-2 -rotate-45 w-6");
+
+            $("#burger-menu").removeClass("active");
+
+            $("#mobileMenu").removeClass("hidden");
+
+            $("body").removeClass("overflow-hidden");
+            $("nav").removeClass("bg-white");
+            $("nav").addClass("text-white");
+            $("nav").removeClass("text-black");
+            $("#logo-company").attr("src", "images/logo.png");
+            $("nav").addClass(
+                "hover:backdrop-filter hover:backdrop-blur-lg hover:bg-opacity-30"
+            );
+            $("#openModalBtn").removeClass("hidden");
+        } else {
+            console.log("Mobile screen (smaller than 768px)");
+
+            if ($("#burger-menu").hasClass("active")) {
+                $("#mobileMenu").removeClass("hidden");
+                $("#openModalBtn").addClass("hidden");
+            } else {
+                $("#mobileMenu").addClass("hidden");
+                $("#openModalBtn").removeClass("hidden");
+            }
+        }
     });
 });

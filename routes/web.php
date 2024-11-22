@@ -18,7 +18,7 @@ use App\Http\Middleware\IsAdminMiddleware;
 use App\Http\Middleware\LanguageSwitcher;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index'])->middleware(LanguageSwitcher::class);
+Route::get('/', [HomeController::class, 'index'])->middleware(LanguageSwitcher::class)->name('home.page');
 
 Route::get('/login', function () {
     return redirect('/admin/login');
