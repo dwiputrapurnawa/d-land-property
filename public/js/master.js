@@ -145,6 +145,9 @@ $(function () {
         $("#dropdown").removeClass("active");
         $("#arrow-up").toggleClass("hidden");
         $("#arrow-down").toggleClass("hidden"); // Hide dropdown after selection
+
+        window.location.href =
+            window.location.pathname + "?lang=" + selectedLanguage;
     });
 
     // Close the dropdown if clicking outside of it
@@ -261,15 +264,6 @@ $(function () {
 
     // Call the function initially to set the width
     adjustWidth();
-
-    // $(document).on("click", function (event) {
-    //     // Check if the click happened outside the dropdown container
-    //     if (!$(event.target).closest(".country-code-select").length) {
-    //         $(".dropdown").removeClass("active");
-    //         $(".arrow-up").addClass("hidden");
-    //         $(".arrow-down").removeClass("hidden");
-    //     }
-    // });
 
     $(".country-code-select").on("click", function (event) {
         event.stopPropagation(); // Prevent the click inside the dropdown from triggering the document click event
@@ -488,6 +482,8 @@ $(function () {
 
     $("#burger-menu").on("click", function (event) {
         $(this).toggleClass("active");
+        var nav = $(this).parents("nav");
+        const nav_id = nav.attr("id");
 
         if ($(this).hasClass("active")) {
             // Apply transformations
@@ -503,15 +499,17 @@ $(function () {
 
             $("body").addClass("overflow-hidden");
 
-            $(this).parents("nav").addClass("bg-white");
-            $(this).parents("nav").removeClass("text-white");
-            $(this).parents("nav").addClass("text-black");
-            $("#logo-company").attr("src", "images/logo-substract.png");
-            $(this)
-                .parents("nav")
-                .removeClass(
-                    "hover:backdrop-filter hover:backdrop-blur-lg hover:bg-opacity-30"
-                );
+            if (nav_id == "nav-text-white") {
+                nav.addClass("bg-white");
+                nav.removeClass("text-white");
+                nav.addClass("text-black");
+                $("#logo-company").attr("src", "images/logo-substract.png");
+            }
+
+            nav.removeClass(
+                "hover:backdrop-filter hover:backdrop-blur-lg hover:bg-opacity-30"
+            );
+            nav.addClass("overflow-auto h-full");
             $("#openModalBtn").addClass("hidden");
         } else {
             // Revert transformations
@@ -529,15 +527,18 @@ $(function () {
             $("#mobileMenu").addClass("hidden");
 
             $("body").removeClass("overflow-hidden");
-            $(this).parents("nav").removeClass("bg-white");
-            $(this).parents("nav").addClass("text-white");
-            $(this).parents("nav").removeClass("text-black");
-            $("#logo-company").attr("src", "images/logo.png");
-            $(this)
-                .parents("nav")
-                .addClass(
-                    "hover:backdrop-filter hover:backdrop-blur-lg hover:bg-opacity-30"
-                );
+
+            if (nav_id == "nav-text-white") {
+                nav.removeClass("bg-white");
+                nav.addClass("text-white");
+                nav.removeClass("text-black");
+                $("#logo-company").attr("src", "images/logo.png");
+            }
+
+            nav.addClass(
+                "hover:backdrop-filter hover:backdrop-blur-lg hover:bg-opacity-30"
+            );
+            nav.removeClass("overflow-auto h-full");
             $("#openModalBtn").removeClass("hidden");
         }
     });
@@ -546,6 +547,10 @@ $(function () {
         // Stop propagation if necessary
         event.stopPropagation(); // Prevents the resize event from propagating further
         console.log("Resize event triggered");
+        adjustHeight();
+
+        var nav = $("nav");
+        const nav_id = nav.attr("id");
 
         if (isNotMobileScreen()) {
             console.log("Not a mobile screen (tablet or larger)");
@@ -559,13 +564,18 @@ $(function () {
             $("#mobileMenu").removeClass("hidden");
 
             $("body").removeClass("overflow-hidden");
-            $("nav").removeClass("bg-white");
-            $("nav").addClass("text-white");
-            $("nav").removeClass("text-black");
-            $("#logo-company").attr("src", "images/logo.png");
-            $("nav").addClass(
+
+            if (nav_id == "nav-text-white") {
+                nav.removeClass("bg-white");
+                nav.addClass("text-white");
+                nav.removeClass("text-black");
+                $("#logo-company").attr("src", "images/logo.png");
+            }
+
+            nav.addClass(
                 "hover:backdrop-filter hover:backdrop-blur-lg hover:bg-opacity-30"
             );
+            nav.removeClass("overflow-auto h-full");
             $("#openModalBtn").removeClass("hidden");
         } else {
             console.log("Mobile screen (smaller than 768px)");
@@ -579,4 +589,23 @@ $(function () {
             }
         }
     });
+
+    $("#open-request-call-mobile").on("click", function () {
+        $("#requestCallMobile").toggleClass("hidden");
+        $("body").css("position", "fixed");
+    });
+
+    $("#request-mobile-close").on("click", function () {
+        $("#requestCallMobile").toggleClass("hidden");
+        $("body").css("position", "static");
+    });
+
+    // Function to adjust height
+    function adjustHeight() {
+        var vh = $(window).height() * 0.01;
+        $(":root").css("--vh", vh + "px");
+    }
+
+    // Initial call to adjust height
+    adjustHeight();
 });

@@ -1,5 +1,5 @@
   <!-- Navbar -->
-  <nav class="bg-transparent py-6 text-white relative hover:backdrop-filter hover:backdrop-blur-lg hover:bg-opacity-30 transition duration-700 ease-in-out">
+  <nav id="nav-text-white" class="bg-transparent py-6 text-white relative hover:backdrop-filter hover:backdrop-blur-lg hover:bg-opacity-30 transition duration-700 ease-in-out">
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16 space-x-3">
 
@@ -107,7 +107,7 @@
 
         </li>
         <li>
-          <button class="openRequestCallModalBtn text-3xl font-light underline-animation flex items-center">
+          <button id="open-request-call-mobile" class="text-3xl font-light underline-animation flex items-center">
             {{ __('landing.navbar_request_call') }}
           </button>
         </li>
@@ -126,6 +126,10 @@
         <p class="text-sm">{{ $company->address }}</p>
         
       </div>
+
+      <p class="text-sm tracking-wide font-[405] text-zinc-400 mt-20 mb-6 px-4 lg:px-8 text-center sm:text-start">
+        {{ __('landing.footer_text') }}
+      </p>
       
       
         
