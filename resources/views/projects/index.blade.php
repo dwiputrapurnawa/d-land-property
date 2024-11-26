@@ -14,8 +14,6 @@
 
     @include('sections.contact_us')
 
-    <hr class="bg-white w-full">
-
     @include('sections.footer')
 
     @include('modal.whatsapp_overlay')

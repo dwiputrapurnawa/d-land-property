@@ -16,4 +16,10 @@ class ProjectPageController extends Controller
         $company = Company::first();
         return view('projects.index', ["projects" => $projects, "company" => $company]);
     }
+
+    function detail()
+    {
+        $company = Company::first();
+        return view('projects.detail', ["company" => $company]);
+    }
 }

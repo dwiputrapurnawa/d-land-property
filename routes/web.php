@@ -51,9 +51,11 @@ Route::get('/activity', [ActivityController::class, 'activity_list'])->name('get
 Route::get('/project', [ProjectController::class, 'project_list'])->name('get.project');
 
 Route::get('/projects', [ProjectPageController::class, 'index'])->name('projects.page');
+Route::get('/detail-projects', [ProjectPageController::class, 'detail'])->name('projects.detail.page');
 Route::get('/about-us', [AboutUsController::class, 'index'])->name('about.us.page');
 Route::get('/about-bali', [AboutBaliPageController::class, 'index'])->name('about.bali.page');
 Route::get('/news', [NewsPageController::class, 'index'])->name('news.page');
+Route::get('/detail-news', [NewsPageController::class, 'detail'])->name('news.detail.page');
 Route::get('/management', [ManagementPageController::class, 'index'])->name('management.page');
 
 Route::post('/consultation', [ConsultationController::class, 'store'])->name('consultation.store');

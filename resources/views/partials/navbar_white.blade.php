@@ -1,5 +1,5 @@
   <!-- Navbar -->
-  <nav id="nav-text-white" class="bg-transparent py-6 text-white relative hover:backdrop-filter hover:backdrop-blur-lg hover:bg-opacity-30 transition duration-700 ease-in-out">
+  <nav id="nav-text-white" class="bg-transparent z-50 py-6 text-white relative hover:backdrop-filter hover:backdrop-blur-lg hover:bg-opacity-30 transition duration-700 ease-in-out">
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16 space-x-3">
 

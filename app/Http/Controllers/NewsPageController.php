@@ -12,4 +12,10 @@ class NewsPageController extends Controller
         $company = Company::first();
         return view('news.index', ["company" => $company]);
     }
+
+    function detail()
+    {
+        $company = Company::first();
+        return view('news.detail', ["company" => $company]);
+    }
 }
