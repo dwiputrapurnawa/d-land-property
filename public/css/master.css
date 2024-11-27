@@ -17,10 +17,10 @@
   font-weight: bold;
   font-style: normal;
 }
-
+/* 
 body {
   font-family: 'Sequel Sans Light';
-}
+} */
 
 .font-century {
   font-family: 'Century 751';
@@ -213,3 +213,21 @@ input[type=number]::-webkit-outer-spin-button {
 .dropdown.active {
   display: block; /* Show the dropdown when active */
 }
+
+/* Custom sizes for Quill */
+.ql-size-small {
+  font-size: 10px;
+}
+
+.ql-size-normal {
+  font-size: 14px;
+}
+
+.ql-size-large {
+  font-size: 18px;
+}
+
+.ql-size-huge {
+  font-size: 24px;
+}
+

@@ -192,7 +192,7 @@
 
     @include('sections.about_us_image')
 
-    <div class="grid grid-cols-1 md:grid-cols-2 px-24 py-24 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 px-8 md:px-24 py-24 gap-6">
         <div class="flex flex-col">
             <p class="text-sm text-gray-400">LOCATIONS</p>
             <h1 class="text-5xl">D'Land</h1>

@@ -4,27 +4,47 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Cviebrock\EloquentSluggable\Sluggable;
 
-class Activity extends Model
+class News extends Model
 {
-    protected $table = "activity";
+
+    use Sluggable;
+
+    protected $table = "news";
     protected $guarded = ["id"];
 
 
-
-    function activity_list_count_all()
+    /**
+     * Get the options for generating the slug.
+     */
+    public function sluggable(): array
     {
-        $count = DB::table('activity')
-            ->leftJoin('users', 'activity.user_id', '=', 'users.id');
+        return [
+            'slug' => [
+                'source' => 'title',
+                'onUpdate' => true,  // Make sure slugs regenerate on update as well
+                'unique' => true, // Make sure slugs are unique
+            ]
+        ];
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
+    function news_list_count_all()
+    {
+        $count = DB::table($this->table);
 
         return $count->count();
     }
 
-    function activity_list_count_filter($start, $length, $query, $view)
+    function news_list_count_filter($start, $length, $query, $view)
     {
-        $data = DB::table('activity')
-            ->select('activity.*', 'users.name')
-            ->leftJoin('users', 'activity.user_id', '=', 'users.id');
+        $data = DB::table($this->table)
+            ->select($this->table . '.*');
 
         $data->where(function ($qry) use ($view, $query) {
             $qry->where(function ($subQry) use ($view, $query) {
@@ -45,12 +65,11 @@ class Activity extends Model
         return $data->count();
     }
 
-    function activity_list($start, $length, $query, $view)
+    function news_list($start, $length, $query, $view)
     {
 
-        $data = DB::table('activity')
-            ->select('activity.*', 'users.name')
-            ->leftJoin('users', 'activity.user_id', '=', 'users.id');
+        $data = DB::table($this->table)
+            ->select($this->table . '.*');
 
         $data->where(function ($qry) use ($view, $query) {
             $qry->where(function ($subQry) use ($view, $query) {
@@ -69,5 +88,14 @@ class Activity extends Model
         }
 
         return $data->orderBy('created_at', 'desc')->get();
+    }
+
+    function news_publish_list()
+    {
+        return DB::table($this->table)
+            ->select($this->table . '.*')
+            ->where('status', 'publish')
+            ->orderBy('created_at', 'desc')
+            ->get();
     }
 }

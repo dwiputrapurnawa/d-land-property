@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\AboutBaliPageController;
 use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ManagementPageController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsPageController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\PhoneCountryController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\ProjectPresentationController;
 use App\Http\Middleware\IsAdminMiddleware;
 use App\Http\Middleware\LanguageSwitcher;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', [HomeController::class, 'index'])->middleware(LanguageSwitcher::class)->name('home.page');
 
@@ -45,18 +47,26 @@ Route::prefix('admin')->middleware(IsAdminMiddleware::class)->group(function () 
     Route::put('/panel/project/update/{id}', [ProjectController::class, 'update'])->name('admin.project.update');
     Route::delete('/panel/project/delete/{id}', [ProjectController::class, 'delete'])->name('admin.project.delete');
     Route::get('/panel/project/publish/{id}', [ProjectController::class, 'publish'])->name('admin.project.publish');
+    Route::get('/panel/news', [NewsController::class, 'index'])->name('admin.news');
+    Route::get('/panel/news/create', [NewsController::class, 'create'])->name('admin.news.create');
+    Route::post('/panel/news/insert', [NewsController::class, 'insert'])->name('admin.news.insert');
+    Route::get('/panel/news/publish/{id}', [NewsController::class, 'publish'])->name('admin.news.publish');
+    Route::delete('/panel/news/delete/{id}', [NewsController::class, 'delete'])->name('admin.news.delete');
+    Route::put('/panel/news/update/{id}', [NewsController::class, 'update'])->name('admin.news.update');
+    Route::get('/panel/news/edit/{slug}', [NewsController::class, 'edit'])->name('admin.news.edit');
+    Route::post('/upload-image', [ImageUploadController::class, 'upload'])->name('upload.image');
+    Route::get('/project', [ProjectController::class, 'project_list'])->name('get.project');
+    Route::get('/get-news', [NewsController::class, 'news_list'])->name('get.news');
 });
-
-Route::get('/activity', [ActivityController::class, 'activity_list'])->name('get.activity');
-Route::get('/project', [ProjectController::class, 'project_list'])->name('get.project');
 
 Route::get('/projects', [ProjectPageController::class, 'index'])->name('projects.page');
 Route::get('/detail-projects', [ProjectPageController::class, 'detail'])->name('projects.detail.page');
 Route::get('/about-us', [AboutUsController::class, 'index'])->name('about.us.page');
 Route::get('/about-bali', [AboutBaliPageController::class, 'index'])->name('about.bali.page');
 Route::get('/news', [NewsPageController::class, 'index'])->name('news.page');
-Route::get('/detail-news', [NewsPageController::class, 'detail'])->name('news.detail.page');
+Route::get('/news/{news}', [NewsPageController::class, 'detail'])->name('news.detail.page');
 Route::get('/management', [ManagementPageController::class, 'index'])->name('management.page');
+
 
 Route::post('/consultation', [ConsultationController::class, 'store'])->name('consultation.store');
 Route::post('/project-presentation', [ProjectPresentationController::class, 'store'])->name('project.presentation.store');

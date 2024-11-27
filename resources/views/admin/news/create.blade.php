@@ -4,8 +4,8 @@
 @section('content')
     
     <div class="bg-white p-20 rounded-lg shadow-lg w-full">
-        <h2 class="text-2xl font-semibold mb-6 text-gray-700">Create New Project</h2>
-        <form action="{{ route('admin.project.insert') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
+        <h2 class="text-2xl font-semibold mb-6 text-gray-700">Create New Article</h2>
+        <form action="{{ route('admin.news.insert') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
             @csrf
             <!-- Image Upload -->
             <div class="flex flex-col max-w-lg">
@@ -19,6 +19,9 @@
                    <div class="relative">
                        <!-- Hidden file input -->
                        <input type="file" id="image" name="image" class="absolute inset-0 opacity-0 cursor-pointer" />
+                       @error('image')
+                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                        <!-- Custom file upload button -->
                        <button class="file-upload-btn text-center bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-indigo-600 transition duration-200 ease-in-out w-full">
                            Choose File
@@ -34,22 +37,12 @@
                 <label for="title" class="block text-gray-700 font-medium">Title</label>
                 <input type="text" id="title" name="title" placeholder="Enter title"
                        class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
-            </div>
-
-            <!-- Subtitle -->
-            <div>
-                <label for="subtitle" class="block text-gray-700 font-medium">Subtitle</label>
-                <input type="text" id="subtitle" name="subtitle" placeholder="Enter subtitle"
-                       class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                @error('title')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="flex flex-cols-2 gap-8">
-                <!-- ROI -->
-                <div class="w-full self-end">
-                    <label for="roi" class="block text-gray-700 font-medium">ROI (%)</label>
-                    <input type="number" id="roi" name="roi" placeholder="Enter ROI" min="0" step="0.01"
-                           class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
-                </div>
             
                 <!-- Status (Draft or Publish) -->
                 <div class="w-full self-end">
@@ -61,9 +54,17 @@
                 </div>
             </div>
             
-
-            <div id="editor">
+            <input type="hidden" name="content">
+            
+            <label for="content" class="block text-gray-700 font-medium">Content</label>
+            @error('content')
+                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+            @enderror
+            <div id="editor" class="w-full h-full">
             </div>
+
+            
+
 
             <!-- Submit Button -->
             <div class="text-right">

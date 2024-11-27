@@ -61,11 +61,6 @@ class ProjectController extends Controller
                 'image' => $imagePath, // Store the image path in the database
             ]);
 
-            Activity::create([
-                "user_id" => Auth::user()->id,
-                "activity" => "Inserted a new project",
-            ]);
-
             return redirect()->route('admin.project.create');
         } catch (Exception $e) {
             return response(["status" => false, "message" => $e->getMessage()], 443);
@@ -101,11 +96,6 @@ class ProjectController extends Controller
                 'image' => $imagePath, // Store the image path in the database
             ]);
 
-            Activity::create([
-                "user_id" => Auth::user()->id,
-                "activity" => "Updated a project",
-            ]);
-
             return redirect()->route('admin.project');
         } catch (Exception $e) {
             return response(["status" => false, "message" => $e->getMessage()], 443);
@@ -132,10 +122,6 @@ class ProjectController extends Controller
 
             $project->delete();
 
-            Activity::create([
-                "user_id" => Auth::user()->id,
-                "activity" => "Deleted a project",
-            ]);
 
             return response(["status" => true, "message" => "Successfully deleted"], 200);
         } catch (Exception $e) {
@@ -148,10 +134,6 @@ class ProjectController extends Controller
         try {
             Project::where('id', '=', $id)->update(["status" => "publish"]);
 
-            Activity::create([
-                "user_id" => Auth::user()->id,
-                "activity" => "Published a project",
-            ]);
             return response(["status" => true, "message" => "Successfully published"], 200);
         } catch (Exception $e) {
             return response(["status" => false, "message" => $e->getMessage()], 422);

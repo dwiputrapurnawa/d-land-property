@@ -4,15 +4,18 @@
 @section('content')
     
     <div class="bg-white p-20 rounded-lg shadow-lg w-full">
-        <h2 class="text-2xl font-semibold mb-6 text-gray-700">Create New Project</h2>
-        <form action="{{ route('admin.project.insert') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
+        <h2 class="text-2xl font-semibold mb-6 text-gray-700">Create New Article</h2>
+        <form action="{{ route('admin.news.update', ['id' => $news->id]) }}" method="POST" enctype="multipart/form-data" class="space-y-4">
             @csrf
+            @method('PUT')
             <!-- Image Upload -->
             <div class="flex flex-col max-w-lg">
 
+                <input type="hidden" name="old_img_path" value="{{ $news->image }}">
+
                 <!-- Preview Container -->
-               <div id="previewContainer" class="hidden mb-10">
-                   <img id="previewImage" class="w-auto h-auto rounded-lg shadow-md" alt="Preview">
+               <div id="previewContainer" class="mb-10">
+                   <img id="previewImage" class="w-auto h-auto rounded-lg shadow-md" alt="Preview" src="{{ asset($news->image) }}">
                </div>
    
                    <label for="image" class="text-lg font-semibold text-gray-800 mb-2">Upload Image</label>
@@ -33,36 +36,32 @@
             <div>
                 <label for="title" class="block text-gray-700 font-medium">Title</label>
                 <input type="text" id="title" name="title" placeholder="Enter title"
-                       class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
-            </div>
-
-            <!-- Subtitle -->
-            <div>
-                <label for="subtitle" class="block text-gray-700 font-medium">Subtitle</label>
-                <input type="text" id="subtitle" name="subtitle" placeholder="Enter subtitle"
-                       class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                       class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500" value="{{ $news->title }}">
+                    @error('title')
+                       <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                   @enderror
             </div>
 
             <div class="flex flex-cols-2 gap-8">
-                <!-- ROI -->
-                <div class="w-full self-end">
-                    <label for="roi" class="block text-gray-700 font-medium">ROI (%)</label>
-                    <input type="number" id="roi" name="roi" placeholder="Enter ROI" min="0" step="0.01"
-                           class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
-                </div>
             
                 <!-- Status (Draft or Publish) -->
                 <div class="w-full self-end">
                     <label for="status" class="block text-gray-700 font-medium">Status</label>
                     <select id="status" name="status" class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
-                        <option value="draft">Draft</option>
-                        <option value="publish">Publish</option>
+                        <option value="draft" {{ $news->status == "draft" ? "selected" : "" }}>Draft</option>
+                        <option value="publish" {{ $news->status == "publish" ? "selected" : "" }}>Publish</option>
                     </select>
                 </div>
             </div>
             
+            <input type="hidden" name="content" value="{{ $news->content }}">
+            <label for="content" class="block text-gray-700 font-medium">Content</label>
+            @error('content')
+                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+            @enderror
 
             <div id="editor">
+                {!! $news->content !!}
             </div>
 
             <!-- Submit Button -->

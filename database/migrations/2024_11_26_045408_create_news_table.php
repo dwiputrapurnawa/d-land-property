@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('activity', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->text("activity");
-            $table->text('item_link')->nullable();
+            $table->string('title');
+            $table->string('image');
+            $table->string('slug');
+            $table->longText('content');
+            $table->enum('status', ['draft', 'publish'])->default('draft');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('activity');
+        Schema::dropIfExists('news');
     }
 };

@@ -1,8 +1,3 @@
- /* Hide the file upload button in Trix toolbar */
- trix-toolbar [data-trix-button-group="file-tools"] {
-    display: none;
-}
-
 
     /* Custom keyframes for the fade and slide-up effect */
     @keyframes fadeUp {
@@ -86,3 +81,8 @@
     input, textarea, button {
       transition: all 0.3s ease-in-out;
     }
+
+    .ql-container {
+      height: 500px;  /* Set your desired height */
+    }
+    

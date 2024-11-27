@@ -54,11 +54,6 @@ class CompanyController extends Controller
                 "twitter" => $validated['twitter'],
             ]);
 
-            Activity::create([
-                "user_id" => Auth::user()->id,
-                "activity" => "Company updated"
-            ]);
-
             return redirect()->route('admin.company')->with('success', 'Company updated successfully');
         } catch (Exception $e) {
             return response(["status" => false, "message" => $e->getMessage()], 443);
