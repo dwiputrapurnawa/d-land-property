@@ -83,7 +83,7 @@
           class="getConsultationButton mt-10 w-full px-8 py-3 text-base sm:text-lg tracking-wide text-white font-[410] border border-solid border-zinc-400 rounded-[30px] hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-500 transition-colors animated-element opacity-0 transition duration-300 ease-in-out"
           aria-label="Get a consultation"
         >
-          GET A CONSULTATION
+        {{ __('landing.get_consultation_text') }}
         </button>
          
         <p class="mt-10 text-sm tracking-wide font-[405] text-zinc-400 w-full max-md:mt-10 text-center">

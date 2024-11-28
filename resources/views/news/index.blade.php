@@ -1,12 +1,12 @@
 @extends('layouts.main')
 
 @section('title')
-    D'Land Property - News
+    D'Land Property - {{ __('landing.navbar_news') }}
 @endsection
 
 @section('content')
 
-    <input type="hidden" name="company_number" value="{{ $company->phone }}">
+    <input type="hidden" name="company_number" value="{{ str_replace([' ', '-'], '', $company->phone) }}">
 
     @include('partials.navbar_black')
 

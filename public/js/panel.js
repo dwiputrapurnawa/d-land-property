@@ -1,4 +1,17 @@
 $(function () {
+    $('[name="phone"]').inputmask({
+        mask: "+62 999-9999-9999", // Adding +62 prefix
+        placeholder: " ",
+        showMaskOnHover: false,
+        showMaskOnFocus: false,
+        clearMaskOnLostFocus: false,
+        onBeforePaste: function (pastedValue, opts) {
+            // Remove any non-numeric characters when pasting, and ensure the +62 prefix is preserved
+            pastedValue = pastedValue.replace(/\D/g, "");
+            return "+62" + pastedValue.slice(-12); // Ensure it's a 12-digit number after the prefix
+        },
+    });
+
     if ($("#editor").length > 0) {
         const upload_img_url = $("[name='upload-img']").val();
         const quill = new Quill("#editor", {

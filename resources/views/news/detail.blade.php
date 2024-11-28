@@ -1,12 +1,12 @@
 @extends('layouts.main')
 
 @section('title')
-    D'Land Property - News
+    D'Land Property - {{ $news->title }}
 @endsection
 
 @section('content')
 
-    <input type="hidden" name="company_number" value="{{ $company->phone }}">
+    <input type="hidden" name="company_number" value="{{ str_replace([' ', '-'], '', $company->phone) }}">
 
     @include('partials.navbar_black')
 
@@ -14,23 +14,23 @@
 
         <div class="px-8 md:px-24 py-24">
             <div class="flex flex-col w-full md:w-[68%] h-full">
-                <h1 class="text-5xl md:text-6xl">{{ $news->title }}</h1>
+                <h1 class="text-5xl md:text-6xl animated-element opacity-0 transition duration-300 ease-in-out">{{ $news->title }}</h1>
             </div>
     
-            <div class="flex flex-wrap justify-between  md:w-[300px] gap-5 py-6">
+            <div class="flex flex-wrap justify-between  md:w-[300px] gap-5 py-6 animated-element opacity-0 transition duration-300 ease-in-out">
                 <div class="flex flex-col">
                     <p>{{ \Carbon\Carbon::parse($news->created_at)->format('F j, Y') }}</p>
                 </div>
                 <div class="flex flex-col">
-                    <p>Press Release</p>
+                    <p>{{ __('landing.press_release') }}</p>
                 </div>
             </div>
         </div>
 
-        <img src="/{{ $news->image }}" class="object-cover w-full h-full" alt="">
+        <img src="{{ asset($news->image) }}" class="object-cover w-full h-full animated-element opacity-0 transition duration-300 ease-in-out" alt="">
 
 
-        <div class="w-full h-full px-8 md:px-32 py-24">
+        <div class="w-full h-full px-8 md:px-32 py-24 animated-element opacity-0 transition duration-300 ease-in-out">
             {!! $news->content !!}
         </div>
 
@@ -39,8 +39,8 @@
     </section>
 
 
-   <div class="px-8 py-12">
-    <h class="text-5xl">Article you might be <span class="font-century italic">interested</span></h1>
+   <div class="px-8 py-12 animated-element opacity-0 transition duration-300 ease-in-out">
+    <h class="text-5xl">{{ __('landing.article_you_might_interested_text_1') }} <span class="font-century italic">{{ __('landing.article_you_might_interested_text_2') }}</span></h1>
    </div>
 
     @include('sections.news_list')

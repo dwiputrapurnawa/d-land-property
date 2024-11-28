@@ -53,7 +53,7 @@
           </li>
           <li class="flex items-center gap-5 mt-5">
             <img loading="lazy" src="/images/whatsapp.png" alt="WhatsApp icon" class="w-6 h-6" />
-            <a href="https://wa.me/{{ $company->phone }}" class="hover:underline">Whatsapp</a>
+            <a href="https://wa.me/{{ str_replace([' ', '-'], '', $company->phone) }}" class="hover:underline">Whatsapp</a>
           </li>
         </ul>
         </div>

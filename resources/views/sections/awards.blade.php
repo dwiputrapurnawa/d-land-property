@@ -21,7 +21,7 @@
           </h2>
       </div>
       <p class="self-center mt-8 text-sm tracking-wide leading-none text-zinc-800">
-        Global economies by 2030
+        {{ __('landing.global_economies_by_2030') }}
       </p>
   </div>
 
@@ -33,7 +33,7 @@
         </h2>
     </div>
     <p class="self-center mt-8 text-sm tracking-wide leading-none text-zinc-800">
-      Annual inflation rate
+      {{ __('landing.annual_inflation_rate') }}
     </p>
 </div>
 
@@ -45,7 +45,7 @@
       </h2>
   </div>
   <p class="self-center mt-8 text-sm tracking-wide leading-none text-zinc-800">
-    Yearly economic growth
+    {{ __('landing.yearly_economic_growth') }}
   </p>
 </div>
 </section>

@@ -52,11 +52,11 @@
     
     <section class="flex flex-col mx-auto w-full max-w-[480px] px-12 md:hidden">
         <div class="flex gap-3 w-full">
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/790b5629ffe79447617611a87a2caff3f82d50310a81cb06cab4aac53cfb5948?placeholderIfAbsent=true&apiKey=d2a041474570455ea3b193ed2249e743" alt="Gallery image 1" class="object-contain shrink-0 max-w-full aspect-[1.04] w-[182px]" />
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/23e105c821fdd1a0375eb07f761f9b4024edb9203a75eae6f45caf6846ec4ebd?placeholderIfAbsent=true&apiKey=d2a041474570455ea3b193ed2249e743" alt="Gallery image 2" class="object-contain shrink-0 max-w-full aspect-[1.04] w-[182px] ml-auto" />
+            <img loading="lazy" src="{{ asset('images/img-mobile-1.png') }}" alt="Gallery image 1" class="object-contain shrink-0 max-w-full aspect-[1.04] w-[182px]" />
+            <img loading="lazy" src="{{ asset('images/img-mobile-2.png') }}" alt="Gallery image 2" class="object-contain shrink-0 max-w-full aspect-[1.04] w-[182px] ml-auto" />
         </div>
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/5e964bf60ebebb86ffbdde097fdb3757f7a115d801f2492720b8c3ed22578386?placeholderIfAbsent=true&apiKey=d2a041474570455ea3b193ed2249e743" alt="Gallery image 3" class="object-contain mt-3 w-full aspect-[1.95]" />
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/4396cf5041b459059a62d8796839375be020c572b827ba0aa49205b823ce560b?placeholderIfAbsent=true&apiKey=d2a041474570455ea3b193ed2249e743" alt="Gallery image 4" class="object-contain mt-3 w-full aspect-[1.9]" />
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/47477eaac06f6ef49d6e6213773427b2a8069c3b0df135a8e17989628f4ae43f?placeholderIfAbsent=true&apiKey=d2a041474570455ea3b193ed2249e743" alt="Gallery image 5" class="object-contain mt-3 w-full aspect-[1.78]" />
+        <img loading="lazy" src="{{ asset('images/img-mobile-3.png') }}" alt="Gallery image 3" class="object-contain mt-3 w-full aspect-[1.95]" />
+        <img loading="lazy" src="{{ asset('images/img-mobile-4.png') }}" alt="Gallery image 4" class="object-contain mt-3 w-full aspect-[1.9]" />
+        <img loading="lazy" src="{{ asset('images/img-mobile-5.png') }}" alt="Gallery image 5" class="object-contain mt-3 w-full aspect-[1.78]" />
     </section>
 </div>

@@ -22,7 +22,7 @@
             </a>
           </div>
   
-          <div id="request-mobile-close" class="flex items-center md:hidden">
+          <div id="request-mobile-close" class="flex items-center md:hidden cursor-pointer">
             <div class="relative w-6 h-6">
               <div class="absolute w-6 h-0.5 bg-current transform rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
               <div class="absolute w-6 h-0.5 bg-current transform -rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
@@ -109,7 +109,7 @@
         class="getConsultationButton mt-10 w-full px-8 py-3 text-base sm:text-lg tracking-wide text-white font-[410] border border-solid border-zinc-400 rounded-[30px] hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-500 transition-colors "
         aria-label="Get a consultation"
       >
-        GET A CONSULTATION
+        {{ __('landing.get_consultation_text') }}
       </button>
        
       <p class="mt-10 text-sm tracking-wide font-[405] text-zinc-400 w-full max-md:mt-10 text-center">

@@ -10,7 +10,7 @@
             >
         </div>
         <article class="w-full md:w-2/3 lg:w-[71%] mt-6 md:mt-0">
-            <h2 class="self-start text-md sm:text-sm md:text-base font-medium text-zinc-400 mb-4 sm:mb-6 md:mb-8">ABOUT US</h2>
+            <h2 class="self-start text-md sm:text-sm md:text-base font-medium text-zinc-400 mb-4 sm:mb-6 md:mb-8">{{ __('landing.about_us_section_text') }}</h2>
             <p class="text-2xl max-w-2xl tracking-wide leading-relaxed font-normal text-zinc-800 mb-4 sm:mb-6 md:mb-10">
                 <span class="italic font-century tracking tighter"> {{ __('landing.about_us_text_1') }} </span> {{ __('landing.about_us_text_2') }} <span class="italic font-century"> {{ __('landing.about_us_text_3') }} </span> {{ __('landing.about_us_text_4') }} 
             </p>

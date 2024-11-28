@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <input type="hidden" name="company_number" value="{{ $company->phone }}">
+    <input type="hidden" name="company_number" value="{{ str_replace([' ', '-'], '', $company->phone) }}">
 
     <div class="relative h-screen">
         <img src="{{ asset('images/img-5.png') }}" class="w-full h-full absolute inset-0 object-cover" alt="">

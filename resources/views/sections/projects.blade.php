@@ -46,7 +46,7 @@
               role="button"
               aria-label="View Project"
             >
-              VIEW PROJECT
+              {{ __('landing.view_project') }}
             </a>
           </div>
           
@@ -57,10 +57,10 @@
       </div>
   
       @if ($projects->isEmpty())
-      <div class="flex items-center justify-center justify-items-center">
+      <div class="flex items-center justify-center justify-items-center py-auto md:py-24">
         <div class="text-center">
-          <h1 class="text-3xl font-semibold text-gray-700 mb-4">No Data Available</h1>
-          <p class="text-gray-500 mb-6">There is currently no data to display here. Please check back later.</p>
+          <h1 class="text-3xl font-semibold text-gray-700 mb-4">{{ __('landing.no_project_available_text_1') }}</h1>
+          <p class="text-gray-500 mb-6">{{ __('landing.no_project_available_text_2') }}</p>
         </div>
       </div>
       @endif

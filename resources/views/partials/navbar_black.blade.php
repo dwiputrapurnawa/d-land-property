@@ -96,7 +96,7 @@
       </div>
       
       <ul class="px-5 space-y-2 z-50">
-        <li><a href="{{ route('home.page') }}" class=" text-3xl font-light underline-animation-black">Home</a></li>
+        <li><a href="{{ route('home.page') }}" class=" text-3xl font-light underline-animation-black">{{ __('landing.navbar_home') }}</a></li>
         <li><a href="{{ route('projects.page') }}" class="text-3xl font-light underline-animation-black">{{ __('landing.navbar_project') }}</a></li>
         <li><a href="{{ route('about.us.page') }}" class="text-3xl font-light underline-animation-black">{{ __('landing.navbar_about_us') }}</a></li>
         <li><a href="{{ route('management.page') }}" class="text-3xl font-light underline-animation-black">{{ __('landing.navbar_managements') }}</a></li>
@@ -117,7 +117,7 @@
         <div class="w-full max-w-screen-lg flex justify-between px-5">
           <a href="{{ $company->instagram }}" class="underline text-md" style="text-underline-offset: 8px;">Instagram</a>
           <a href="{{ $company->youtube }}" class="underline text-md" style="text-underline-offset: 8px;">Youtube</a>
-          <a href="https://wa.me/{{ $company->phone }}" class="underline text-md" style="text-underline-offset: 8px;">Whatsapp</a>
+          <a href="https://wa.me/{{ str_replace([' ', '-'], '', $company->phone) }}" class="underline text-md" style="text-underline-offset: 8px;">Whatsapp</a>
         </div>
       </div>
 

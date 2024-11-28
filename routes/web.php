@@ -59,13 +59,13 @@ Route::prefix('admin')->middleware(IsAdminMiddleware::class)->group(function () 
     Route::get('/get-news', [NewsController::class, 'news_list'])->name('get.news');
 });
 
-Route::get('/projects', [ProjectPageController::class, 'index'])->name('projects.page');
-Route::get('/detail-projects', [ProjectPageController::class, 'detail'])->name('projects.detail.page');
-Route::get('/about-us', [AboutUsController::class, 'index'])->name('about.us.page');
-Route::get('/about-bali', [AboutBaliPageController::class, 'index'])->name('about.bali.page');
-Route::get('/news', [NewsPageController::class, 'index'])->name('news.page');
-Route::get('/news/{news}', [NewsPageController::class, 'detail'])->name('news.detail.page');
-Route::get('/management', [ManagementPageController::class, 'index'])->name('management.page');
+Route::get('/projects', [ProjectPageController::class, 'index'])->middleware(LanguageSwitcher::class)->name('projects.page');
+Route::get('/detail-projects', [ProjectPageController::class, 'detail'])->middleware(LanguageSwitcher::class)->name('projects.detail.page');
+Route::get('/about-us', [AboutUsController::class, 'index'])->middleware(LanguageSwitcher::class)->name('about.us.page');
+Route::get('/about-bali', [AboutBaliPageController::class, 'index'])->middleware(LanguageSwitcher::class)->name('about.bali.page');
+Route::get('/news', [NewsPageController::class, 'index'])->middleware(LanguageSwitcher::class)->name('news.page');
+Route::get('/news/{news}', [NewsPageController::class, 'detail'])->middleware(LanguageSwitcher::class)->name('news.detail.page');
+Route::get('/management', [ManagementPageController::class, 'index'])->middleware(LanguageSwitcher::class)->name('management.page');
 
 
 Route::post('/consultation', [ConsultationController::class, 'store'])->name('consultation.store');

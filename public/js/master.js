@@ -30,8 +30,14 @@ $(function () {
             },
         };
 
+        console.log(locale);
+
         $("#customSelect span").text(flagPath[locale].text);
         $("#customSelect span").prepend(
+            `<img src="${flagPath[locale].img}" alt="${locale}" class="w-6 h-6 mr-2">`
+        );
+        $("#customSelectMobile span").text(flagPath[locale].text);
+        $("#customSelectMobile span").prepend(
             `<img src="${flagPath[locale].img}" alt="${locale}" class="w-6 h-6 mr-2">`
         );
     }

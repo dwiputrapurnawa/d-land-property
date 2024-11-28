@@ -7,7 +7,7 @@
     <header class="flex flex-col items-center px-4 py-6 sm:px-6 md:px-8 w-full shadow-2xl bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg">
       <div class="w-full max-w-xs">
         <h2 class="text-center text-xl sm:text-2xl tracking-wider leading-8 font-light mb-6 sm:mb-8">
-          Leave your details with the correct number and our specialists will advise you on any questions you may have
+          {{ __('landing.request_call_header_text') }}
         </h2>
 
         <form class="w-full contact-us-form">
@@ -65,7 +65,7 @@
           </div>
 
           <button class="getConsultationButton mt-6 w-full px-6 py-3 text-base text-white font-semibold border border-solid border-white rounded-full hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-500 transition duration-200">
-            GET A CONSULTATION
+            {{ __('landing.get_consultation_text') }}
           </button>
 
           <p class="mt-12 text-xs tracking-wide text-center font-light text-white">

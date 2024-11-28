@@ -1,10 +1,10 @@
 <section class="flex flex-col lg:flex-row px-6 py-16 lg:px-32 lg:py-24 w-full relative space-y-12 lg:space-y-0 lg:mx-20">
     <!-- Title and Heading on the Left -->
     <div class="lg:w-1/3 flex flex-col">
-        <p class="text-sm text-gray-400 uppercase tracking-wider mb-4 flex animated-element opacity-0 transition duration-300 ease-in-out">OUR TEAM</p>
+        <p class="text-sm text-gray-400 uppercase tracking-wider mb-4 flex animated-element opacity-0 transition duration-300 ease-in-out">{{ __('landing.our_team_section_text') }}</p>
         <h1 class="text-4xl lg:text-5xl font-light text-gray-900 flex flex-col animated-element opacity-0 transition duration-300 ease-in-out">
-            <span>Our</span>
-            <span class="italic font-semibold font-century">Team</span>
+            <span>{{ __('landing.our_team_text_1') }}</span>
+            <span class="italic font-semibold font-century">{{ __('landing.our_team_text_2') }}</span>
         </h1>
     </div>
     
