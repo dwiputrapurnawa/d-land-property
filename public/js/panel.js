@@ -1,4 +1,85 @@
 $(function () {
+    const chipContainer = $("#chip-container"); // The container holding chips and the input
+    const chipInput = $("#chip-input"); // The input field for new chips
+    const hiddenTags = $("#hidden-tags"); // Hidden input to store chip values
+
+    if (hiddenTags.length) {
+        // Initialize chips from hidden input
+        if (hiddenTags.val() != "") {
+            const initValue = hiddenTags.val().split(",");
+
+            initValue.forEach(function (value) {
+                const chip = $(`
+                  <span class="chip flex items-center bg-blue-100 text-blue-600 px-3 py-1 rounded-full m-1">
+                    ${value}
+                    <button
+                      type="button"
+                      class="ml-2 text-blue-600 hover:text-blue-800 remove-chip"
+                    >
+                      ×
+                    </button>
+                  </span>
+                `);
+
+                chipContainer.prepend(chip); // Add the chip to the container
+            });
+        }
+    }
+
+    // Clear all chips when the 'Clear all'
+
+    // Function to update the hidden input field
+    function updateHiddenTags() {
+        const chips = [];
+        chipContainer.find(".chip").each(function () {
+            chips.push($(this).text().trim().slice(0, -1)); // Extract chip text, removing the '×'
+        });
+        hiddenTags.val(chips.join(",")); // Set the comma-separated chip values
+    }
+
+    // Add a chip when Enter is pressed
+    chipInput.on("keypress", function (e) {
+        if (e.key === "Enter" && chipInput.val().trim() !== "") {
+            e.preventDefault(); // Prevent form submission on Enter
+
+            const value = chipInput.val().trim(); // Get the input value
+            const chip = $(`
+          <span class="chip flex items-center bg-blue-100 text-blue-600 px-3 py-1 rounded-full m-1">
+            ${value}
+            <button
+              type="button"
+              class="ml-2 text-blue-600 hover:text-blue-800 remove-chip"
+            >
+              ×
+            </button>
+          </span>
+        `);
+
+            chipContainer.prepend(chip); // Add the chip to the container
+            chipInput.val(""); // Clear the input field
+            updateHiddenTags(); // Update the hidden input field
+        }
+    });
+
+    // Remove a chip when the '×' button is clicked
+    chipContainer.on("click", ".remove-chip", function () {
+        $(this).parent(".chip").remove(); // Remove the chip element
+        updateHiddenTags(); // Update the hidden input field
+    });
+
+    $(".price-input").on("input", function () {
+        let value = $(this).val();
+
+        // Remove non-numeric characters
+        value = value.replace(/[^0-9]/g, "");
+
+        // Add commas as thousand separators
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        // Update the input value
+        $(this).val(value);
+    });
+
     $('[name="phone"]').inputmask({
         mask: "+62 999-9999-9999", // Adding +62 prefix
         placeholder: " ",
@@ -11,6 +92,36 @@ $(function () {
             return "+62" + pastedValue.slice(-12); // Ensure it's a 12-digit number after the prefix
         },
     });
+
+    if ($("#description-editor").length > 0) {
+        const quill = new Quill("#description-editor", {
+            modules: {
+                toolbar: [
+                    [
+                        { font: [] },
+                        { size: ["small", "normal", "large", "huge"] },
+                    ],
+                    [{ header: "1" }, { header: "2" }],
+                    ["bold", "italic", "underline"],
+                    [{ script: "sub" }, { script: "super" }],
+                ],
+            },
+            theme: "snow", // or 'bubble'
+        });
+
+        // Listen for Quill's `text-change` event
+        quill.on("text-change", function (delta, oldDelta, source) {
+            var content = quill.root.innerHTML;
+
+            // Trigger a custom jQuery event
+            $("#description-editor").trigger("descEditorChange", content);
+        });
+
+        // Use jQuery to listen for the custom event
+        $("#description-editor").on("descEditorChange", function (e, content) {
+            $("[name='description']").val(content);
+        });
+    }
 
     if ($("#editor").length > 0) {
         const upload_img_url = $("[name='upload-img']").val();
@@ -219,9 +330,7 @@ $(function () {
         serverSide: true,
         columns: [
             { data: "no" },
-            { data: "title" },
-            { data: "subtitle" },
-            { data: "roi" },
+            { data: "project_name" },
             { data: "status" },
             { data: "created_at" },
             { data: "action" },
@@ -232,17 +341,21 @@ $(function () {
         },
         columnDefs: [
             {
-                targets: 5, // Apply customization on the 4th column (index 3)
+                targets: 3, // Apply customization on the 4th column (index 3)
                 render: function (data, type, row) {
                     // Format the date (assuming data is in ISO format)
                     if (type === "display") {
-                        return new Date(data).toLocaleDateString(); // Format as mm/dd/yyyy
+                        return new Date(data).toLocaleDateString("en-GB", {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric",
+                        }); // Format as mm/dd/yyyy
                     }
                     return data; // For other types (sorting, etc.), return original
                 },
             },
             {
-                targets: 4,
+                targets: 2,
                 render: function (data, type, row) {
                     if (type === "display") {
                         if (data == "draft") {
@@ -411,4 +524,115 @@ $(function () {
             });
         }
     });
+
+    // Array for existing images (loaded from the server)
+    let existingImages = $("[name='old_images']").length
+        ? JSON.parse($('[name="old_images"]').val())
+        : [];
+
+    // Array for newly selected files
+    let selectedFiles = [];
+
+    // Combined array to track all images (existing + new)
+    let totalImages = [...existingImages];
+
+    // Function to update the input files
+    function updateInputFiles() {
+        const dataTransfer = new DataTransfer();
+        $.each(selectedFiles, function (index, file) {
+            dataTransfer.items.add(file);
+        });
+        $("#imageInput")[0].files = dataTransfer.files;
+    }
+
+    // Function to render all images
+    function renderImages() {
+        $("#previewContainerImages").empty();
+        totalImages.forEach((item, index) => {
+            const previewDiv = $("<div>").addClass("image-preview-container");
+
+            const imagePreviewDiv = $("<div>").addClass(
+                "image-preview relative"
+            );
+            const imgElement = $("<img>")
+                .attr(
+                    "src",
+                    (item.image_path
+                        ? window.location.origin + "/" + item.image_path
+                        : null) || URL.createObjectURL(item.file)
+                )
+                .addClass("w-full h-full object-cover rounded-md");
+
+            const deleteButton = $("<button>")
+                .addClass("delete-btn")
+                .html(
+                    '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>'
+                )
+                .on("click", function () {
+                    // Remove from totalImages
+                    totalImages.splice(index, 1);
+
+                    // If it was a new file, also remove from selectedFiles
+                    if (item.file) {
+                        const fileIndex = selectedFiles.indexOf(item.file);
+                        if (fileIndex > -1) selectedFiles.splice(fileIndex, 1);
+                    }
+
+                    // Update the input files and re-render
+                    updateInputFiles();
+                    renderImages();
+
+                    const retained_images = totalImages.filter(
+                        (item) => item.image_path
+                    );
+
+                    $('[name="retained_images"]').val(
+                        JSON.stringify(retained_images)
+                    );
+                });
+
+            imagePreviewDiv.append(imgElement).append(deleteButton);
+
+            // Filename below the image
+            const fileNameDiv = $("<div>")
+                .addClass("text-sm text-gray-700 mt-2")
+                .text(item.file ? item.file.name : item.image_name);
+
+            previewDiv.append(imagePreviewDiv).append(fileNameDiv);
+            $("#previewContainerImages").append(previewDiv);
+        });
+    }
+
+    // Preload existing images
+    renderImages();
+
+    $("#imageInput").on("change", function (event) {
+        const files = event.target.files;
+
+        // Check if the total image count exceeds the limit
+        if (totalImages.length + files.length > 5) {
+            $("#uploadLimitMessage").removeClass("hidden"); // Show the limit message
+            return; // Stop processing new files
+        } else {
+            $("#uploadLimitMessage").addClass("hidden"); // Hide the limit message
+        }
+
+        // Add new files to selectedFiles and totalImages
+        $.each(files, function (index, file) {
+            selectedFiles.push(file);
+            totalImages.push({ file: file });
+        });
+
+        // Update input files and re-render the images
+        updateInputFiles();
+        renderImages();
+
+        const retained_images = totalImages.filter((item) => item.image_path);
+
+        $('[name="retained_images"]').val(JSON.stringify(retained_images));
+    });
+
+    setTimeout(function () {
+        $(".message").fadeOut();
+    }, 2000); // The message will fade out after 5 seconds (5000 ms)
 });

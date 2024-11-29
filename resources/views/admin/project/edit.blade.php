@@ -4,80 +4,423 @@
 @section('content')
     
     <div class="bg-white p-20 rounded-lg shadow-lg w-full">
-        <h2 class="text-2xl font-semibold mb-6 text-gray-700">Update Project</h2>
-        <form action="{{ route('admin.project.update', ["id" => $project->id]) }}" method="POST" enctype="multipart/form-data" class="space-y-4">
+        <h2 class="text-2xl font-semibold mb-12 text-gray-700">Update Project</h2>
+        <form id="project-form" action="{{ route('admin.project.update', ["id" => $project->id]) }}" method="POST" enctype="multipart/form-data" class="space-y-4">
             @csrf
-            @method('PUT')
+            @method("PUT")
             <!-- Image Upload -->
-            <div class="flex flex-col max-w-lg">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="flex flex-col max-w-lg mt-auto">
+                    <label for="image" class="text-lg font-semibold text-gray-800 mb-2">Upload Cover Image</label>
+                    <input type="hidden" name="old_img_path" value="{{ $project->image }}">
 
-                <input type="hidden" name="old_img_path" value="{{ $project->image }}">
-
-                <!-- Preview Container -->
-               <div id="previewContainer" class="mb-10">
-                   <img id="previewImage" class="w-auto h-auto rounded-lg shadow-md" alt="Preview" src="{{ asset('storage/' . $project->image) }}">
-               </div>
-   
-                   <label for="image" class="text-lg font-semibold text-gray-800 mb-2">Upload Image</label>
-                   <div class="relative">
-                       <!-- Hidden file input -->
-                       <input type="file" id="image" name="image" class="absolute inset-0 opacity-0 cursor-pointer" />
-                       <!-- Custom file upload button -->
-                       <button class="file-upload-btn text-center bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-indigo-600 transition duration-200 ease-in-out w-full">
-                           Choose File
-                       </button>
+                    <!-- Preview Container -->
+                   <div id="previewContainer" class="mb-10">
+                       <img id="previewImage" class="w-auto h-auto rounded-lg shadow-md" alt="Preview" src="{{ asset('storage/' . $project->image) }}">
                    </div>
-                   <span id="file-name" class="mt-2 text-sm text-gray-500">No file chosen</span>
-               </div>
+       
+                      
+                       <div class="relative">
+                           <!-- Hidden file input -->
+                           <input type="file" id="image" name="image" class="absolute inset-0 opacity-0 cursor-pointer" />
+                           <!-- Custom file upload button -->
+                           <button class="file-upload-btn text-center bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-indigo-600 transition duration-200 ease-in-out w-full">
+                               Choose Image
+                           </button>
+                           @error('image')
+                           <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                       @enderror
+                       </div>
+                       <span id="file-name" class="mt-2 text-sm text-gray-500">No file chosen</span>
+                   </div>
+    
+                   <div class="max-w-3xl mx-auto bg-white">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Upload Project Images</h2>
+                    
+                    <!-- Custom Styled File Input -->
+                    <label for="imageInput" class="inline-block mb-4 cursor-pointer bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition duration-200 text-center">
+                        Select Images
+                    </label>
+                    @error('images')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+                    <input type="hidden" name="retained_images" value="{{ $project->get_images }}">
+                    <input type="hidden" name="old_images" value="{{ $project->get_images }}">
+                    <input type="file" id="imageInput" name="images[]" multiple class="hidden">
+                    
+                    <div class="flex flex-wrap gap-6 justify-start mb-6" id="previewContainerImages"></div>
             
-
-
-            <!-- Title -->
-            <div>
-                <label for="title" class="block text-gray-700 font-medium">Title</label>
-                <input type="text" id="title" name="title" placeholder="Enter title"
-                       class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500" value="{{ $project->title }}">
+                    <!-- Message Display -->
+                    <div id="uploadLimitMessage" class="text-red-600 mt-4 hidden">You can only upload up to 5 images.</div>
+                </div>
+            </div>
+            <hr>
+            
+            <!-- Project Name -->
+            <div class="mb-4">
+                <label for="project_name" class="block text-gray-700 font-medium">Project Name</label>
+                <input type="text" id="project_name" name="project_name" placeholder="Enter Project Name"
+                    class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500" value="{{ $project->project_name }}">
+                    <span class="text-sm text-gray-500 mt-1 block px-4">e.g Mumbul Villa</span>
+                    @error('project_name')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
+            <!-- Property Type -->
+            <div class="mb-4">
+                <label for="property_type" class="block text-gray-700 font-medium">Property Type</label>
+                <input type="text" id="property_type" name="property_type" placeholder="Enter property type"
+                    class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500" value="{{ $project->property_type }}">
+                    <span class="text-sm text-gray-500 mt-1 block px-4">e.g Villa</span>
+                    @error('property_type')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
-            <!-- Subtitle -->
-            <div>
-                <label for="subtitle" class="block text-gray-700 font-medium">Subtitle</label>
-                <input type="text" id="subtitle" name="subtitle" placeholder="Enter subtitle"
-                       class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500" value="{{ $project->subtitle }}">
+            <!-- Location -->
+            <div class="mb-4">
+                <label for="location" class="block text-gray-700 font-medium">Location</label>
+                <input type="text" id="location" name="location" placeholder="Enter location"
+                    class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500" value="{{ $project->location }}">
+                    <span class="text-sm text-gray-500 mt-1 block px-4">e.g Nusa Dua, Bali</span>
+                    @error('location')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
+            <!-- Address -->
+            <div class="mb-4">
+                <label for="address" class="block text-gray-700 font-medium">Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter Address"
+                    class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500" value="{{ $project->address }}">
+                    <span class="text-sm text-gray-500 mt-1 block px-4">e.g Jalan Raya Kampus Udayana No. 18x Jimbaran, Kuta Selatan, Badung 80361</span>
+                    @error('address')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
             </div>
 
-            <div class="flex flex-cols-2 gap-8">
-                <!-- ROI -->
-                <div class="w-full self-end">
-                    <label for="roi" class="block text-gray-700 font-medium">ROI (%)</label>
-                    <input type="number" id="roi" name="roi" placeholder="Enter ROI" min="0" step="0.01"
-                           class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500" value="{{ $project->roi }}">
+            <div class="flex flex-cols-2 gap-4">
+                <!-- Price From -->
+                <div class="mb-4 relative w-full">
+                    <label for="price_from" class="block text-gray-700 font-medium">Price From</label>
+                    <div class="mt-1 flex items-center">
+                        <span class="absolute left-2 text-gray-500">Rp.</span>
+                        <input type="text" id="price_from" name="price_from" placeholder="0.00" value="{{ $project->price_from }}"
+                            class="p-3 pl-12 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 price-input">
+                            @error('price_from')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+                <div class="mb-4 relative w-full">
+                    <label for="dp_from" class="block text-gray-700 font-medium">Down Payment From</label>
+                    <div class="mt-1 flex items-center">
+                        <span class="absolute left-2 text-gray-500">Rp.</span>
+                        <input type="text" id="dp_from" name="dp_from" placeholder="0.00" value="{{ $project->dp_from }}"
+                            class="p-3 pl-12 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 price-input">
+                            @error('dp_from')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="self-end mb-4 w-full">
+                    <label for="quantity" class="block text-gray-700 font-medium">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" placeholder="Enter quantity of property" min="0" value="{{ $project->quantity }}"
+                           class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                           @error('quantity')
+                           <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                       @enderror
+                </div>
+            </div>
+
+            <div class="flex flex-cols-3 gap-4">
+                <div class="self-end mb-4 w-full">
+                    <label for="capital_gain" class="block text-gray-700 font-medium">Capital Gain (%)</label>
+                    <input type="number" id="capital_gain" name="capital_gain" placeholder="Enter Capital Gain" min="0" value="{{ $project->capital_gain }}"
+                           class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                           @error('capital_gain')
+                           <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                       @enderror
+                </div>
+                <div class="self-end mb-4 w-full">
+                    <label for="rental_cash_flow" class="block text-gray-700 font-medium">Rental Cash Flow (%)</label>
+                    <input type="number" id="rental_cash_flow" name="rental_cash_flow" placeholder="Enter Rental Cash Flow" min="0" value="{{ $project->rental_cash_flow }}"
+                           class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                           @error('rental_cash_flow')
+                           <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                       @enderror
+                </div>
+                <div class="self-end mb-4 w-full">
+                    <label for="occupancy_rate" class="block text-gray-700 font-medium">Occupancy Rate (%)</label>
+                    <input type="number" id="occupancy_rate" name="occupancy_rate" placeholder="Enter Occupancy Rate" min="0" value="{{ $project->occupancy_rate }}"
+                           class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                           @error('occupancy_rate')
+                           <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                       @enderror
+                </div>
+            </div>
+
+
+              <!-- Project Showcase Title -->
+              <div class="mb-4">
+                <label for="project_showcase_title" class="block text-gray-700 font-medium">Project Showcase Title</label>
+                <input type="text" id="project_showcase_title" name="project_showcase_title" placeholder="Enter Project Showcase Title"
+                    class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500" value="{{ $project->project_showcase_title }}">
+                    <span class="text-sm text-gray-500 mt-1 block px-4">e.g D'Land Villa Mumbul Nusa Dua — Designed by Balinese Architect that combines Modern Tropical Living with Natural Stone Balinese touches.</span>
+                    @error('project_showcase_title')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
+
+          
+             <!-- Description -->
+             <div class="mb-4">
+                <label for="description-editor" class="block text-gray-700 font-medium mb-4">Description</label>
+                <input type="hidden" name="description" value="{{ $project->description }}">
+
+                @error('description')
+                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+            @enderror
+
+                <div id="description-editor" style="height: 300px">
+                    {!! $project->description !!}
+                </div>
+            </div>
+            <div class="flex gap-4 mb-4">
+                <!-- Area Input with Suffix -->
+                <div class="self-end w-full relative">
+                    <label for="area" class="block text-gray-700 font-medium">Area</label>
+                    <div class="mt-1 flex items-center">
+                        <input type="number" id="area" name="area" placeholder="Enter Area" min="0" value="{{ $project->area }}"
+                            class="p-3 pr-12 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                        <span class="absolute right-3 text-gray-500">m²</span>
+                    </div>
+                    @error('area')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
                 </div>
             
-                <!-- Status (Draft or Publish) -->
-                <div class="w-full self-end">
-                    <label for="status" class="block text-gray-700 font-medium">Status</label>
-                    <select id="status" name="status" class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
-                        <option value="draft" {{ $project->status == "draft" ? "selected" : "" }}>Draft</option>
-                        <option value="publish" {{ $project->status == "publish" ? "selected" : "" }}>Publish</option>
+                <!-- Building Area Input with Suffix -->
+                <div class="self-end w-full relative">
+                    <label for="building_area" class="block text-gray-700 font-medium">Building Area</label>
+                    <div class="mt-1 flex items-center">
+                        <input type="number" id="building_area" name="building_area" placeholder="Enter Building Area" min="0" value="{{ $project->building_area }}"
+                            class="p-3 pr-12 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                        <span class="absolute right-3 text-gray-500">m²</span>
+                    </div>
+                    @error('building_area')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+                </div>
+            </div>
+
+
+            <div class="flex flex-cols-3 gap-4">
+                <div class="self-end mb-4 w-full">
+                    <label for="bedrooms" class="block text-gray-700 font-medium">Bedrooms</label>
+                    <input type="number" id="bedrooms" name="bedrooms" placeholder="Enter Bedrooms" min="0" value="{{ $project->bedrooms }}"
+                           class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                           @error('bedrooms')
+                           <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                       @enderror
+                </div>
+                <div class="self-end mb-4 w-full">
+                    <label for="bathrooms" class="block text-gray-700 font-medium">Bathrooms</label>
+                    <input type="number" id="bathrooms" name="bathrooms" placeholder="Enter Bathrooms" min="0" value="{{ $project->bathrooms }}"
+                           class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                           @error('bathrooms')
+                           <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                       @enderror
+                </div>
+                <div class="self-end mb-4 w-full">
+                    <label for="private_pool" class="block text-gray-700 font-medium">Private Pool</label>
+                    <select id="private_pool" name="private_pool" class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
+                        <option value="1" {{ $project->private_pool == '1' ? 'selected' : '' }}>Yes</option>
+                        <option value="0" {{ $project->private_pool == '0' ? 'selected' : '' }}>No</option>
                     </select>
+                           @error('private_pool')
+                           <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                       @enderror
                 </div>
+                <div class="self-end mb-4 w-full">
+                    <label for="carport" class="block text-gray-700 font-medium">Carport</label>
+                    <select id="carport" name="carport" class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
+                        <option value="1" {{ $project->carport == '1' ? 'selected' : '' }}>Yes</option>
+                        <option value="0" {{ $project->carport == '0' ? 'selected' : '' }}>No</option>
+                    </select>
+                           @error('carport')
+                           <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                       @enderror
+                </div>
+            </div>
+
+            <label for="">Amenities</label>
+            <div id="chip-container" class="flex flex-wrap border border-gray-300 rounded p-2">
+                <!-- Chips will be appended here -->
+                  
+                <input
+                  id="chip-input"
+                  type="text"
+                  placeholder="Type and press Enter"
+                  class="outline-none flex-grow px-2 py-1"
+                />
+                <input type="hidden" name="amenities" id="hidden-tags" value="{{ implode(',', $project->amenities) }}" />
+              </div>
+            
+              @error('amenities')
+              <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+          @enderror
+              
+              <hr>
+              
+            
+            <div class="py-12">
+            <label for="convenient_accessibility" class="text-3xl">Convenient Access to Key Landmarks and Amenities</label>
+            
+            <div class="mb-4 mt-8 pl-8" id="convenient_accessibility">
+                <div class="mb-4">
+                    <label for="roads" class="block text-gray-700 font-medium text-xl mb-2">Roads</label>
+                    <div class="flex flex-cols-2 gap-4 pl-4" id="roads">
+                        <div class="self-end w-full relative">
+                            <label for="roads_time" class="block text-gray-700 font-medium">Travel Time</label>
+                            <div class="mt-1 flex items-center">
+                                <input type="number" id="roads_time" name="roads_time" placeholder="Enter Travel Time" min="0" value="{{ $project->roads_time }}"
+                                    class="p-3 pr-12 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                                <span class="absolute right-3 text-gray-500">min</span>
+                            </div>
+                            @error('roads_time')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                            <br>
+                        </div>
+                
+                        <div class="w-full">
+                            <label for="roads_to" class="block text-gray-700 font-medium">Destination</label>
+                            <input type="text" id="roads_to" name="roads_to" placeholder="Enter Destination" value="{{ $project->roads_to }}"
+                                class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                                <span class="text-sm text-gray-500 mt-1 block px-4">e.g Bali Mandara Toll Road</span>
+                                @error('roads_to')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="mb-4">
+                    <label for="religion" class="block text-gray-700 font-medium text-xl mb-2">Religion</label>
+                    <div class="flex flex-cols-2 gap-4 pl-4" id="religion">
+                        <div class="self-end w-full relative">
+                            <label for="religion_time" class="block text-gray-700 font-medium">Travel Time</label>
+                            <div class="mt-1 flex items-center">
+                                <input type="number" id="religion_time" name="religion_time" placeholder="Enter Travel Time" min="0" value="{{ $project->religion_time }}"
+                                    class="p-3 pr-12 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                                <span class="absolute right-3 text-gray-500">min</span>
+                            </div>
+                            @error('religion_time')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                            <br>
+                        </div>
+                
+                        <div class="w-full">
+                            <label for="religion_to" class="block text-gray-700 font-medium">Destination</label>
+                            <input type="text" id="religion_to" name="religion_to" placeholder="Enter Destination" value="{{ $project->religion_to }}"
+                                class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                                <span class="text-sm text-gray-500 mt-1 block px-4">e.g Puja Mandala Worship Complex</span>
+                                @error('religion_to')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="mb-4">
+                    <label for="hotels" class="block text-gray-700 font-medium text-xl mb-2">Hotels</label>
+                    <div class="flex flex-cols-2 gap-4 pl-4" id="hotels">
+                        <div class="self-end w-full relative">
+                            <label for="hotels_time" class="block text-gray-700 font-medium">Travel Time</label>
+                            <div class="mt-1 flex items-center">
+                                <input type="number" id="hotels_time" name="hotels_time" placeholder="Enter Travel Time" min="0" value="{{ $project->hotels_time }}"
+                                    class="p-3 pr-12 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                                <span class="absolute right-3 text-gray-500">min</span>
+                            </div>
+                            @error('hotels_time')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                            <br>
+                        </div>
+                
+                        <div class="w-full">
+                            <label for="hotels_to" class="block text-gray-700 font-medium">Destination</label>
+                            <input type="text" id="hotels_to" name="hotels_to" placeholder="Enter Destination" value="{{ $project->hotels_to }}"
+                                class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                                <span class="text-sm text-gray-500 mt-1 block px-4">e.g Apurva Kempinski</span>
+                                @error('hotels_to')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="mb-4">
+                    <label for="airports" class="block text-gray-700 font-medium text-xl mb-2">Airports</label>
+                    <div class="flex flex-cols-2 gap-4 pl-4" id="airports">
+                        <div class="self-end w-full relative">
+                            <label for="airports_time" class="block text-gray-700 font-medium">Travel Time</label>
+                            <div class="mt-1 flex items-center">
+                                <input type="number" id="airports_time" name="airports_time" placeholder="Enter Travel Time" min="0" value="{{ $project->airports_time }}"
+                                    class="p-3 pr-12 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                                <span class="absolute right-3 text-gray-500">min</span>
+                            </div>
+                            @error('airports_time')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                            <br>
+                        </div>
+                
+                        <div class="w-full">
+                            <label for="airports_to" class="block text-gray-700 font-medium">Destination</label>
+                            <input type="text" id="airports_to" name="airports_to" placeholder="Enter Destination" value="{{ $project->airports_to }}"
+                                class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                                <span class="text-sm text-gray-500 mt-1 block px-4">e.g Ngurah Rai Airport</span>
+                                @error('airports_to')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
             
 
-            <!-- Description with Trix Editor -->
-            <div>
-                <label for="description" class="block text-gray-700 font-medium">Description</label>
-                <input id="description" type="hidden" name="description">
-                <trix-editor input="description" class="trix-content mt-1 border rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 h-48">{!! $project->description !!}</trix-editor>
-            </div>
+            <hr>
+        
+            
+                    <!-- Status (Draft or Publish) -->
+                    <div class="w-full self-end">
+                        <label for="status" class="block text-gray-700 font-medium">Status</label>
+                        <select id="status" name="status" class="mt-1 p-3 block w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
+                            <option value="draft" {{ $project->status == "draft" ? "selected" : "" }}>Draft</option>
+                            <option value="publish" {{ $project->status == "publish" ? "selected" : "" }}>Publish</option>
+                        </select>
+                        @error('status')
+                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                    </div>
+                
 
-            <!-- Submit Button -->
+
+                 <!-- Submit Button -->
             <div class="text-right">
                 <button type="submit" class="px-6 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     Submit
                 </button>
             </div>
+            </div>
+            
+
+
+           
         </form>
     </div>
 

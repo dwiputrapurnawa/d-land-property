@@ -17,31 +17,31 @@
         @foreach ($projects as $project)
         <div class="flex flex-col px-4 md:px-8 lg:px-0 w-full max-w-[700px] mb-10 border-t border-gray-400 md:border-none py-12 md:py-auto @if($loop->last) border-b @endif">    
           <div class="relative w-full">
-              <img loading="lazy" src="{{ asset('storage/' . $project->image) }}" class="object-contain w-full aspect-[1.63] animated-element opacity-0 transition duration-300 ease-in-out" alt="Project visual representation" />
+              <img loading="lazy" src="{{ asset('storage/' . $project->image) }}" class="object-cover w-full aspect-[1.63] animated-element opacity-0 transition duration-300 ease-in-out" alt="Project visual representation" />
               
               
               <!-- Button container positioned at the bottom-right for large screens and centered on mobile -->
               <div class="hidden md:block box absolute bottom-0 md:right-4 right-1/2 transform md:translate-x-0 translate-x-1/2 translate-y-1/2 bg-transparent backdrop-blur-lg px-4 md:px-5 pt-8 md:pt-10 pb-12 md:pb-20 ">
-                <a href="/">
+                <a href="{{ route('projects.detail.page', ['project' => $project->slug]) }}">
                     <span class="text-xs md:text-sm px-1.5 py-0.5 md:px-6 md:py-3 border border-white text-white rounded-full font-semibold bg-transparent backdrop-blur-md shadow-lg hover:bg-opacity-20 hover:bg-zinc-700 block text-sm">{{ __('landing.view_project') }}</span>
                 </a>
             </div>
             
           </div>
       
-          <h2 class="mt-6 text-3xl font-large font-bold text-left w-full animated-element opacity-0 transition duration-300 ease-in-out font-century">{{ $project->title }}</h2>
+          <h2 class="mt-6 text-3xl font-large font-bold text-left w-full animated-element opacity-0 transition duration-300 ease-in-out font-century">{{ $project->project_name }}</h2>
   
-          <p class="mt-2 text-left w-full text-lg md:text-base animated-element opacity-0 transition duration-300 ease-in-out font-semibold">{{ $project->subtitle }}</p>
-          <p class="mt-2 text-left w-full text-xs md:text-sm text-zinc-400 animated-element opacity-0 transition duration-300 ease-in-out">ROI of {{ $project->roi }}%</p>
+          <p class="mt-2 text-left w-full text-lg md:text-base animated-element opacity-0 transition duration-300 ease-in-out font-semibold">Down payment starting from {{ $project->dp_from }}</p>
+          <p class="mt-2 text-left w-full text-xs md:text-sm text-zinc-400 animated-element opacity-0 transition duration-300 ease-in-out">ROI of {{ $project->rental_cash_flow }}%</p>
           
           <!-- Enforcing left alignment for article content -->
           <article class="mt-6 mb-4 text-xs md:text-sm lg:text-base tracking-wide font-normal w-full text-left max-w-[456px] animated-element opacity-0 transition duration-300 ease-in-out">
-              <p>{!! \Illuminate\Support\Str::limit($project->description, 300, '') !!}</p>
+              <p>{!! \Illuminate\Support\Str::limit($project->description, 200, ' ...') !!}</p>
           </article>
 
           <div class="flex w-full flex-col text-sm tracking-wide text-center font-[410] text-zinc-800 animated-element opacity-0 transition duration-300 ease-in-out sm:hidden">
             <a
-              href="#"
+              href="{{ route('projects.detail.page', ['project' => $project->slug]) }}"
               class="px-16 py-3.5 w-full border border-solid border-zinc-800 rounded-[30px] hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-zinc-800 focus:ring-offset-2 transition-colors"
               role="button"
               aria-label="View Project"

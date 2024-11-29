@@ -10,11 +10,23 @@ class HomeController extends Controller
 {
     function index()
     {
-        $project = new Project();
-        $projects = $project->project_publish_list();
+        $projectObj = new Project();
+        $projects = $projectObj->project_publish_list();
+
+        $project = Project::latest()->first();
 
         $company = Company::first();
 
-        return view('home.index', ["projects" => $projects, "company" => $company]);
+        foreach ($projects as $item) {
+            $item->dp_from =  formatNumber(floatval(str_replace(',', '', $item->dp_from)));
+        }
+
+        $data = [
+            "company" => $company,
+            "projects" => $projects,
+            "project" => $project
+        ];
+
+        return view('home.index', $data);
     }
 }

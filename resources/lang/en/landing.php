@@ -21,7 +21,7 @@ return [
     'readmore_text' => "Read More",
     'projects_showcase_title_1' => "D'Land Villa Mumbul Nusa Dua",
     'projects_showcase_title_2' => "Designed by Balinese Architect that combines Modern Tropical Living with Natural Stone Balinese touches.",
-    'projects_showcase_text' => "up to 10%",
+    'projects_showcase_text' => "up to",
     'projects_showcase_capital_gain' => "CAPITAL GAIN",
     'projects_showcase_rental_cash_flow' => "RENTAL CASH FLOW",
     'projects_showcase_occupancy_rate' => "OCCUPANCY RATE",

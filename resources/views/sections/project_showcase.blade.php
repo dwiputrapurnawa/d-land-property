@@ -4,71 +4,71 @@
 
       <div class="w-full h-full px-10 md:px-24">
         <!-- Heading -->
-      <h1 class="text-2xl sm:text-4xl tracking-wider leading-10 w-full sm:w-[872px] md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out">
-        {{ __('landing.projects_showcase_title_1') }} 
-        <span class="hidden sm:inline-block transform scale-x-150">—</span> 
-        {{ __('landing.projects_showcase_title_2') }}
-      </h1>
-
-          {{-- DESKTOP  --}}
+        @if($project)
+          <h1 class="text-2xl sm:text-4xl tracking-wider leading-10 w-full sm:w-[872px] md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out">
+            {{ $project->project_showcase_title }} <!-- Access the first item in the collection -->
+          </h1>
+      
+          {{-- DESKTOP --}}
           <div class="w-full max-w-[981px] mx-auto mt-12 sm:block hidden">
             <!-- Upper Section -->
             <div class="flex sm:flex-row gap-8 justify-between items-center mt-8 sm:mt-12 text-sm sm:text-xl md:text-2xl tracking-wider leading-none text-center animated-element opacity-0 transition duration-300 ease-in-out">
-              
               <div class="flex-col space-y-10 w-full h-full">
-                <p class="text-xl md:text-4xl">{{ __('landing.projects_showcase_text') }}</p>
+                <p class="text-xl md:text-4xl">{{ __('landing.projects_showcase_text') }} {{ $project->capital_gain }}%</p> <!-- Access the first item -->
                 <p class="sm:text-xs text-gray-400">{{ __('landing.projects_showcase_capital_gain') }}</p>
               </div>
-          
+      
               <div class="flex-col space-y-10 w-full">
-                <p class="text-xl md:text-4xl">ROI 13%</p>
+                <p class="text-xl md:text-4xl">ROI {{ $project->rental_cash_flow }}%</p> <!-- Access the first item -->
                 <p class="sm:text-xs text-gray-400">{{ __('landing.projects_showcase_rental_cash_flow') }}</p>
               </div>
-          
+      
               <div class="flex-col space-y-10 w-full">
-                <p class="text-xl md:text-4xl">70%</p>
+                <p class="text-xl md:text-4xl">{{ $project->occupancy_rate }}%</p> <!-- Access the first item -->
                 <p class="sm:text-xs text-gray-400">{{ __('landing.projects_showcase_occupancy_rate') }}</p>
               </div>
-              
             </div>
-        </div>
-        
-        <hr class="w-full h-px border border-solid border-zinc-800 relative bottom-10 sm:block hidden">
-
-        {{-- MOBILE --}}
-        <div class="w-full max-w-[981px] mx-auto mt-12 sm:hidden block">
-          <!-- Upper Section -->
-          <div class="flex flex-col gap-8 justify-between items-center mt-8 sm:mt-12 text-sm sm:text-xl md:text-2xl tracking-wider leading-none text-center animated-element opacity-0 transition duration-300 ease-in-out">
-            
-            <div class="flex-col w-full h-full">
-              <div class="grid grid-cols-2 w-full h-full items-center">
-                <p class="text-3xl text-left">{{ __('landing.projects_showcase_text') }}</p>
-                <p class="sm:text-xs text-gray-400 text-left">{{ __('landing.projects_showcase_capital_gain') }}</p>
-              </div>
-            
-              <hr class="w-full h-px border border-solid border-grey-600">
-            </div>
-
-            <div class="flex-col w-full h-full">
-              <div class="grid grid-cols-2 w-full h-full items-center">
-                <p class="text-3xl text-left">ROI 13%</p>
-                <p class="sm:text-xs text-gray-400 text-left">{{ __('landing.projects_showcase_rental_cash_flow') }}</p>
-              </div>
-            
-              <hr class="w-full h-px border border-solid border-grey-600">
-            </div>
-            <div class="flex-col w-full h-full">
-              <div class="grid grid-cols-2 w-full h-full items-center">
-                <p class="text-3xl text-left">70%</p>
-                <p class="sm:text-xs text-gray-400 text-left">{{ __('landing.projects_showcase_occupancy_rate') }}</p>
-              </div>
-            
-              <hr class="w-full h-px border border-solid border-grey-600">
-            </div>
-            
           </div>
-        </div>
+      
+          <hr class="w-full h-px border border-solid border-zinc-800 relative bottom-10 sm:block hidden">
+      
+          {{-- MOBILE --}}
+          <div class="w-full max-w-[981px] mx-auto mt-12 sm:hidden block">
+            <!-- Upper Section -->
+            <div class="flex flex-col gap-8 justify-between items-center mt-8 sm:mt-12 text-sm sm:text-xl md:text-2xl tracking-wider leading-none text-center animated-element opacity-0 transition duration-300 ease-in-out">
+              <div class="flex-col w-full h-full">
+                <div class="grid grid-cols-2 w-full h-full items-center">
+                  <p class="text-3xl text-left">up to {{ $project->capital_gain }}%</p> <!-- Access the first item -->
+                  <p class="sm:text-xs text-gray-400 text-left">{{ __('landing.projects_showcase_capital_gain') }}</p>
+                </div>
+      
+                <hr class="w-full h-px border border-solid border-grey-600">
+              </div>
+      
+              <div class="flex-col w-full h-full">
+                <div class="grid grid-cols-2 w-full h-full items-center">
+                  <p class="text-3xl text-left">ROI {{ $project->rental_cash_flow }}%</p> <!-- Access the first item -->
+                  <p class="sm:text-xs text-gray-400 text-left">{{ __('landing.projects_showcase_rental_cash_flow') }}</p>
+                </div>
+      
+                <hr class="w-full h-px border border-solid border-grey-600">
+              </div>
+      
+              <div class="flex-col w-full h-full">
+                <div class="grid grid-cols-2 w-full h-full items-center">
+                  <p class="text-3xl text-left">{{ $project->occupancy_rate }}%</p> <!-- Access the first item -->
+                  <p class="sm:text-xs text-gray-400 text-left">{{ __('landing.projects_showcase_occupancy_rate') }}</p>
+                </div>
+      
+                <hr class="w-full h-px border border-solid border-grey-600">
+              </div>
+            </div>
           </div>
+        @else
+          {{-- <p>{{ __('landing.project_not_found') }}</p> --}}
+        @endif
+      </div>
+      
     
   
 
@@ -155,7 +155,7 @@
         
   
         <!-- Villa Image -->
-        <img loading="lazy" src="/images/villa.png" class="object-contain w-screen aspect-[2.24]">
+        <img loading="lazy" src="{{ asset('images/villa.png') }}" class="object-contain w-screen aspect-[2.24]">
   
         <!-- Footer Section -->
         <section class="flex bg-neutral-900 min-h-[300px]">

@@ -12,6 +12,10 @@ class Project extends Model
     protected $table = "project";
     protected $guarded = ["id"];
 
+    protected $casts = [
+        'amenities' => 'array', // Cast JSON column to array
+    ];
+
     /**
      * Get the options for generating the slug.
      */
@@ -19,7 +23,7 @@ class Project extends Model
     {
         return [
             'slug' => [
-                'source' => 'title',
+                'source' => 'project_name',
                 'onUpdate' => true,  // Make sure slugs regenerate on update as well
                 'unique' => true, // Make sure slugs are unique
             ]
@@ -29,6 +33,11 @@ class Project extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function get_images()
+    {
+        return $this->hasMany(Image::class, "project_id", "id");
     }
 
     function project_list_count_all()

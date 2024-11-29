@@ -37,24 +37,43 @@ class NewsController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            "status" => "required"
+            'status' => 'required',
+        ], [
+            'title.required' => 'The title field is required.',
+            'title.string' => 'The title must be a string.',
+            'title.max' => 'The title may not be greater than 255 characters.',
+
+            'content.required' => 'The content field is required.',
+            'content.string' => 'The content must be a string.',
+
+            'image.required' => 'An image is required.',
+            'image.image' => 'The file must be an image.',
+            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
+            'image.max' => 'The image may not be greater than 2048 kilobytes.',
+
+            'status.required' => 'The status field is required.',
         ]);
 
-        // Handle the image upload if there is an image
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('news', 'public');
+
+        try {
+            // Handle the image upload if there is an image
+            $imagePath = null;
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('news', 'public');
+            }
+
+            // Insert data into the database
+            News::create([
+                'title' => $validated['title'],
+                'content' => $validated['content'],
+                'status' => $validated['status'],
+                'image' => $imagePath, // Store the image path in the database
+            ]);
+
+            return redirect()->route('admin.news.create')->with("message", "Successfully added new article");
+        } catch (Exception $e) {
+            return redirect()->route('admin.news.create')->with("error", "Failed to add new article: " . $e->getMessage());
         }
-
-        // Insert data into the database
-        News::create([
-            'title' => $validated['title'],
-            'content' => $validated['content'],
-            'status' => $validated['status'],
-            'image' => $imagePath, // Store the image path in the database
-        ]);
-
-        return redirect()->route('admin.news.create');
     }
 
     function update(Request $request, $id)
@@ -64,25 +83,42 @@ class NewsController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            "status" => "required"
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'status' => 'required',
+        ], [
+            'title.required' => 'The title field is required.',
+            'title.string' => 'The title must be a string.',
+            'title.max' => 'The title may not be greater than 255 characters.',
+
+            'content.required' => 'The content field is required.',
+            'content.string' => 'The content must be a string.',
+
+            'image.image' => 'The file must be an image.',
+            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
+            'image.max' => 'The image may not be greater than 2048 kilobytes.',
+
+            'status.required' => 'The status field is required.',
         ]);
 
-        // Handle the image upload if there is an image
-        $imagePath = $request->input('old_img_path');
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('news', 'public');
+        try {
+            // Handle the image upload if there is an image
+            $imagePath = $request->input('old_img_path');
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('news', 'public');
+            }
+
+            // Insert data into the database
+            News::where("id", "=", $id)->update([
+                'title' => $validated['title'],
+                'content' => $validated['content'],
+                'status' => $validated['status'],
+                'image' => $imagePath, // Store the image path in the database
+            ]);
+
+            return redirect()->route('admin.news')->with("message", "Successfully added new article");;
+        } catch (Exception $e) {
+            return redirect()->route('admin.news')->with("error", "Failed to update the article: " . $e->getMessage());
         }
-
-        // Insert data into the database
-        News::where("id", "=", $id)->update([
-            'title' => $validated['title'],
-            'content' => $validated['content'],
-            'status' => $validated['status'],
-            'image' => $imagePath, // Store the image path in the database
-        ]);
-
-        return redirect()->route('admin.news');
     }
 
     function edit($slug)

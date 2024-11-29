@@ -21,7 +21,7 @@ return [
     'readmore_text' => "Baca Selengkapnya",
     'projects_showcase_title_1' => "D'Land Villa Mumbul Nusa Dua",
     'projects_showcase_title_2' => "Dirancang oleh Arsitek Bali yang menggabungkan Gaya Hidup Tropis Modern dengan Sentuhan Batu Alam Bali.",
-    'projects_showcase_text' => "hingga 10%",
+    'projects_showcase_text' => "hingga",
     'projects_showcase_capital_gain' => "KEUNTUNGAN MODAL",
     'projects_showcase_rental_cash_flow' => "ALIRAN KAS SEWA",
     'projects_showcase_occupancy_rate' => "TINGKAT KETERISIAN",

@@ -60,7 +60,7 @@ Route::prefix('admin')->middleware(IsAdminMiddleware::class)->group(function () 
 });
 
 Route::get('/projects', [ProjectPageController::class, 'index'])->middleware(LanguageSwitcher::class)->name('projects.page');
-Route::get('/detail-projects', [ProjectPageController::class, 'detail'])->middleware(LanguageSwitcher::class)->name('projects.detail.page');
+Route::get('/projects/{project}', [ProjectPageController::class, 'detail'])->middleware(LanguageSwitcher::class)->name('projects.detail.page');
 Route::get('/about-us', [AboutUsController::class, 'index'])->middleware(LanguageSwitcher::class)->name('about.us.page');
 Route::get('/about-bali', [AboutBaliPageController::class, 'index'])->middleware(LanguageSwitcher::class)->name('about.bali.page');
 Route::get('/news', [NewsPageController::class, 'index'])->middleware(LanguageSwitcher::class)->name('news.page');
