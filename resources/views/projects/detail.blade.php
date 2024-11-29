@@ -16,7 +16,7 @@
     <input type="hidden" name="company_number" value="{{ str_replace([' ', '-'], '', $company->phone) }}">
 
     <div class="relative h-screen">
-        <img src="{{ asset($project->image) }}" class="w-full h-full absolute inset-0 object-cover" alt="">
+        <img src="{{ asset("storage/" . $project->image) }}" class="w-full h-full absolute inset-0 object-cover" alt="">
     
         @include('partials.navbar_white')
     
@@ -125,7 +125,7 @@
     
         <div class="order-1 md:order-2 flex md:block">
             <img 
-                src="{{ asset($project->get_images->first()->image_path) }}" 
+                src="{{ asset("storage/" . $project->get_images->first()->image_path) }}" 
                 class="object-cover w-full h-full animated-element opacity-0 transition duration-300 ease-in-out" 
                 alt="Project Detail">
         </div>
@@ -205,7 +205,7 @@
                         @if(isset($project->get_images[0]))
                             <img
                                 loading="lazy"
-                                src="{{ asset($project->get_images[0]->image_path) }}"
+                                src="{{ asset("storage/" . $project->get_images[0]->image_path) }}"
                                 alt="Gallery image 1"
                                 class="object-cover grow w-full aspect-[1.04] max-md:mt-6 max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out"
                             />
@@ -216,7 +216,7 @@
                         @if(isset($project->get_images[1]))
                             <img
                                 loading="lazy"
-                                src="{{ asset($project->get_images[1]->image_path) }}"
+                                src="{{ asset("storage/" . $project->get_images[1]->image_path) }}"
                                 alt="Gallery image 2"
                                 class="object-cover grow w-full aspect-[1.92] max-md:mt-6 max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out"
                             />
@@ -231,7 +231,7 @@
                         @if(isset($project->get_images[2]))
                             <img
                                 loading="lazy"
-                                src="{{ asset($project->get_images[2]->image_path) }}"
+                                src="{{ asset("storage/" . $project->get_images[2]->image_path) }}"
                                 alt="Gallery image 3"
                                 class="object-cover grow w-full aspect-[1.92] max-md:mt-6 max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out"
                             />
@@ -242,7 +242,7 @@
                         @if(isset($project->get_images[3]))
                             <img
                                 loading="lazy"
-                                src="{{ asset($project->get_images[3]->image_path) }}"
+                                src="{{ asset("storage/" . $project->get_images[3]->image_path) }}"
                                 alt="Gallery image 4"
                                 class="object-cover grow w-full aspect-[1.05] max-md:mt-6 max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out"
                             />
@@ -254,7 +254,7 @@
             @if(isset($project->get_images[4]))
                 <img
                     loading="lazy"
-                    src="{{ asset($project->get_images[4]->image_path) }}"
+                    src="{{ asset("storage/" . $project->get_images[4]->image_path) }}"
                     alt="Gallery image 5"
                     class="object-cover mt-8 w-full aspect-[1.79] max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out"
                 />
@@ -264,23 +264,23 @@
         
         
         
-        <section class="flex flex-col mx-auto w-full max-w-[480px] px-12 md:hidden">
+        <section class="flex flex-col mx-auto w-full max-w-[480px] px-6 md:hidden">
             <div class="flex gap-3 w-full">
                 @if (isset($project->get_images[0]))
-                <img loading="lazy" src="{{ asset($project->get_images[0]->image_path) }}" alt="Gallery image 1" class="object-cover shrink-0 max-w-full aspect-[1.04] w-[182px]" />
+                <img loading="lazy" src="{{ asset("storage/" . $project->get_images[0]->image_path) }}" alt="Gallery image 1" class="object-cover shrink-0 max-w-full aspect-[1.04] w-[182px]" />
                 @endif
                 @if (isset($project->get_images[1]))
-                <img loading="lazy" src="{{ asset($project->get_images[1]->image_path) }}" alt="Gallery image 2" class="object-cover shrink-0 max-w-full aspect-[1.04] w-[182px] ml-auto" />
+                <img loading="lazy" src="{{ asset("storage/" . $project->get_images[1]->image_path) }}" alt="Gallery image 2" class="object-cover shrink-0 max-w-full aspect-[1.04] w-[182px] ml-auto" />
                 @endif
             </div>
             @if (isset($project->get_images[2]))
-                <img loading="lazy" src="{{ asset($project->get_images[2]->image_path) }}" alt="Gallery image 3" class="object-cover mt-3 w-full aspect-[1.95]" />
+                <img loading="lazy" src="{{ asset("storage/" . $project->get_images[2]->image_path) }}" alt="Gallery image 3" class="object-cover mt-3 w-full aspect-[1.95]" />
             @endif
             @if (isset($project->get_images[3]))
-                <img loading="lazy" src="{{ asset($project->get_images[3]->image_path) }}" alt="Gallery image 4" class="object-cover mt-3 w-full aspect-[1.9]" />
+                <img loading="lazy" src="{{ asset("storage/" . $project->get_images[3]->image_path) }}" alt="Gallery image 4" class="object-cover mt-3 w-full aspect-[1.9]" />
             @endif
             @if (isset($project->get_images[4]))
-            <img loading="lazy" src="{{ asset($project->get_images[4]->image_path) }}" alt="Gallery image 5" class="object-cover mt-3 w-full aspect-[1.78]" />
+            <img loading="lazy" src="{{ asset("storage/" . $project->get_images[4]->image_path) }}" alt="Gallery image 5" class="object-cover mt-3 w-full aspect-[1.78]" />
             @endif
         </section>
     </div>

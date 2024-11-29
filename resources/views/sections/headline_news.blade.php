@@ -10,7 +10,7 @@
     <section class="px-8 py-12 mb-[10%]">
         <div class="flex flex-col md:flex-row gap-5">
             <div class="w-full md:w-[70%] animated-element opacity-0 transition duration-300 ease-in-out">
-                <img loading="lazy" src="{{ $headlineArticles->image }}" alt="D'Land Villa Mumbul exterior view" class="object-cover w-full aspect-[1.78]">
+                <img loading="lazy" src="{{ asset('storage/' . $headlineArticles->image) }}" alt="D'Land Villa Mumbul exterior view" class="object-cover w-full aspect-[1.78]">
             </div>
             <article class="w-full md:w-[30%] mt-6 md:mt-0 md:ml-5 px-4">
                 <div class="flex flex-col items-start w-full text-base font-normal text-zinc-800 animated-element opacity-0 transition duration-300 ease-in-out">

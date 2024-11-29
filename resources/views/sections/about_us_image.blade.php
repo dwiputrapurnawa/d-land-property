@@ -50,7 +50,7 @@
     
     
     
-    <section class="flex flex-col mx-auto w-full max-w-[480px] px-12 md:hidden">
+    <section class="flex flex-col mx-auto w-full max-w-[480px] px-6 md:hidden">
         <div class="flex gap-3 w-full">
             <img loading="lazy" src="{{ asset('images/img-mobile-1.png') }}" alt="Gallery image 1" class="object-contain shrink-0 max-w-full aspect-[1.04] w-[182px]" />
             <img loading="lazy" src="{{ asset('images/img-mobile-2.png') }}" alt="Gallery image 2" class="object-contain shrink-0 max-w-full aspect-[1.04] w-[182px] ml-auto" />

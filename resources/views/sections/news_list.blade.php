@@ -74,12 +74,12 @@
 
         {{-- Right Column --}}
         @if (count($articles->skip(1)) > 0)
-        <div class="w-full h-full flex gap-6 grid grid-cols-1 md:grid-cols-2 mb-32 md:mb-2">
+        <div class="w-full h-full flex gap-6 grid grid-cols-1 md:grid-cols-2 mb-32 md:mb-2 px-8">
           @foreach ($articles->skip(1)->take(2) as $item)
           <div class="flex flex-col text-base font-[405] max-w-[535px] text-zinc-800 mx-auto px-8 md:px-0 ml-auto mb-4 h-full animated-element opacity-0 transition duration-300 ease-in-out">
             <img
               loading="lazy"
-              src="{{ asset($item->image) }}"
+              src="{{ asset("storage/" . $item->image) }}"
               class="object-cover w-[400px] aspect-[1.73] max-md:max-w-full h-[250px]"
               alt="Hotel room or property image related to the article"
             />
