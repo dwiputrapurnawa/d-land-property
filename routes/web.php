@@ -57,6 +57,8 @@ Route::prefix('admin')->middleware(IsAdminMiddleware::class)->group(function () 
     Route::post('/upload-image', [ImageUploadController::class, 'upload'])->name('upload.image');
     Route::get('/project', [ProjectController::class, 'project_list'])->name('get.project');
     Route::get('/get-news', [NewsController::class, 'news_list'])->name('get.news');
+    Route::get('/get-consultation', [ConsultationController::class, 'consultations_list'])->name('get.consultation');
+    Route::get('/get-project-presentation', [ProjectPresentationController::class, 'project_presentation_list'])->name('get.project.presentation');
 });
 
 Route::get('/projects', [ProjectPageController::class, 'index'])->middleware(LanguageSwitcher::class)->name('projects.page');

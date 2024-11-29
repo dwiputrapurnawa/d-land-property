@@ -71,7 +71,7 @@
                         <p class="text-xl md:text-lg text-gray-400">{{ $project->quantity }} {{ Str::plural($project->property_type, $project->quantity) }}</p>
                     </div>
                     <div class="flex flex-col items-center justify-center hidden md:block animated-element opacity-0 transition duration-300 ease-in-out">
-                        <a href="https://wa.me/{{ str_replace([' ', '-'], '', $company->phone) }}" class="border border-black w-auto flex items-center justify-center rounded px-4 py-2">BOOK NOW</a>
+                        <a href="https://wa.me/{{ str_replace([' ', '-'], '', $company->phone) }}" class="border border-black w-auto flex items-center justify-center rounded px-4 py-2" target="_blank">BOOK NOW</a>
                     </div>
                 </div>
                 

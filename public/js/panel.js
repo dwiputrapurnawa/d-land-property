@@ -239,6 +239,10 @@ $(function () {
 
     const url_project = $("#table-project").data("url");
     const url_news = $("#table-news").data("url");
+    const url_consultation = $("#table-consultation").data("url");
+    const url_project_presentation = $("#table-project-presentation").data(
+        "url"
+    );
 
     $("#table-news").DataTable({
         processing: true,
@@ -405,6 +409,139 @@ $(function () {
                             </div>
                             </div>
                         </div>`;
+                },
+            },
+        ],
+        pageLength: 10,
+    });
+
+    $("#table-project-presentation").DataTable({
+        processing: true,
+        serverSide: true,
+        columns: [
+            { data: "no" },
+            { data: "phone" },
+            { data: "created_at" },
+            { data: "action" },
+        ],
+        ajax: {
+            url: url_project_presentation,
+            type: "GET",
+        },
+        columnDefs: [
+            {
+                targets: 2, // Apply customization on the 4th column (index 3)
+                render: function (data, type, row) {
+                    // Format the date (assuming data is in ISO format)
+                    if (type === "display") {
+                        return new Date(data).toLocaleDateString("en-GB", {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric",
+                        }); // Format as mm/dd/yyyy
+                    }
+                    return data; // For other types (sorting, etc.), return original
+                },
+            },
+            {
+                targets: -1,
+                title: "Action",
+                responsivePriority: 1,
+                orderable: false,
+                render: function (data, type, full, meta) {
+                    var action_button = full.action;
+
+                    return `
+                   <a 
+                    href="${action_button.url}"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition duration-300 ease-in-out"
+                    target="_blank"
+                >
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke-width="2" 
+                    stroke="currentColor" 
+                    class="w-5 h-5"
+                    >
+                    <path 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                        d="M21 12.5l-8.5 8.5m0 0l-8.5-8.5m8.5 8.5V3"
+                    />
+                    </svg>
+                    ${action_button.label}
+                </a>
+                    `;
+                },
+            },
+        ],
+        pageLength: 10,
+    });
+
+    $("#table-consultation").DataTable({
+        processing: true,
+        serverSide: true,
+        columns: [
+            { data: "no" },
+            { data: "name" },
+            { data: "email" },
+            { data: "phone" },
+            { data: "messenger" },
+            { data: "created_at" },
+            { data: "action" },
+        ],
+        ajax: {
+            url: url_consultation,
+            type: "GET",
+        },
+        columnDefs: [
+            {
+                targets: 5, // Apply customization on the 4th column (index 3)
+                render: function (data, type, row) {
+                    // Format the date (assuming data is in ISO format)
+                    if (type === "display") {
+                        return new Date(data).toLocaleDateString("en-GB", {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric",
+                        }); // Format as mm/dd/yyyy
+                    }
+                    return data; // For other types (sorting, etc.), return original
+                },
+            },
+            {
+                targets: -1,
+                title: "Action",
+                responsivePriority: 1,
+                orderable: false,
+                render: function (data, type, full, meta) {
+                    var action_button = full.action;
+
+                    return `
+                   <a 
+                    href="${action_button.url}"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition duration-300 ease-in-out"
+                    target="_blank"
+                >
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke-width="2" 
+                    stroke="currentColor" 
+                    class="w-5 h-5"
+                    >
+                    <path 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                        d="M21 12.5l-8.5 8.5m0 0l-8.5-8.5m8.5 8.5V3"
+                    />
+                    </svg>
+                    ${action_button.label}
+                </a>
+                    `;
                 },
             },
         ],
