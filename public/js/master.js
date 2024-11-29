@@ -509,7 +509,10 @@ $(function () {
                 nav.addClass("bg-white");
                 nav.removeClass("text-white");
                 nav.addClass("text-black");
-                $("#logo-company").attr("src", "images/logo-substract.png");
+                $("#logo-company").attr(
+                    "src",
+                    window.location.origin + "/images/logo-substract.png"
+                );
             }
 
             nav.removeClass(
@@ -538,7 +541,10 @@ $(function () {
                 nav.removeClass("bg-white");
                 nav.addClass("text-white");
                 nav.removeClass("text-black");
-                $("#logo-company").attr("src", "images/logo.png");
+                $("#logo-company").attr(
+                    "src",
+                    window.location.origin + "/images/logo.png"
+                );
             }
 
             nav.addClass(
@@ -575,7 +581,10 @@ $(function () {
                 nav.removeClass("bg-white");
                 nav.addClass("text-white");
                 nav.removeClass("text-black");
-                $("#logo-company").attr("src", "images/logo.png");
+                $("#logo-company").attr(
+                    "src",
+                    window.location.origin + "/images/logo.png"
+                );
             }
 
             nav.addClass(
