@@ -695,7 +695,7 @@ $(function () {
                 .attr(
                     "src",
                     (item.image_path
-                        ? window.location.origin + "/" + item.image_path
+                        ? window.location.origin + "/storage/" + item.image_path
                         : null) || URL.createObjectURL(item.file)
                 )
                 .addClass("w-full h-full object-cover rounded-md");
