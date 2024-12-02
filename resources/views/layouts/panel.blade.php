@@ -29,7 +29,7 @@
   <div class="flex min-h-screen">
     <aside class="w-64 bg-blue-600 text-white flex flex-col">
       <div class="p-4 text-center text-xl font-bold border-b border-blue-500 flex flex-row items-center">
-        <img src="/images/logo.png" class="w-10 h-10" alt="" srcset="">
+        <a href="{{ route('home.page') }}"><img src="/images/logo.png" class="w-10 h-10" alt="" srcset=""></a>
         <a href="{{ route('admin.panel') }}" class="text-white ml-2">Admin Panel</a>
     </div>
     
