@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class NewsController extends Controller
 {
@@ -30,7 +31,7 @@ class NewsController extends Controller
         return view('admin.news.create', ["user" => $user]);
     }
 
-    function insert(Request $request)
+    public function insert(Request $request)
     {
         // Validate the form input
         $validated = $request->validate([
@@ -54,12 +55,27 @@ class NewsController extends Controller
             'status.required' => 'The status field is required.',
         ]);
 
-
         try {
             // Handle the image upload if there is an image
             $imagePath = null;
             if ($request->hasFile('image')) {
-                $imagePath = $request->file('image')->store('news', 'public');
+                // Get the uploaded image
+                $image = $request->file('image');
+
+                // Create an instance of the image using Intervention Image
+                $img = Image::make($image);
+
+                // Compress the image (set quality to 75, you can adjust this)
+                $img->encode('jpg', 75);
+
+                // Generate a unique filename
+                $filename = time() . '.jpg';
+
+                // Store the compressed image in the 'news' directory of the 'public' disk
+                $img->save(storage_path('app/public/news/' . $filename));
+
+                // Set the image path for database storage
+                $imagePath = 'news/' . $filename;
             }
 
             // Insert data into the database
@@ -76,9 +92,8 @@ class NewsController extends Controller
         }
     }
 
-    function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
-
         // Validate the form input
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -101,13 +116,40 @@ class NewsController extends Controller
         ]);
 
         try {
-            // Handle the image upload if there is an image
+            // Get the old image path from the input (if exists)
             $imagePath = $request->input('old_img_path');
+
+            // Check if a new image is being uploaded
             if ($request->hasFile('image')) {
-                $imagePath = $request->file('image')->store('news', 'public');
+
+                // If there's an old image, delete it
+                if ($imagePath) {
+                    $oldImagePath = storage_path('app/public/' . $imagePath);
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath);  // Delete the old image file
+                    }
+                }
+
+                // Get the uploaded image
+                $image = $request->file('image');
+
+                // Create an instance of the image using Intervention Image
+                $img = Image::make($image);
+
+                // Compress the image (set quality to 75, you can adjust this)
+                $img->encode('jpg', 75);
+
+                // Generate a unique filename
+                $filename = time() . '.jpg';
+
+                // Store the compressed image in the 'news' directory of the 'public' disk
+                $img->save(storage_path('app/public/news/' . $filename));
+
+                // Set the image path for database storage
+                $imagePath = 'news/' . $filename;
             }
 
-            // Insert data into the database
+            // Update data in the database
             News::where("id", "=", $id)->update([
                 'title' => $validated['title'],
                 'content' => $validated['content'],
@@ -115,7 +157,7 @@ class NewsController extends Controller
                 'image' => $imagePath, // Store the image path in the database
             ]);
 
-            return redirect()->route('admin.news')->with("message", "Successfully added new article");;
+            return redirect()->route('admin.news')->with("message", "Successfully updated the article.");
         } catch (Exception $e) {
             return redirect()->route('admin.news')->with("error", "Failed to update the article: " . $e->getMessage());
         }

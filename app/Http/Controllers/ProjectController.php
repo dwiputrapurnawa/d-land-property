@@ -9,6 +9,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image as InterventionImage;
 
 class ProjectController extends Controller
 {
@@ -111,7 +112,23 @@ class ProjectController extends Controller
             // Handle the image upload if there is an image
             $imagePath = null;
             if ($request->hasFile('image')) {
-                $imagePath = $request->file('image')->store('projects', 'public');
+                // Get the uploaded image
+                $image = $request->file('image');
+
+                // Create an instance of the image using Intervention Image
+                $img = InterventionImage::make($image);
+
+                // Compress the image (set quality to 75, you can adjust this)
+                $img->encode('jpg', 75);
+
+                // Generate a unique filename
+                $filename = time() . '.jpg';
+
+                // Store the compressed image in the 'projects' directory of the 'public' disk
+                $img->save(storage_path('app/public/projects/' . $filename));
+
+                // Set the image path for database storage
+                $imagePath = 'projects/' . $filename;
             }
 
             if ($validated["amenities"]) {
@@ -155,25 +172,37 @@ class ProjectController extends Controller
 
             if ($request->hasFile('images')) {
                 $images = $request->file('images');
-                // Store the images and get the file paths
                 $filePaths = [];
-                foreach ($images as $image) {
-                    // Store the image in the 'public' disk (ensure you've configured the filesystem)
-                    $originalFilename = $image->getClientOriginalName();
-                    $filePath = $image->store('images', 'public');
 
-                    // Store the file paths in an array (you can also save this to the database)
+                foreach ($images as $image) {
+                    // Get original filename
+                    $originalFilename = $image->getClientOriginalName();
+
+                    // Create an instance of the image using Intervention Image
+                    $img = InterventionImage::make($image);
+
+                    // Compress the image (you can adjust the quality)
+                    $img->encode('jpg', 75); // Compress to 75% quality
+
+                    // Generate a unique filename to avoid overwriting
+                    $filename = time() . '_' . uniqid() . '.jpg';
+
+                    // Save the compressed image to the 'images' folder in public disk
+                    $img->save(storage_path('app/public/images/' . $filename));
+
+                    // Store the file path in the array
                     $filePaths[] = [
-                        'path' => $filePath,
+                        'path' => 'images/' . $filename,
                         'name' => $originalFilename
                     ];
                 }
 
+                // Save the file paths and other information to the database
                 foreach ($filePaths as $file) {
                     Image::create([
-                        "project_id" => $project->id,
-                        "image_path" => $file['path'],
-                        "image_name" => $file['name'], // Ensure your database table has a column for 'image_name'
+                        'project_id' => $project->id,
+                        'image_path' => $file['path'],
+                        'image_name' => $file['name'], // Ensure the database table has a column for 'image_name'
                     ]);
                 }
             }
@@ -264,7 +293,23 @@ class ProjectController extends Controller
             // Handle the image upload if there is an image
             $imagePath = $request->input('old_img_path');
             if ($request->hasFile('image')) {
-                $imagePath = $request->file('image')->store('projects', 'public');
+                // Get the uploaded image
+                $image = $request->file('image');
+
+                // Create an instance of the image using Intervention Image
+                $img = InterventionImage::make($image);
+
+                // Compress the image (set quality to 75, you can adjust this)
+                $img->encode('jpg', 75);
+
+                // Generate a unique filename
+                $filename = time() . '.jpg';
+
+                // Store the compressed image in the 'projects' directory of the 'public' disk
+                $img->save(storage_path('app/public/projects/' . $filename));
+
+                // Set the image path for database storage
+                $imagePath = 'projects/' . $filename;
             }
 
             if ($validated["amenities"]) {
@@ -301,25 +346,37 @@ class ProjectController extends Controller
 
             if ($request->hasFile('images')) {
                 $images = $request->file('images');
-                // Store the images and get the file paths
                 $filePaths = [];
-                foreach ($images as $image) {
-                    // Store the image in the 'public' disk (ensure you've configured the filesystem)
-                    $originalFilename = $image->getClientOriginalName();
-                    $filePath = $image->store('images', 'public');
 
-                    // Store the file paths in an array (you can also save this to the database)
+                foreach ($images as $image) {
+                    // Get original filename
+                    $originalFilename = $image->getClientOriginalName();
+
+                    // Create an instance of the image using Intervention Image
+                    $img = InterventionImage::make($image);
+
+                    // Compress the image (you can adjust the quality)
+                    $img->encode('jpg', 75); // Compress to 75% quality
+
+                    // Generate a unique filename to avoid overwriting
+                    $filename = time() . '_' . uniqid() . '.jpg';
+
+                    // Save the compressed image to the 'images' folder in public disk
+                    $img->save(storage_path('app/public/images/' . $filename));
+
+                    // Store the file path in the array
                     $filePaths[] = [
-                        'path' => $filePath,
+                        'path' => 'images/' . $filename,
                         'name' => $originalFilename
                     ];
                 }
 
+                // Save the file paths and other information to the database
                 foreach ($filePaths as $file) {
                     Image::create([
-                        "project_id" => $id,
-                        "image_path" => $file['path'],
-                        "image_name" => $file['name'], // Ensure your database table has a column for 'image_name'
+                        'project_id' => $id,
+                        'image_path' => $file['path'],
+                        'image_name' => $file['name'], // Ensure the database table has a column for 'image_name'
                     ]);
                 }
             }

@@ -52,7 +52,11 @@
                            Choose File
                        </button>
                    </div>
-                   <span id="file-name" class="mt-2 text-sm text-gray-500">No file chosen</span>
+                   
+                   <div class="flex flex-row justify-between">
+                    <span id="file-name" class="mt-2 text-sm text-gray-500">No file chosen</span>
+                    <span class="mt-2 text-sm text-gray-500">Image max size: 2MB</span>
+                   </div>
                </div>
             
 

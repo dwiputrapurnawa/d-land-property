@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Administrator',
             'username' => 'admin',
-            'password' => bcrypt('admin'),
+            'password' => bcrypt('dlandweb2024'),
             'role' => 'admin',
         ]);
 

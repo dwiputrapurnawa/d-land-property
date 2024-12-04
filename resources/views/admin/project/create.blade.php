@@ -4,6 +4,31 @@
 @section('content')
     
     <div class="bg-white p-20 rounded-lg shadow-lg w-full">
+
+        @if (session()->has("message"))
+        <div class="max-w-md mb-12 mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg shadow message">
+          <div class="flex items-center">
+              <svg class="w-6 h-6 mr-2 fill-current text-green-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m0 0a9 9 0 11-5.64-8.36A9 9 0 0119.36 9H21"></path>
+              </svg>
+              <span class="font-semibold">Success!</span>
+          </div>
+          <p class="mt-2 text-sm">{{ session('message') }}</p>
+      </div>
+      @endif
+
+      @if (session()->has("error"))
+      <div class="max-w-md mb-12 mt-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg shadow message">
+        <div class="flex items-center">
+            <svg class="w-6 h-6 mr-2 fill-current text-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m0 0a9 9 0 11-5.64-8.36A9 9 0 0119.36 9H21"></path>
+            </svg>
+            <span class="font-semibold">Error!</span>
+        </div>
+        <p class="mt-2 text-sm">{{ session('error') }}</p>
+    </div>
+    @endif
+
         <h2 class="text-2xl font-semibold mb-12 text-gray-700">Create New Project</h2>
         <form id="project-form" action="{{ route('admin.project.insert') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
             @csrf
@@ -28,16 +53,24 @@
                                 <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                             @enderror
                        </div>
-                       <span id="file-name" class="mt-2 text-sm text-gray-500">No file chosen</span>
+                       <div class="flex flex-row justify-between">
+                        <span id="file-name" class="mt-2 text-sm text-gray-500">No file chosen</span>
+                        <span class="mt-2 text-sm text-gray-500">Image max size: 2MB</span>
+                       </div>
                    </div>
     
                    <div class="max-w-3xl mx-auto bg-white">
                     <h2 class="text-2xl font-semibold text-gray-800 mb-6">Upload Project Images</h2>
                     
+                    
+                    
                     <!-- Custom Styled File Input -->
                     <label for="imageInput" class="inline-block mb-4 cursor-pointer bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition duration-200 text-center">
                         Select Images
                     </label>
+
+                    <span class="flex flex-col mt-2 text-sm text-gray-500">Image max size: 2MB</span>
+                    
                     @error('images')
                     <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                 @enderror
