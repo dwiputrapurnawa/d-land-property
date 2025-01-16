@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('meta-description')
+<meta name="description" content="Explore D'Land Properties’ latest projects in Bali, offering prime land and property opportunities. Contact us via WhatsApp or by number for more details on your next investment.">
+@endsection
+
 @section('title')
     D'Land Property - {{ __('landing.navbar_project') }}
 @endsection

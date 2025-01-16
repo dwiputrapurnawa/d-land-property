@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('meta-description')
+<meta name="description" content="Meet the management team at D'Land Properties, your expert guide to Bali property and land. Contact us via WhatsApp for inquiries or more information by number.">
+@endsection
+
 @section('title')
     D'Land Property - {{ __('landing.navbar_managements') }}
 @endsection

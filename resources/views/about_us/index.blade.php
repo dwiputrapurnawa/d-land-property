@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('meta-description')
+<meta name="description" content="Learn about D'Land Properties, your trusted partner in Bali property and land acquisition. Contact us via WhatsApp or by number to explore prime real estate opportunities.">
+@endsection
+
 @section('title')
     D'Land Property - {{ __('landing.navbar_about_us') }}
 @endsection

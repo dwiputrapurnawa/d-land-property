@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('meta-description')
+<meta name="description" content="Stay updated with the latest news on Bali property and land trends. Contact D'Land Properties via WhatsApp or by number for inquiries and expert guidance on real estate opportunities.">
+@endsection
+
 @section('title')
     D'Land Property - {{ __('landing.navbar_news') }}
 @endsection

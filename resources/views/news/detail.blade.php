@@ -1,5 +1,10 @@
 @extends('layouts.main')
 
+@section('meta-description')
+<meta name="description" content="Read the latest updates on Bali property and land opportunities. For more details, contact D'Land Properties via WhatsApp or by number and get expert advice on your real estate journey.">
+@endsection
+
+
 @section('title')
     D'Land Property - {{ $news->title }}
 @endsection

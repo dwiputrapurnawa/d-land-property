@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('meta-description')
+<meta name="description" content="Discover premium Bali property with D'Land Properties. Find your ideal land or real estate at competitive prices. Contact us via WhatsApp for more info or to inquire by number.">
+@endsection
+
 @section('title')
     D'Land Property - {{ __('landing.navbar_home') }}
 @endsection

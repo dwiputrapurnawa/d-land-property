@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Discover premium real estate in Bali with D'Land Properties. Explore sought-after locations, competitive prices, and a seamless property acquisition experience.">
+    @yield('meta-description')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <script src="https://cdn.tailwindcss.com"></script>

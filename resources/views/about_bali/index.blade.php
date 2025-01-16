@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('meta-description')
+<meta name="description" content="Explore Bali’s premier property market with D'Land Properties. Learn about the best land and real estate opportunities, and contact us via WhatsApp or by number for more information.">
+@endsection
+
 @section('title')
     D'Land Property - {{ __('landing.navbar_about_bali') }}
 @endsection
