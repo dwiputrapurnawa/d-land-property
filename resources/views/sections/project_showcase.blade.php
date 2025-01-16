@@ -79,7 +79,7 @@
             <!-- Phone Image (Responsive) -->
       <img 
       id="phone-img" 
-      src="/images/phone.png" 
+      src="/images/phone.webp" 
       class="absolute bottom-0 sm:bottom-[-100px] right-32 z-10 animated-element opacity-0 transition duration-300 ease-in-out 
       w-[150px] sm:w-[180px] md:w-[250px] lg:w-[300px] xl:w-[350px] 
       hidden sm:block">
@@ -97,7 +97,7 @@
                 <div class="flex flex-col w-full sm:w-[66%] relative">
                   <div class="flex flex-col w-full text-white sm:mt-10 relative dropdown-parent">
                     <div class="flex gap-5 justify-between text-lg sm:text-xl tracking-wide">
-                      <img loading="lazy" src="{{ asset('images/downloads.png') }}" alt="logo" class="object-contain shrink-0 w-10 sm:w-12 rounded-none aspect-[0.96]" />
+                      <img loading="lazy" src="{{ asset('images/downloads.webp') }}" alt="logo" class="object-contain shrink-0 w-10 sm:w-12 rounded-none aspect-[0.96]" />
                       <h2 class="my-auto text-lg sm:text-base sm:w-[268px]">{{ __('landing.projects_showcase_get_project_presentation') }}</h2>
                     </div>
                     <div class="flex items-center self-start mt-6 sm:mt-16 text-sm sm:text-base h-full">
@@ -107,8 +107,8 @@
                           </span>
         
                           <div class="mx-2">
-                            <img src="{{ asset('images/arrow-up.png') }}" alt="" class="arrow-up hidden">
-                            <img src="{{ asset('images/arrow-down.png') }}" alt="" class="arrow-down">
+                            <img src="{{ asset('images/arrow-up.webp') }}" alt="" class="arrow-up hidden">
+                            <img src="{{ asset('images/arrow-down.webp') }}" alt="" class="arrow-down">
                           </div>
         
                           <!-- Dropdown -->
@@ -155,7 +155,7 @@
         
   
         <!-- Villa Image -->
-        <img loading="lazy" src="{{ asset('images/villa.png') }}" class="object-contain w-screen aspect-[2.24]">
+        <img loading="lazy" src="{{ asset('images/villa.webp') }}" class="object-contain w-screen aspect-[2.24]">
   
         <!-- Footer Section -->
         <section class="flex bg-neutral-900 min-h-[300px]">

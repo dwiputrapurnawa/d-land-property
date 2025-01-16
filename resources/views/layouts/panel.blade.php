@@ -30,7 +30,7 @@
   <div class="flex min-h-screen">
     <aside class="w-64 bg-blue-600 text-white flex flex-col">
       <div class="p-4 text-center text-xl font-bold border-b border-blue-500 flex flex-row items-center">
-        <a href="{{ route('home.page') }}"><img src="/images/logo.png" class="w-10 h-10" alt="" srcset=""></a>
+        <a href="{{ route('home.page') }}"><img src="/images/logo.webp" class="w-10 h-10" alt="" srcset=""></a>
         <a href="{{ route('admin.panel') }}" class="text-white ml-2">Admin Panel</a>
     </div>
     
@@ -51,7 +51,7 @@
         <h1 class="text-2xl font-semibold text-gray-700">Admin Dashboard</h1>
         <div class="flex items-center space-x-4">
           <span class="text-gray-700">Welcome, {{ $user->name }}</span>
-          <img src="/images/avatar.png" alt="Admin Avatar" class="w-10 h-10 rounded-full">
+          <img src="/images/avatar.webp" alt="Admin Avatar" class="w-10 h-10 rounded-full">
         </div>
       </header>
 

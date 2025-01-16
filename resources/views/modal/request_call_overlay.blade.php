@@ -1,7 +1,7 @@
 <div id="requestCallModal" class="fixed inset-0 flex items-center justify-center z-50 hidden bg-black bg-opacity-40">
   <div class="relative flex flex-col text-white w-full max-w-md mx-auto rounded-lg overflow-hidden sm:max-w-sm md:max-w-md">
     <button id="requestModalCloseBtn" class="absolute top-3 right-3 text-white text-xl focus:outline-none z-50">
-      <img src="{{ asset('images/exit-button.png') }}" class="w-4 h-4" alt="Close">
+      <img src="{{ asset('images/exit-button.webp') }}" class="w-4 h-4" alt="Close">
     </button>
 
     <header class="flex flex-col items-center px-4 py-6 sm:px-6 md:px-8 w-full shadow-2xl bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg">

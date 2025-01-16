@@ -1,7 +1,7 @@
 <section data-layername="contactUs" class="bg-black text-white mt-10">
 
   <div class="flex flex-col block md:hidden">
-    <img loading="lazy" src="{{ asset('images/contact_us_cover.png') }}" alt="Investment market visualization" class="object-cover grow w-full max-md:mt-10 max-md:max-w-full">
+    <img loading="lazy" src="{{ asset('images/contact_us_cover.webp') }}" alt="Investment market visualization" class="object-cover grow w-full max-md:mt-10 max-md:max-w-full">
   </div>
 
   <div class="flex gap-5 max-md:flex-col px-12 pb-40 md:py-40">
@@ -96,7 +96,7 @@
 
    <!-- Image Column -->
 <div class="flex flex-col sm:ml-5 w-[67%] max-md:w-full hidden md:block">
-  <img loading="lazy" src="{{ asset('images/contact_us_cover.png') }}" alt="Investment market visualization" class="object-fill grow w-full max-md:mt-10 max-md:max-w-full">
+  <img loading="lazy" src="{{ asset('images/contact_us_cover.webp') }}" alt="Investment market visualization" class="object-fill grow w-full max-md:mt-10 max-md:max-w-full">
 </div>
 
   </div>

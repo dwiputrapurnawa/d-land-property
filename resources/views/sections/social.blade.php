@@ -27,13 +27,13 @@
         @for ($i = 1; $i <= 6; $i++)
         <div class="relative aspect-square animated-element opacity-0 transition duration-900 ease-in-out">
           <img
-            src="/images/instagram-post-{{ $i }}.png"
+            src="/images/instagram-post-{{ $i }}.webp"
             alt="Instagram post {{ $i }}"
             class="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
           />
           <img 
-            src="/images/stack.png" 
+            src="/images/stack.webp" 
             class="absolute top-3 right-3 w-5 h-5" 
             alt="Stack icon"
             srcset=""
@@ -66,8 +66,8 @@
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-4">
       @for ($i = 1; $i <= 6; $i++)
       <div class="relative aspect-square animated-element opacity-0 transition duration-900 ease-in-out">
-        <img src="/images/instagram-post-{{ $i }}.png" alt="Instagram post {{ $i }}" class="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
-        <img src="/images/stack.png" class="absolute top-3 right-3 w-5 h-5" alt="Stack icon" />
+        <img src="/images/instagram-post-{{ $i }}.webp" alt="Instagram post {{ $i }}" class="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+        <img src="/images/stack.webp" class="absolute top-3 right-3 w-5 h-5" alt="Stack icon" />
       </div>
       @endfor
     </div>

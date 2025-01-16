@@ -11,6 +11,6 @@
         </div>
     </div>
     <div class="flex flex-col ml-5 w-full max-md:ml-0 max-md:w-full animated-element opacity-0 transition duration-300 ease-in-out">
-        <img loading="lazy" src="{{ asset('images/kawasan.png') }}" class="object-contain grow w-full aspect-[1.06] max-md:mt-10 max-md:max-w-full" alt="Property maintenance illustration">
+        <img loading="lazy" src="{{ asset('images/kawasan.webp') }}" class="object-contain grow w-full aspect-[1.06] max-md:mt-10 max-md:max-w-full" alt="Property maintenance illustration">
     </div>
 </section>

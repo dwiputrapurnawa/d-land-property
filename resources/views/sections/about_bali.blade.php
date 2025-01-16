@@ -1,5 +1,5 @@
 <section id="section_about_bali" class="flex flex-col pb-16 text-white mb-28 relative">
-    <div class="flex relative flex-col items-start px-5 sm:px-10 md:px-20 pt-24 sm:pt-36 md:pt-56 w-full min-h-[500px] md:min-h-[761px] bg-[url(images/bali.png)] w-full bg-cover bg-right">
+    <div class="flex relative flex-col items-start px-5 sm:px-10 md:px-20 pt-24 sm:pt-36 md:pt-56 w-full min-h-[500px] md:min-h-[761px] bg-[url(images/bali.webp)] w-full bg-cover bg-right">
         
         <!-- Heading -->
         <h1 class="font-century relative text-6xl sm:text-6xl md:text-8xl font-medium tracking-tighter leading-none text-center animated-element opacity-0 transition duration-300 ease-in-out">

@@ -11,7 +11,7 @@
       </div>
       <div class="w-full md:w-1/2 w-screen hidden md:block">
         <img 
-          src="{{ asset('images/indonesia.png') }}" 
+          src="{{ asset('images/indonesia.webp') }}" 
           alt="Illustration representing Indonesia's economic growth" 
           class="w-full h-full object-fill inset-0 right-0"
           loading="lazy"

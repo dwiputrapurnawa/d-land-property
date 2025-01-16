@@ -3,17 +3,17 @@
   <div class="flex flex-wrap gap-10 animated-element opacity-0 transition duration-300 ease-in-out border-b border-zinc-800 border-t">
     <section class="w-full lg:w-1/3 border-r border-zinc-800">
       <div class="p-10 border-b border-zinc-800 md:border-none">
-        <img loading="lazy" src="/images/logo.png" alt="D'Land Property Logo" class="object-contain w-[66px] aspect-[0.85]" />
+        <img loading="lazy" src="/images/logo.webp" alt="D'Land Property Logo" class="object-contain w-[66px] aspect-[0.85]" />
         <h2 class="mt-12 text-4xl leading-tight lg:max-w-[450px]">
           {{ __('landing.footer_title_1') }} <span class="italic font-medium font-century">{{ __('landing.footer_title_2') }}</span> {{ __('landing.footer_title_3') }} <span class="italic font-medium font-century">{{ __('landing.footer_title_4') }}</span>
         </h2>
         <div class="flex flex-wrap gap-5 mt-16 text-sm tracking-wide font-[405]">
           <div class="flex items-center gap-3">
-            <img loading="lazy" src="/images/telephone.png" alt="Phone icon" class="w-5 h-5" />
+            <img loading="lazy" src="/images/telephone.webp" alt="Phone icon" class="w-5 h-5" />
             <a href="tel:{{ $company->phone }} class="hover:underline">{{ $company->phone }}</a>
           </div>
           <div class="flex items-center gap-4">
-            <img loading="lazy" src="/images/whatsapp.png" alt="WhatsApp icon" class="w-6 h-6" />
+            <img loading="lazy" src="/images/whatsapp.webp" alt="WhatsApp icon" class="w-6 h-6" />
             <span>WHATSAPP</span>
           </div>
         </div>
@@ -44,15 +44,15 @@
           <h3 class="text-base tracking-wider font-[420] font-bold">{{ __('landing.social_footer_text') }}</h3>
         <ul class="list-none p-0 mt-16">
           <li class="flex items-center gap-5 mt-5">
-            <img loading="lazy" src="/images/instagram.png" alt="Instagram icon" class="w-6 h-6" />
+            <img loading="lazy" src="/images/instagram.webp" alt="Instagram icon" class="w-6 h-6" />
             <a href="{{ $company->instagram }}" class="hover:underline">Instagram</a>
           </li>
           <li class="flex items-center gap-5 mt-5">
-            <img loading="lazy" src="/images/youtube.png" alt="YouTube icon" class="w-6 h-6" />
+            <img loading="lazy" src="/images/youtube.webp" alt="YouTube icon" class="w-6 h-6" />
             <a href="{{ $company->youtube }}" class="hover:underline">Youtube</a>
           </li>
           <li class="flex items-center gap-5 mt-5">
-            <img loading="lazy" src="/images/whatsapp.png" alt="WhatsApp icon" class="w-6 h-6" />
+            <img loading="lazy" src="/images/whatsapp.webp" alt="WhatsApp icon" class="w-6 h-6" />
             <a href="https://wa.me/{{ str_replace([' ', '-'], '', $company->phone) }}" class="hover:underline">Whatsapp</a>
           </li>
         </ul>

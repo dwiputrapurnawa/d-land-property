@@ -4,7 +4,7 @@
         <div class="w-full md:w-1/3 lg:w-[29%]">
             <img
                 loading="lazy"
-                src="/images/logo-substract.png"
+                src="/images/logo-substract.webp"
                 alt="About D'Land Properties"
                 class="object-contain w-full max-w-[200px] sm:max-w-[250px] md:max-w-[348px] aspect-[0.83] mx-auto md:mx-0 hidden sm:block"
             >

@@ -5,7 +5,7 @@
   <div class="w-full relative z-0">
     <img 
       loading="lazy" 
-      src="{{ asset('images/cover-2.png') }}" 
+      src="{{ asset('images/cover-2.webp') }}" 
       alt="Investment market visualization" 
       class="object-cover w-full h-[50vh] max-md:h-auto"
     >
@@ -18,7 +18,7 @@
           <!-- Logo -->
           <div class="flex items-center">
             <a href="/">
-              <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-12 ml-5 md:h-16 w-auto"> <!-- Replace with your image URL and size -->
+              <img src="{{ asset('images/logo.webp') }}" alt="Logo" class="h-12 ml-5 md:h-16 w-auto"> <!-- Replace with your image URL and size -->
             </a>
           </div>
   

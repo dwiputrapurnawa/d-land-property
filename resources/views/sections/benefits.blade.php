@@ -71,8 +71,8 @@
 
   {{-- Image Column --}}
   <div class="relative w-full mb-52 md:mb-20">
-    <img src="{{ asset('images/benefit-cover.png') }}" class="ml-auto object-center w-[60%] md:w-[80%]" alt="">
+    <img src="{{ asset('images/benefit-cover.webp') }}" class="ml-auto object-center w-[60%] md:w-[80%]" alt="">
 
-    <img src="{{ asset('images/phone-2.png') }}" class="absolute inset-0 w-[60%] top-28 animated-element opacity-0 transition duration-300 ease-in-out pl-6" alt="">
+    <img src="{{ asset('images/phone-2.webp') }}" class="absolute inset-0 w-[60%] top-28 animated-element opacity-0 transition duration-300 ease-in-out pl-6" alt="">
   </div>
 </section>

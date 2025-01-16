@@ -21,11 +21,11 @@ $(function () {
     function setLanguage() {
         const flagPath = {
             en: {
-                img: "/images/en-icon.png",
+                img: "/images/en-icon.webp",
                 text: "English",
             },
             id: {
-                img: "/images/id-icon.png",
+                img: "/images/id-icon.webp",
                 text: "Bahasa",
             },
         };
@@ -97,8 +97,8 @@ $(function () {
     // Handle language selection
     $("#dropdown div").click(function () {
         const flagPath = {
-            en: "/images/en-icon.png",
-            id: "/images/id-icon.png",
+            en: "/images/en-icon.webp",
+            id: "/images/id-icon.webp",
         };
         const selectedLanguage = $(this).data("value");
         const selectedText = $(this).text();
@@ -128,8 +128,8 @@ $(function () {
     // Handle language selection for mobile
     $("#dropdownMobile div").click(function () {
         const flagPath = {
-            en: "/images/en-icon.png",
-            id: "/images/id-icon.png",
+            en: "/images/en-icon.webp",
+            id: "/images/id-icon.webp",
         };
         const selectedLanguage = $(this).data("value");
         const selectedText = $(this).text();
@@ -511,7 +511,7 @@ $(function () {
                 nav.addClass("text-black");
                 $("#logo-company").attr(
                     "src",
-                    window.location.origin + "/images/logo-substract.png"
+                    window.location.origin + "/images/logo-substract.webp"
                 );
             }
 
@@ -543,7 +543,7 @@ $(function () {
                 nav.removeClass("text-black");
                 $("#logo-company").attr(
                     "src",
-                    window.location.origin + "/images/logo.png"
+                    window.location.origin + "/images/logo.webp"
                 );
             }
 
@@ -583,7 +583,7 @@ $(function () {
                 nav.removeClass("text-black");
                 $("#logo-company").attr(
                     "src",
-                    window.location.origin + "/images/logo.png"
+                    window.location.origin + "/images/logo.webp"
                 );
             }
 

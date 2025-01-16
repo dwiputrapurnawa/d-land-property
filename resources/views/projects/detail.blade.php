@@ -49,7 +49,7 @@
             <div class="flex flex-col items-center">
                 <img
                 loading="lazy"
-                src="/images/logo-substract.png"
+                src="/images/logo-substract.webp"
                 alt="About D'Land Properties"
                 class="object-contain w-full max-w-[200px] sm:max-w-[200px] md:max-w-[200px] aspect-[0.83] mx-auto md:mx-0 hidden sm:block animated-element opacity-0 transition duration-300 ease-in-out"
             >
@@ -84,7 +84,7 @@
             </div>
         </div>
 
-        <img src="{{ asset('images/img-detail.png') }}" class="w-full h-full object-cover" alt="">
+        <img src="{{ asset('images/img-detail.webp') }}" class="w-full h-full object-cover" alt="">
     </div>
 
     @include('sections.project_showcase')
@@ -305,7 +305,7 @@
               </a>
         </div>
         <div class="flex flex-col w-full h-full">
-            <img src="{{ asset('images/bali-map.png') }}" class="object-cover h-full w-full animated-element opacity-0 transition duration-300 ease-in-out" alt="">
+            <img src="{{ asset('images/bali-map.webp') }}" class="object-cover h-full w-full animated-element opacity-0 transition duration-300 ease-in-out" alt="">
         </div>
     </div>
     

@@ -1,4 +1,4 @@
-<section class="flex flex-col relative bg-[url('images/management-hero.png')] bg-cover bg-right min-h-screen">
+<section class="flex flex-col relative bg-[url('images/management-hero.webp')] bg-cover bg-right min-h-screen">
   @include('partials.navbar_white')    
 
   {{-- Headline --}}
