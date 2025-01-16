@@ -29,10 +29,10 @@ class ImageUploadController extends Controller
         $img = Image::make($image);
 
         // Compress the image (set quality to 75, you can adjust this)
-        $img->encode('jpg', 75);
+        $img->encode('webp', 75);
 
         // Generate a unique filename
-        $filename = time() . '.jpg';
+        $filename = time() . '.webp';
 
         // Store the compressed image in the 'projects' directory of the 'public' disk
         $img->save(storage_path('app/public/images/' . $filename));

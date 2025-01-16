@@ -119,10 +119,10 @@ class ProjectController extends Controller
                 $img = InterventionImage::make($image);
 
                 // Compress the image (set quality to 75, you can adjust this)
-                $img->encode('jpg', 75);
+                $img->encode('webp', 75);
 
                 // Generate a unique filename
-                $filename = time() . '.jpg';
+                $filename = time() . '.webp';
 
                 // Store the compressed image in the 'projects' directory of the 'public' disk
                 $img->save(storage_path('app/public/projects/' . $filename));
@@ -182,10 +182,10 @@ class ProjectController extends Controller
                     $img = InterventionImage::make($image);
 
                     // Compress the image (you can adjust the quality)
-                    $img->encode('jpg', 75); // Compress to 75% quality
+                    $img->encode('webp', 75); // Compress to 75% quality
 
                     // Generate a unique filename to avoid overwriting
-                    $filename = time() . '_' . uniqid() . '.jpg';
+                    $filename = time() . '_' . uniqid() . '.webp';
 
                     // Save the compressed image to the 'images' folder in public disk
                     $img->save(storage_path('app/public/images/' . $filename));
@@ -300,10 +300,10 @@ class ProjectController extends Controller
                 $img = InterventionImage::make($image);
 
                 // Compress the image (set quality to 75, you can adjust this)
-                $img->encode('jpg', 75);
+                $img->encode('webp', 75);
 
                 // Generate a unique filename
-                $filename = time() . '.jpg';
+                $filename = time() . '.webp';
 
                 // Store the compressed image in the 'projects' directory of the 'public' disk
                 $img->save(storage_path('app/public/projects/' . $filename));
@@ -356,10 +356,10 @@ class ProjectController extends Controller
                     $img = InterventionImage::make($image);
 
                     // Compress the image (you can adjust the quality)
-                    $img->encode('jpg', 75); // Compress to 75% quality
+                    $img->encode('webp', 75); // Compress to 75% quality
 
                     // Generate a unique filename to avoid overwriting
-                    $filename = time() . '_' . uniqid() . '.jpg';
+                    $filename = time() . '_' . uniqid() . '.webp';
 
                     // Save the compressed image to the 'images' folder in public disk
                     $img->save(storage_path('app/public/images/' . $filename));
