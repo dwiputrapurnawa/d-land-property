@@ -74,3 +74,7 @@ Route::post('/consultation', [ConsultationController::class, 'store'])->name('co
 Route::post('/project-presentation', [ProjectPresentationController::class, 'store'])->name('project.presentation.store');
 
 Route::get('/phone-country-codes', [PhoneCountryController::class, 'get_phone_code'])->name('get.phone.codes');
+
+Route::fallback(function () {
+    return view('errors.404');
+});
