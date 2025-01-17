@@ -4,6 +4,14 @@
 <meta name="description" content="Stay updated with the latest news on Bali property and land trends. Contact D'Land Properties via WhatsApp or by number for inquiries and expert guidance on real estate opportunities.">
 @endsection
 
+@section('social-media-meta')
+    <meta property="og:title" content="Stay Updated with the Latest Bali Property Trends | D'Land Properties">
+    <meta property="og:description" content="Stay updated with the latest news on Bali property and land trends. Contact D'Land Properties via WhatsApp or by number for inquiries and expert guidance on real estate opportunities.">
+    <meta property="og:image" content="{{ asset('images/news-1.webp') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+@endsection
+
 @section('title')
     D'Land Property - {{ __('landing.navbar_news') }}
 @endsection

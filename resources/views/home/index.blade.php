@@ -4,6 +4,14 @@
 <meta name="description" content="Discover premium Bali property with D'Land Properties. Find your ideal land or real estate at competitive prices. Contact us via WhatsApp for more info or to inquire by number.">
 @endsection
 
+@section('social-media-meta')
+    <meta property="og:title" content="D'Land Properties - Premium Real Estate in Bali">
+    <meta property="og:description" content="Discover premium real estate in Bali with D'Land Properties, offering competitive pricing and a seamless property search experience.">
+    <meta property="og:image" content="{{ asset('images/hero.webp') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+@endsection
+
 @section('title')
     D'Land Property - {{ __('landing.navbar_home') }}
 @endsection

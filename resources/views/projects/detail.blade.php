@@ -1,7 +1,21 @@
 @extends('layouts.main')
 
+@php
+    $content = $project->description; // Your content with HTML tags
+    $description = strip_tags($content); // Remove HTML tags
+    $metaDescription = mb_strimwidth($description, 0, 160, '...'); // Limit length to 160 characters
+@endphp
+
 @section('meta-description')
-<meta name="description" content="Discover the details of D'Land Properties' latest Bali property projects. Explore prime land opportunities and contact us via WhatsApp or by number for more information on your next investment.">
+<meta name="description" content="{{ $metaDescription }}">
+@endsection
+
+@section('social-media-meta')
+    <meta property="og:title" content="{{ $project->project_name }}">
+    <meta property="og:description" content="{{ $metaDescription }}">
+    <meta property="og:image" content="{{ asset("storage/" . $project->image) }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
 @endsection
 
 @section('title')

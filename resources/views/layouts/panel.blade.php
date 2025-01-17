@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Manage D'Land Properties' premium real estate listings with ease. Access property details, update listings, and streamline operations securely from the admin panel.">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <title>Admin Panel</title>

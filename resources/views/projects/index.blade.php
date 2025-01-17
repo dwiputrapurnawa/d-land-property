@@ -4,6 +4,14 @@
 <meta name="description" content="Explore D'Land Properties’ latest projects in Bali, offering prime land and property opportunities. Contact us via WhatsApp or by number for more details on your next investment.">
 @endsection
 
+@section('social-media-meta')
+    <meta property="og:title" content="Explore D'Land Properties’ Latest Projects in Bali - Prime Land & Property Opportunities">
+    <meta property="og:description" content="Explore D'Land Properties’ latest projects in Bali, offering prime land and property opportunities. Contact us via WhatsApp or by number for more details on your next investment.">
+    <meta property="og:image" content="{{ asset('images/hero.webp') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+@endsection
+
 @section('title')
     D'Land Property - {{ __('landing.navbar_project') }}
 @endsection
