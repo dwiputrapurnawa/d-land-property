@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutBaliPageController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\ErrorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\LoginController;
@@ -75,6 +76,4 @@ Route::post('/project-presentation', [ProjectPresentationController::class, 'sto
 
 Route::get('/phone-country-codes', [PhoneCountryController::class, 'get_phone_code'])->name('get.phone.codes');
 
-Route::fallback(function () {
-    return view('errors.404');
-});
+Route::fallback([ErrorController::class, 'error404']);
