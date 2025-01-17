@@ -4,7 +4,7 @@
     </div>
 
     <div class="w-full">
-     <img src="{{ asset('images/about-us-showcase.gif') }}" alt="" class="w-full object-fill animated-element opacity-0 transition duration-300 ease-in-out">
+     <img src="{{ asset('images/about-us-showcase.gif') }}" alt="about-us-showcase" class="w-full object-fill animated-element opacity-0 transition duration-300 ease-in-out">
     </div>
    
  </section>

@@ -31,7 +31,7 @@
   <div class="flex min-h-screen">
     <aside class="w-64 bg-blue-600 text-white flex flex-col">
       <div class="p-4 text-center text-xl font-bold border-b border-blue-500 flex flex-row items-center">
-        <a href="{{ route('home.page') }}"><img src="/images/logo.webp" class="w-10 h-10" alt="" srcset=""></a>
+        <a href="{{ route('home.page') }}"><img src="/images/logo.webp" class="w-10 h-10" alt="logo-img" srcset=""></a>
         <a href="{{ route('admin.panel') }}" class="text-white ml-2">Admin Panel</a>
     </div>
     

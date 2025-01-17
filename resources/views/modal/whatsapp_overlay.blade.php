@@ -17,7 +17,7 @@
                     <span class="italic font-medium">Whatsapp</span>
                 </h2>
                 <div class="p-10">
-                    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->backgroundColor(0, 0, 0, 0)->color(255, 255, 255)->generate('https://wa.me/' . str_replace([' ', '-'], '', $company->phone))) !!} " class="object-contain mt-8 sm:mt-12 md:mt-16 w-full max-w-[200px] sm:max-w-full mx-auto aspect-square">
+                    <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(256)->backgroundColor(0, 0, 0, 0)->color(255, 255, 255)->generate('https://wa.me/' . str_replace([' ', '-'], '', $company->phone))) !!} " class="object-contain mt-8 sm:mt-12 md:mt-16 w-full max-w-[200px] sm:max-w-full mx-auto aspect-square" alt="wa-img">
                 </div>
                 <a href="https://wa.me/{{ str_replace([' ', '-'], '', $company->phone) }}" aria-label="Send us a message on Whatsapp" class="flex items-center justify-center gap-3 sm:gap-5 px-5 sm:px-7 py-3 sm:py-3.5 mt-8 sm:mt-12 md:mt-16 text-sm sm:text-base tracking-wide border border-white border-solid font-medium rounded-full hover:bg-white hover:bg-opacity-10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
                     <img loading="lazy" src="{{ asset('images/whatsapp.webp') }}" alt="" class="object-contain shrink-0 w-5 sm:w-6 aspect-square" />

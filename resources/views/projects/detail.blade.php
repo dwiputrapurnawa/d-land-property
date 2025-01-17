@@ -40,7 +40,7 @@
     <input type="hidden" name="company_number" value="{{ str_replace([' ', '-'], '', $company->phone) }}">
 
     <div class="relative h-screen">
-        <img src="{{ asset("storage/" . $project->image) }}" class="w-full h-full absolute inset-0 object-cover" alt="">
+        <img src="{{ asset("storage/" . $project->image) }}" class="w-full h-full absolute inset-0 object-cover" alt="cover-img">
     
         @include('partials.navbar_white')
     
@@ -62,7 +62,7 @@
         </div>
     
         <div class="flex flex-col px-auto md:px-12">
-            <img src="{{ asset('images/project-detail.gif') }}" class="object-cover w-full h-full" alt="">
+            <img src="{{ asset('images/project-detail.gif') }}" class="object-cover w-full h-full" alt="project-detail">
         </div>
 
         <div class="grid grid-cols-1  md:grid-cols-2 px-12 py-28">
@@ -104,7 +104,7 @@
             </div>
         </div>
 
-        <img src="{{ asset('images/img-detail.webp') }}" class="w-full h-full object-cover" alt="">
+        <img src="{{ asset('images/img-detail.webp') }}" class="w-full h-full object-cover" alt="img-detail">
     </div>
 
     @include('sections.project_showcase')
@@ -325,7 +325,7 @@
               </a>
         </div>
         <div class="flex flex-col w-full h-full">
-            <img src="{{ asset('images/bali-map.webp') }}" class="object-cover h-full w-full animated-element opacity-0 transition duration-300 ease-in-out" alt="">
+            <img src="{{ asset('images/bali-map.webp') }}" class="object-cover h-full w-full animated-element opacity-0 transition duration-300 ease-in-out" alt="bali-map">
         </div>
     </div>
     

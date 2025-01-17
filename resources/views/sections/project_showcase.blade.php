@@ -82,7 +82,7 @@
       src="/images/phone.webp" 
       class="absolute bottom-0 sm:bottom-[-100px] right-32 z-10 animated-element opacity-0 transition duration-300 ease-in-out 
       w-[150px] sm:w-[180px] md:w-[250px] lg:w-[300px] xl:w-[350px] 
-      hidden sm:block">
+      hidden sm:block" alt="phone-img">
 
       
 
@@ -103,12 +103,12 @@
                     <div class="flex items-center self-start mt-6 sm:mt-16 text-sm sm:text-base h-full">
                       <div class="country-code-select bg-transparent text-white p-2 cursor-pointer flex items-center justify-between">
                           <span class="text-sm font-light inline-flex items-center no-select">
-                              <img src="{{ asset('flags/ID.svg') }}" class="w-9 h-9 mr-2" alt="">
+                              <img src="{{ asset('flags/ID.svg') }}" class="w-9 h-9 mr-2" alt="flags-id">
                           </span>
         
                           <div class="mx-2">
-                            <img src="{{ asset('images/arrow-up.webp') }}" alt="" class="arrow-up hidden">
-                            <img src="{{ asset('images/arrow-down.webp') }}" alt="" class="arrow-down">
+                            <img src="{{ asset('images/arrow-up.webp') }}" alt="arrow-up" class="arrow-up hidden">
+                            <img src="{{ asset('images/arrow-down.webp') }}" alt="arrow-down" class="arrow-down">
                           </div>
         
                           <!-- Dropdown -->
@@ -155,7 +155,7 @@
         
   
         <!-- Villa Image -->
-        <img loading="lazy" src="{{ asset('images/villa.webp') }}" class="object-contain w-screen aspect-[2.24]">
+        <img loading="lazy" src="{{ asset('images/villa.webp') }}" class="object-contain w-screen aspect-[2.24]" alt="villa-img">
   
         <!-- Footer Section -->
         <section class="flex bg-neutral-900 min-h-[300px]">

@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <img src="{{ asset("storage/" . $news->image) }}" class="object-cover w-full h-full animated-element opacity-0 transition duration-300 ease-in-out" alt="">
+        <img src="{{ asset("storage/" . $news->image) }}" class="object-cover w-full h-full animated-element opacity-0 transition duration-300 ease-in-out" alt="cover-img">
 
 
         <div class="w-full h-full px-8 md:px-32 py-24 animated-element opacity-0 transition duration-300 ease-in-out">
