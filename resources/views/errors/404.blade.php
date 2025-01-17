@@ -5,6 +5,10 @@
     D'Land Property - 404 Page Not Found
 @endsection
 
+@php
+    $company = App\Models\Company::first();
+@endphp
+
 @section('content')
 
     <input type="hidden" name="company_number" value="{{ str_replace([' ', '-'], '', $company->phone) }}">

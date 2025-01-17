@@ -76,4 +76,4 @@ Route::post('/project-presentation', [ProjectPresentationController::class, 'sto
 
 Route::get('/phone-country-codes', [PhoneCountryController::class, 'get_phone_code'])->name('get.phone.codes');
 
-Route::fallback([ErrorController::class, 'error404']);
+Route::fallback([ErrorController::class, 'error404'])->middleware(LanguageSwitcher::class)->name('error.404');
