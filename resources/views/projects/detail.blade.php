@@ -16,6 +16,12 @@
     <meta property="og:image" content="{{ asset("storage/" . $project->image) }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $project->project_name }}">
+    <meta name="twitter:description" content="{{ $metaDescription }}">
+    <meta name="twitter:image" content="{{ asset('storage/' . $project->image) }}">
+    <meta name="twitter:url" content="{{ url()->current() }}">
 @endsection
 
 @section('title')

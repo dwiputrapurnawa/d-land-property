@@ -10,6 +10,13 @@
     <meta property="og:image" content="{{ asset('images/hero.webp') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="D'Land Properties - Premium Real Estate in Bali">
+    <meta name="twitter:description" content="Discover premium real estate in Bali with D'Land Properties, offering competitive pricing and a seamless property search experience.">
+    <meta name="twitter:image" content="{{ asset('images/hero.webp') }}">
+    <meta name="twitter:url" content="{{ url()->current() }}">
+
 @endsection
 
 @section('title')

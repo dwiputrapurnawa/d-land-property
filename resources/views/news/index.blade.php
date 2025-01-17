@@ -10,6 +10,13 @@
     <meta property="og:image" content="{{ asset('images/news-1.webp') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stay Updated with the Latest Bali Property Trends | D'Land Properties">
+    <meta name="twitter:description" content="Stay updated with the latest news on Bali property and land trends. Contact D'Land Properties via WhatsApp or by number for inquiries and expert guidance on real estate opportunities.">
+    <meta name="twitter:image" content="{{ asset('images/news-1.webp') }}">
+    <meta name="twitter:url" content="{{ url()->current() }}">
+
 @endsection
 
 @section('title')

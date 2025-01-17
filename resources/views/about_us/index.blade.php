@@ -10,6 +10,13 @@
     <meta property="og:image" content="{{ asset('images/img-5.webp') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Discover D'Land Properties - Your Trusted Partner in Bali Real Estate">
+    <meta name="twitter:description" content="Learn about D'Land Properties, your trusted partner in Bali property and land acquisition. Contact us via WhatsApp or by number to explore prime real estate opportunities.">
+    <meta name="twitter:image" content="{{ asset('images/img-5.webp') }}">
+    <meta name="twitter:url" content="{{ url()->current() }}">
+
 @endsection
 
 @section('title')

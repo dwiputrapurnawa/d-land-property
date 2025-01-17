@@ -10,6 +10,13 @@
     <meta property="og:image" content="{{ asset('images/bali-tourism-cover.webp') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Explore Bali’s Premier Property Market with D'Land Properties">
+    <meta name="twitter:description" content="Explore Bali’s premier property market with D'Land Properties. Learn about the best land and real estate opportunities, and contact us via WhatsApp or by number for more information.">
+    <meta name="twitter:image" content="{{ asset('images/bali-tourism-cover.webp') }}">
+    <meta name="twitter:url" content="{{ url()->current() }}">
+
 @endsection
 
 @section('title')
