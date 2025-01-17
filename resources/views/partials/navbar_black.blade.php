@@ -113,19 +113,21 @@
         </li>
       </ul>
 
-      <div class="flex flex-col items-center mt-12">
+      <div class="flex flex-col items-center mt-12" itemscope itemtype="http://schema.org/Organization">
         <div class="w-full max-w-screen-lg flex justify-between px-5">
-          <a href="{{ $company->instagram }}" class="underline text-md" style="text-underline-offset: 8px;">Instagram</a>
-          <a href="{{ $company->youtube }}" class="underline text-md" style="text-underline-offset: 8px;">Youtube</a>
-          <a href="https://wa.me/{{ str_replace([' ', '-'], '', $company->phone) }}" class="underline text-md" style="text-underline-offset: 8px;">Whatsapp</a>
+          <a href="{{ $company->instagram }}" class="underline text-md" style="text-underline-offset: 8px;" itemprop="sameAs">Instagram</a>
+          <a href="{{ $company->youtube }}" class="underline text-md" style="text-underline-offset: 8px;" itemprop="sameAs">Youtube</a>
+          <a href="https://wa.me/{{ str_replace([' ', '-'], '', $company->phone) }}" class="underline text-md" style="text-underline-offset: 8px;" itemprop="sameAs">Whatsapp</a>
         </div>
       </div>
-
-      <div class="flex flex-col px-5 mt-12 w-[300px]">
-        <p class="text-sm">{{ $company->phone }}</p>
-        <p class="text-sm">{{ $company->address }}</p>
-        
+      
+      <div class="flex flex-col px-5 mt-12 w-[300px]" itemscope itemtype="http://schema.org/Organization">
+        <p class="text-sm" itemprop="telephone">{{ $company->phone }}</p>
+        <p class="text-sm" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <span itemprop="streetAddress">{{ $company->address }}</span>
+        </p>
       </div>
+      
       
       
         

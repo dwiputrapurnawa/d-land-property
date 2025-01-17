@@ -8,15 +8,16 @@
           {{ __('landing.footer_title_1') }} <span class="italic font-medium font-century">{{ __('landing.footer_title_2') }}</span> {{ __('landing.footer_title_3') }} <span class="italic font-medium font-century">{{ __('landing.footer_title_4') }}</span>
         </h2>
         <div class="flex flex-wrap gap-5 mt-16 text-sm tracking-wide font-[405]">
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-3" itemscope itemtype="http://schema.org/Organization">
             <img loading="lazy" src="/images/telephone.webp" alt="Phone icon" class="w-5 h-5" />
-            <a href="tel:{{ $company->phone }} class="hover:underline">{{ $company->phone }}</a>
+            <a href="tel:{{ $company->phone }}" class="hover:underline" itemprop="telephone">{{ $company->phone }}</a>
           </div>
-          <div class="flex items-center gap-4">
+          <div class="flex items-center gap-4" itemscope itemtype="http://schema.org/Organization">
             <img loading="lazy" src="/images/whatsapp.webp" alt="WhatsApp icon" class="w-6 h-6" />
-            <span>WHATSAPP</span>
+            <span itemprop="sameAs">WHATSAPP</span>
           </div>
         </div>
+        
       </div>
     </section>
     <nav class="w-full lg:w-1/4 mt-10 lg:mt-0 lg:pt-36 px-10">
@@ -30,32 +31,40 @@
       </ul>
     </nav>
     <div class="w-full lg:w-1/3 mt-10 lg:mt-0 border-l border-zinc-800">
-      <section class="p-10 border-t md:border-none border-zinc-800">
+      <section class="p-10 border-t md:border-none border-zinc-800" itemscope itemtype="http://schema.org/Organization">
         <h3 class="text-base tracking-wider font-[420] font-bold">{{ __('landing.contacts_text') }}</h3>
-        <a href="mailto:info.dlandproperty@gmail.com" class="block mt-3.5 hover:underline">{{ $company->email }}</a>
-        <a href="tel:{{ $company->phone }}" class="block mt-3.5 hover:underline">{{ $company->phone }}</a>
+      
+        <!-- Email -->
+        <a href="mailto:info.dlandproperty@gmail.com" class="block mt-3.5 hover:underline" itemprop="email">{{ $company->email }}</a>
+        
+        <!-- Phone -->
+        <a href="tel:{{ $company->phone }}" class="block mt-3.5 hover:underline" itemprop="telephone">{{ $company->phone }}</a>
+      
         <h3 class="mt-12 text-base tracking-wider font-[420] font-bold">{{ __('landing.head_office_text') }}</h3>
-        <address class="mt-3.5 not-italic">
-          {{ $company->address }}
+      
+        <!-- Address -->
+        <address class="mt-3.5 not-italic" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <span itemprop="streetAddress">{{ $company->address }}</span>
         </address>
       </section>
-      <section class="mt-9 border-t border-zinc-800">
+      
+      <section class="mt-9 border-t border-zinc-800" itemscope itemtype="http://schema.org/Organization">
         <div class="p-10">
           <h3 class="text-base tracking-wider font-[420] font-bold">{{ __('landing.social_footer_text') }}</h3>
-        <ul class="list-none p-0 mt-16">
-          <li class="flex items-center gap-5 mt-5">
-            <img loading="lazy" src="/images/instagram.webp" alt="Instagram icon" class="w-6 h-6" />
-            <a href="{{ $company->instagram }}" class="hover:underline">Instagram</a>
-          </li>
-          <li class="flex items-center gap-5 mt-5">
-            <img loading="lazy" src="/images/youtube.webp" alt="YouTube icon" class="w-6 h-6" />
-            <a href="{{ $company->youtube }}" class="hover:underline">Youtube</a>
-          </li>
-          <li class="flex items-center gap-5 mt-5">
-            <img loading="lazy" src="/images/whatsapp.webp" alt="WhatsApp icon" class="w-6 h-6" />
-            <a href="https://wa.me/{{ str_replace([' ', '-'], '', $company->phone) }}" class="hover:underline">Whatsapp</a>
-          </li>
-        </ul>
+          <ul class="list-none p-0 mt-16">
+            <li class="flex items-center gap-5 mt-5">
+              <img loading="lazy" src="/images/instagram.webp" alt="Instagram icon" class="w-6 h-6" />
+              <a href="{{ $company->instagram }}" class="hover:underline" itemprop="sameAs">Instagram</a>
+            </li>
+            <li class="flex items-center gap-5 mt-5">
+              <img loading="lazy" src="/images/youtube.webp" alt="YouTube icon" class="w-6 h-6" />
+              <a href="{{ $company->youtube }}" class="hover:underline" itemprop="sameAs">Youtube</a>
+            </li>
+            <li class="flex items-center gap-5 mt-5">
+              <img loading="lazy" src="/images/whatsapp.webp" alt="WhatsApp icon" class="w-6 h-6" />
+              <a href="https://wa.me/{{ str_replace([' ', '-'], '', $company->phone) }}" class="hover:underline" itemprop="sameAs">Whatsapp</a>
+            </li>
+          </ul>
         </div>
       </section>
     </div>
