@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\SecureHeaders;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -14,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->redirectUsersTo(fn(Request $request) => route('admin.panel'));
         $middleware->redirectGuestsTo(fn(Request $request) => route('admin.login'));
+        $middleware->append(SecureHeaders::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
