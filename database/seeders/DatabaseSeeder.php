@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             'address' => "Jalan Raya Kampus Udayana No. 18x Jimbaran, Kuta Selatan, Badung 80361",
             'phone' => "+6212345678910",
             'email' => "info.dlandproperty@gmail.com",
-            'logo' => "/images/logo.png",
+            'logo' => "/images/logo.webp",
             'instagram' => "https://www.instagram.com/dland.property/",
         ]);
 
