@@ -10,6 +10,6 @@ class ErrorController extends Controller
     function error404()
     {
         $company = Company::first();
-        return view('errors.404', ["company" => $company]);
+        return response()->view('errors.404', ["company" => $company], 404);
     }
 }
