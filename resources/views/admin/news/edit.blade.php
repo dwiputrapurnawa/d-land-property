@@ -40,7 +40,7 @@
 
                 <!-- Preview Container -->
                <div id="previewContainer" class="mb-10">
-                   <img id="previewImage" class="w-auto h-auto rounded-lg shadow-md" alt="Preview" src="{{ asset('storage/' . $news->image) }}">
+                   <img id="previewImage" class="w-auto h-auto rounded-lg shadow-md lazy" alt="Preview" src="{{ asset('storage/' . $news->image) }}">
                </div>
    
                    <label for="image" class="text-lg font-semibold text-gray-800 mb-2">Upload Image</label>

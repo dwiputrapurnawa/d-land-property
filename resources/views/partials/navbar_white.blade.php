@@ -6,7 +6,7 @@
         <!-- Logo -->
         <div class="flex items-center">
           <a href="/">
-            <img id="logo-company" src="{{ asset('images/logo.webp') }}" alt="Logo" class="h-12 ml-5 md:h-16 w-auto"> <!-- Replace with your image URL and size -->
+            <img id="logo-company" src="{{ asset('images/logo.webp') }}" alt="Logo" class="h-12 ml-5 md:h-16 w-auto lazy"> <!-- Replace with your image URL and size -->
           </a>
         </div>
 
@@ -22,7 +22,7 @@
          <div class="relative">
           <div id="customSelect" class="bg-transparent  p-2 cursor-pointer flex items-center justify-between">
             <span class="text-sm font-light inline-flex items-center no-select">
-              <img src="/images/en-icon.webp" class="w-6 h-6 mr-2" alt="en-icon">
+              <img src="/images/en-icon.webp" class="w-6 h-6 mr-2 lazy" alt="en-icon">
               English
           </span>
           
@@ -37,8 +37,8 @@
           </div>
           
           <div id="dropdown" class="dropdown absolute top-20 left-0 mt-1 w-full bg-slate-600  bg-opacity-30 rounded-lg shadow-lg z-10 transition duration-300 ease-in-out">
-            <div class="p-2 cursor-pointer inline-flex items-center" data-value="en"><img src="/images/en-icon.webp" class="w-6 h-6 mr-2" alt="en-icon"> English</div>
-            <div class="p-2 cursor-pointer inline-flex items-center" data-value="id"><img src="/images/id-icon.webp" class="w-6 h-6 mr-2" alt="id-icon"> Bahasa</div>
+            <div class="p-2 cursor-pointer inline-flex items-center" data-value="en"><img src="/images/en-icon.webp" class="w-6 h-6 mr-2 lazy" alt="en-icon"> English</div>
+            <div class="p-2 cursor-pointer inline-flex items-center" data-value="id"><img src="/images/id-icon.webp" class="w-6 h-6 mr-2 lazy" alt="id-icon"> Bahasa</div>
 
           </div>
         </div>
@@ -74,7 +74,7 @@
       <div class="relative p-4 mb-6 mt-6">
         <div id="customSelectMobile" class="bg-transparent p-2 cursor-pointer inline-flex items-center justify-between w-auto">
           <span class="text-sm font-light inline-flex items-center no-select">
-              <img src="/images/en-icon.webp" class="w-6 h-6 mr-2" alt="en-icon">
+              <img src="/images/en-icon.webp" class="w-6 h-6 mr-2 lazy" alt="en-icon">
               English
           </span>
       
@@ -89,8 +89,8 @@
       
         
         <div id="dropdownMobile" class="dropdown absolute left-6 top-14 left-0 mt-1 w-[50%] bg-white rounded-lg shadow-lg z-10 transition duration-300 ease-in-out">
-          <div class="p-2 cursor-pointer inline-flex items-center" data-value="en"><img src="/images/en-icon.webp" class="w-6 h-6 mr-2" alt="en-icon"> English</div>
-          <div class="p-2 cursor-pointer inline-flex items-center" data-value="id"><img src="/images/id-icon.webp" class="w-6 h-6 mr-2" alt="id-icon"> Bahasa</div>
+          <div class="p-2 cursor-pointer inline-flex items-center" data-value="en"><img src="/images/en-icon.webp" class="w-6 h-6 mr-2 lazy" alt="en-icon"> English</div>
+          <div class="p-2 cursor-pointer inline-flex items-center" data-value="id"><img src="/images/id-icon.webp" class="w-6 h-6 mr-2 lazy" alt="id-icon"> Bahasa</div>
 
         </div>
       </div>

@@ -1,7 +1,7 @@
 <div id="requestCallModal" class="fixed inset-0 flex items-center justify-center z-50 hidden bg-black bg-opacity-40">
   <div class="relative flex flex-col text-white w-full max-w-md mx-auto rounded-lg overflow-hidden sm:max-w-sm md:max-w-md">
     <button id="requestModalCloseBtn" class="absolute top-3 right-3 text-white text-xl focus:outline-none z-50">
-      <img src="{{ asset('images/exit-button.webp') }}" class="w-4 h-4" alt="Close">
+      <img src="{{ asset('images/exit-button.webp') }}" class="w-4 h-4 lazy" alt="Close">
     </button>
 
     <header class="flex flex-col items-center px-4 py-6 sm:px-6 md:px-8 w-full shadow-2xl bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg">
@@ -37,7 +37,7 @@
               <div class="w-1/5">
                 <div class="country-code-select bg-transparent text-white p-2 cursor-pointer flex items-center justify-between">
                   <span class="text-sm font-light inline-flex items-center no-select">
-                    <img src="{{ asset('flags/ID.svg') }}" class="w-9 h-9 mr-2" alt="flags-id">
+                    <img src="{{ asset('flags/ID.svg') }}" class="w-9 h-9 mr-2 lazy" alt="flags-id">
                   </span>
                   <svg class="w-4 h-4 mt-1 arrow-up" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6" />

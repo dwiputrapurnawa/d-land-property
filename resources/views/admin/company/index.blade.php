@@ -15,7 +15,7 @@
         <label for="image" class="text-lg font-semibold text-gray-800 mb-2">Company Logo</label>
         <!-- Preview Container -->
        <div id="previewContainer" class="mb-10">
-           <img id="previewImage" class="w-28 h-28 rounded-lg shadow-md" alt="Preview" src="{{ $company->logo }}">
+           <img id="previewImage" class="w-28 h-28 rounded-lg shadow-md lazy" alt="Preview" src="{{ $company->logo }}">
        </div>
 
 

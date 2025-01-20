@@ -6,7 +6,7 @@
 
       <div class="flex flex-col">
         <div class="relative w-full h-[500px] mb-5 overflow-hidden">
-          <img src="{{ asset('images/canggu.webp') }}" class="w-full h-full object-cover animated-element opacity-0 transition duration-300 ease-in-out" alt="canggu-img">
+          <img src="{{ asset('images/canggu.webp') }}" class="w-full h-full object-cover animated-element opacity-0 transition duration-300 ease-in-out lazy" alt="canggu-img">
         </div>
         <h1 class="text-6xl outline-layer mb-5 animated-element opacity-0 transition duration-300 ease-in-out">Canggu</h1>
         <p class="max-w-lg animated-element opacity-0 transition duration-300 ease-in-out">{{ __('landing.canggu_content') }}</p>
@@ -14,7 +14,7 @@
       
       <div class="flex flex-col">
         <div class="relative w-full h-[500px] mb-5 overflow-hidden">
-          <img src="{{ asset('images/ubud.webp') }}" class="w-full h-full object-cover animated-element opacity-0 transition duration-300 ease-in-out" alt="ubud-img">
+          <img src="{{ asset('images/ubud.webp') }}" class="w-full h-full object-cover animated-element opacity-0 transition duration-300 ease-in-out lazy" alt="ubud-img">
         </div>
         <h1 class="text-6xl outline-layer mb-5 animated-element opacity-0 transition duration-300 ease-in-out">Ubud</h1>
         <p class="max-w-lg animated-element opacity-0 transition duration-300 ease-in-out">{{ __('landing.ubud_content') }}</p>
@@ -22,14 +22,14 @@
 
       <div class="flex flex-col">
         <div class="relative w-full h-[500px] mb-5 overflow-hidden">
-          <img src="{{ asset('images/nusa-dua.webp') }}" class="w-full h-full object-cover animated-element opacity-0 transition duration-300 ease-in-out" alt="nusa-dua-img">
+          <img src="{{ asset('images/nusa-dua.webp') }}" class="w-full h-full object-cover animated-element opacity-0 transition duration-300 ease-in-out lazy" alt="nusa-dua-img">
         </div>
         <h1 class="text-6xl outline-layer mb-5 animated-element opacity-0 transition duration-300 ease-in-out">Nusa Dua</h1>
         <p class="max-w-lg animated-element opacity-0 transition duration-300 ease-in-out">{{ __('landing.nusa_dua_content') }}</p>
       </div>
       <div class="flex flex-col">
         <div class="relative w-full h-[500px] mb-5 overflow-hidden">
-          <img src="{{ asset('images/uluwatu.webp') }}" class="w-full h-full object-cover animated-element opacity-0 transition duration-300 ease-in-out" alt="uluwatu-img">
+          <img src="{{ asset('images/uluwatu.webp') }}" class="w-full h-full object-cover animated-element opacity-0 transition duration-300 ease-in-out lazy" alt="uluwatu-img">
         </div>
         <h1 class="text-6xl outline-layer mb-5 animated-element opacity-0 transition duration-300 ease-in-out">Uluwatu</h1>
         <p class="max-w-lg animated-element opacity-0 transition duration-300 ease-in-out">{{ __('landing.uluwatu_content') }}</p>

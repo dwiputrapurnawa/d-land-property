@@ -1,4 +1,7 @@
 $(function () {
+
+    $('.lazy').Lazy();
+
     $('[name="phone"]').inputmask({
         mask: "(999)-999-99-999",
         placeholder: " ",

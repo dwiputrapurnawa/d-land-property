@@ -80,7 +80,7 @@
             <img
               loading="lazy"
               src="{{ asset("storage/" . $item->image) }}"
-              class="object-cover w-[400px] aspect-[1.73] max-md:max-w-full h-[250px]"
+              class="object-cover w-[400px] aspect-[1.73] max-md:max-w-full h-[250px] lazy"
               alt="Hotel room or property image related to the article"
             />
             <header class="flex flex-wrap justify-between w-[280px] md:w-[258px] gap-5 mt-6">

@@ -1,4 +1,7 @@
 $(function () {
+
+    $('.lazy').Lazy();
+
     const chipContainer = $("#chip-container"); // The container holding chips and the input
     const chipInput = $("#chip-input"); // The input field for new chips
     const hiddenTags = $("#hidden-tags"); // Hidden input to store chip values

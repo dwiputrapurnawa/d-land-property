@@ -39,7 +39,7 @@
 
                     <!-- Preview Container -->
                    <div id="previewContainer" class="mb-10">
-                       <img id="previewImage" class="w-auto h-auto rounded-lg shadow-md" alt="Preview" src="{{ asset('storage/' . $project->image) }}">
+                       <img id="previewImage" class="w-auto h-auto rounded-lg shadow-md lazy" alt="Preview" src="{{ asset('storage/' . $project->image) }}">
                    </div>
        
                       

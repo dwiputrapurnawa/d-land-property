@@ -4,13 +4,13 @@
         loading="lazy"
         src="{{ asset('images/image_cover.webp') }}"
         alt="Background image"
-        class="object-cover absolute inset-0 w-full h-full"
+        class="object-cover absolute inset-0 w-full h-full lazy"
       />
       <img
         loading="lazy"
         src="{{ asset('images/logo-big-substract.webp') }}"
         alt="Main content image"
-        class="object-contain w-full max-w-[300px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[534px] aspect-square -mb-4 sm:-mb-5 md:-mb-6 z-50 animated-element opacity-0 transition duration-300 ease-in-out"
+        class="object-contain w-full max-w-[300px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[534px] aspect-square -mb-4 sm:-mb-5 md:-mb-6 z-50 animated-element opacity-0 transition duration-300 ease-in-out lazy"
       />
     </div>
   </section>

@@ -81,7 +81,7 @@
       id="phone-img" 
       src="/images/phone.webp" 
       class="absolute bottom-0 sm:bottom-[-100px] right-32 z-10 animated-element opacity-0 transition duration-300 ease-in-out 
-      w-[150px] sm:w-[180px] md:w-[250px] lg:w-[300px] xl:w-[350px] 
+      w-[150px] sm:w-[180px] md:w-[250px] lg:w-[300px] xl:w-[350px] lazy
       hidden sm:block" alt="phone-img">
 
       

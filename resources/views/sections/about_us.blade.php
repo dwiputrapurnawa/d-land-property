@@ -6,7 +6,7 @@
                 loading="lazy"
                 src="/images/logo-substract.webp"
                 alt="About D'Land Properties"
-                class="object-contain w-full max-w-[200px] sm:max-w-[250px] md:max-w-[348px] aspect-[0.83] mx-auto md:mx-0 hidden sm:block"
+                class="object-contain w-full max-w-[200px] sm:max-w-[250px] md:max-w-[348px] aspect-[0.83] mx-auto md:mx-0 hidden sm:block lazy"
             >
         </div>
         <article class="w-full md:w-2/3 lg:w-[71%] mt-6 md:mt-0">

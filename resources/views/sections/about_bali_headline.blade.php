@@ -13,7 +13,7 @@
         <img 
           src="{{ asset('images/indonesia.webp') }}" 
           alt="Illustration representing Indonesia's economic growth" 
-          class="w-full h-full object-fill inset-0 right-0"
+          class="w-full h-full object-fill inset-0 right-0 lazy"
           loading="lazy"
           width="800"
           height="600"

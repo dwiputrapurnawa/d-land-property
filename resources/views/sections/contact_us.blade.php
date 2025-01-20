@@ -1,7 +1,7 @@
 <section data-layername="contactUs" class="bg-black text-white mt-10">
 
   <div class="flex flex-col block md:hidden">
-    <img loading="lazy" src="{{ asset('images/contact_us_cover.webp') }}" alt="Investment market visualization" class="object-cover grow w-full max-md:mt-10 max-md:max-w-full">
+    <img loading="lazy" src="{{ asset('images/contact_us_cover.webp') }}" alt="Investment market visualization" class="object-cover grow w-full max-md:mt-10 max-md:max-w-full lazy">
   </div>
 
   <div class="flex gap-5 max-md:flex-col px-12 pb-40 md:py-40">
@@ -39,7 +39,7 @@
               <div class="flex flex-col w-[15%]">
                 <div class="country-code-select bg-transparent text-white p-2 cursor-pointer flex items-center justify-between">
                   <span class="text-sm font-light inline-flex items-center no-select">
-                    <img src="{{ asset('flags/ID.svg') }}" class="w-9 h-9 mr-2" alt="flags-id">
+                    <img src="{{ asset('flags/ID.svg') }}" class="w-9 h-9 mr-2 lazy" alt="flags-id">
                   </span>
                   <svg class="w-4 h-4 mt-1 arrow-up" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6" />
@@ -96,7 +96,7 @@
 
    <!-- Image Column -->
 <div class="flex flex-col sm:ml-5 w-[67%] max-md:w-full hidden md:block">
-  <img loading="lazy" src="{{ asset('images/contact_us_cover.webp') }}" alt="Investment market visualization" class="object-fill grow w-full max-md:mt-10 max-md:max-w-full">
+  <img loading="lazy" src="{{ asset('images/contact_us_cover.webp') }}" alt="Investment market visualization" class="object-fill grow w-full max-md:mt-10 max-md:max-w-full lazy">
 </div>
 
   </div>

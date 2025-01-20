@@ -37,7 +37,7 @@
 
                 <!-- Preview Container -->
                <div id="previewContainer" class="hidden mb-10">
-                   <img id="previewImage" class="w-auto h-auto rounded-lg shadow-md" alt="Preview">
+                   <img id="previewImage" class="w-auto h-auto rounded-lg shadow-md lazy" alt="Preview">
                </div>
    
                    <label for="image" class="text-lg font-semibold text-gray-800 mb-2">Upload Image</label>

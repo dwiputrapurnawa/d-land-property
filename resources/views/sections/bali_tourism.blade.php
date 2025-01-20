@@ -1,6 +1,6 @@
 <section class="w-full h-full mb-12 lg:mb-28 justify-items-center">
 
-  <img src="{{ asset('images/bali-tourism-cover.webp') }}" class="object-center object-cover h-full w-full" alt="bali-tourism-cover">
+  <img src="{{ asset('images/bali-tourism-cover.webp') }}" class="object-center object-cover h-full w-full lazy" alt="bali-tourism-cover">
 
 
     <div class="grid grid-cols-1 md:grid-cols-2 container py-20 px-8">

@@ -40,7 +40,7 @@
     <input type="hidden" name="company_number" value="{{ str_replace([' ', '-'], '', $company->phone) }}">
 
     <div class="relative h-screen">
-        <img src="{{ asset("storage/" . $project->image) }}" class="w-full h-full absolute inset-0 object-cover" alt="cover-img">
+        <img src="{{ asset("storage/" . $project->image) }}" class="w-full h-full absolute inset-0 object-cover lazy" alt="cover-img">
     
         @include('partials.navbar_white')
     
@@ -62,7 +62,7 @@
         </div>
     
         <div class="flex flex-col px-auto md:px-12">
-            <img src="{{ asset('images/project-detail.gif') }}" class="object-cover w-full h-full" alt="project-detail">
+            <img src="{{ asset('images/project-detail.gif') }}" class="object-cover w-full h-full lazy" alt="project-detail">
         </div>
 
         <div class="grid grid-cols-1  md:grid-cols-2 px-12 py-28">
@@ -71,7 +71,7 @@
                 loading="lazy"
                 src="/images/logo-substract.webp"
                 alt="About D'Land Properties"
-                class="object-contain w-full max-w-[200px] sm:max-w-[200px] md:max-w-[200px] aspect-[0.83] mx-auto md:mx-0 hidden sm:block animated-element opacity-0 transition duration-300 ease-in-out"
+                class="object-contain w-full max-w-[200px] sm:max-w-[200px] md:max-w-[200px] aspect-[0.83] mx-auto md:mx-0 hidden sm:block animated-element opacity-0 transition duration-300 ease-in-out lazy"
             >
             </div>
 
@@ -104,7 +104,7 @@
             </div>
         </div>
 
-        <img src="{{ asset('images/img-detail.webp') }}" class="w-full h-full object-cover" alt="img-detail">
+        <img src="{{ asset('images/img-detail.webp') }}" class="w-full h-full object-cover lazy" alt="img-detail">
     </div>
 
     @include('sections.project_showcase')
@@ -150,7 +150,7 @@
         <div class="order-1 md:order-2 flex md:block">
             <img 
                 src="{{ asset("storage/" . $project->get_images->first()->image_path) }}" 
-                class="object-cover w-full h-full animated-element opacity-0 transition duration-300 ease-in-out" 
+                class="object-cover w-full h-full animated-element opacity-0 transition duration-300 ease-in-out lazy" 
                 alt="Project Detail">
         </div>
     </div>
@@ -231,7 +231,7 @@
                                 loading="lazy"
                                 src="{{ asset("storage/" . $project->get_images[0]->image_path) }}"
                                 alt="Gallery image 1"
-                                class="object-cover grow w-full aspect-[1.04] max-md:mt-6 max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out"
+                                class="object-cover grow w-full aspect-[1.04] max-md:mt-6 max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out lazy"
                             />
                         @endif
                     </article>
@@ -242,7 +242,7 @@
                                 loading="lazy"
                                 src="{{ asset("storage/" . $project->get_images[1]->image_path) }}"
                                 alt="Gallery image 2"
-                                class="object-cover grow w-full aspect-[1.92] max-md:mt-6 max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out"
+                                class="object-cover grow w-full aspect-[1.92] max-md:mt-6 max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out lazy"
                             />
                         @endif
                     </article>
@@ -257,7 +257,7 @@
                                 loading="lazy"
                                 src="{{ asset("storage/" . $project->get_images[2]->image_path) }}"
                                 alt="Gallery image 3"
-                                class="object-cover grow w-full aspect-[1.92] max-md:mt-6 max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out"
+                                class="object-cover grow w-full aspect-[1.92] max-md:mt-6 max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out lazy"
                             />
                         @endif
                     </article>
@@ -268,7 +268,7 @@
                                 loading="lazy"
                                 src="{{ asset("storage/" . $project->get_images[3]->image_path) }}"
                                 alt="Gallery image 4"
-                                class="object-cover grow w-full aspect-[1.05] max-md:mt-6 max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out"
+                                class="object-cover grow w-full aspect-[1.05] max-md:mt-6 max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out lazy"
                             />
                         @endif
                     </article>
@@ -280,7 +280,7 @@
                     loading="lazy"
                     src="{{ asset("storage/" . $project->get_images[4]->image_path) }}"
                     alt="Gallery image 5"
-                    class="object-cover mt-8 w-full aspect-[1.79] max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out"
+                    class="object-cover mt-8 w-full aspect-[1.79] max-md:max-w-full animated-element opacity-0 transition duration-300 ease-in-out lazy"
                 />
             @endif
 
@@ -291,20 +291,20 @@
         <section class="flex flex-col mx-auto w-full max-w-[480px] px-6 md:hidden">
             <div class="flex gap-3 w-full">
                 @if (isset($project->get_images[0]))
-                <img loading="lazy" src="{{ asset("storage/" . $project->get_images[0]->image_path) }}" alt="Gallery image 1" class="object-cover shrink-0 max-w-full aspect-[1.04] w-[182px]" />
+                <img loading="lazy" src="{{ asset("storage/" . $project->get_images[0]->image_path) }}" alt="Gallery image 1" class="object-cover shrink-0 max-w-full aspect-[1.04] w-[182px] lazy" />
                 @endif
                 @if (isset($project->get_images[1]))
-                <img loading="lazy" src="{{ asset("storage/" . $project->get_images[1]->image_path) }}" alt="Gallery image 2" class="object-cover shrink-0 max-w-full aspect-[1.04] w-[182px] ml-auto" />
+                <img loading="lazy" src="{{ asset("storage/" . $project->get_images[1]->image_path) }}" alt="Gallery image 2" class="object-cover shrink-0 max-w-full aspect-[1.04] w-[182px] ml-auto lazy" />
                 @endif
             </div>
             @if (isset($project->get_images[2]))
-                <img loading="lazy" src="{{ asset("storage/" . $project->get_images[2]->image_path) }}" alt="Gallery image 3" class="object-cover mt-3 w-full aspect-[1.95]" />
+                <img loading="lazy" src="{{ asset("storage/" . $project->get_images[2]->image_path) }}" alt="Gallery image 3" class="object-cover mt-3 w-full aspect-[1.95] lazy" />
             @endif
             @if (isset($project->get_images[3]))
-                <img loading="lazy" src="{{ asset("storage/" . $project->get_images[3]->image_path) }}" alt="Gallery image 4" class="object-cover mt-3 w-full aspect-[1.9]" />
+                <img loading="lazy" src="{{ asset("storage/" . $project->get_images[3]->image_path) }}" alt="Gallery image 4" class="object-cover mt-3 w-full aspect-[1.9] lazy" />
             @endif
             @if (isset($project->get_images[4]))
-            <img loading="lazy" src="{{ asset("storage/" . $project->get_images[4]->image_path) }}" alt="Gallery image 5" class="object-cover mt-3 w-full aspect-[1.78]" />
+            <img loading="lazy" src="{{ asset("storage/" . $project->get_images[4]->image_path) }}" alt="Gallery image 5" class="object-cover mt-3 w-full aspect-[1.78] lazy" />
             @endif
         </section>
     </div>
@@ -325,7 +325,7 @@
               </a>
         </div>
         <div class="flex flex-col w-full h-full">
-            <img src="{{ asset('images/bali-map.webp') }}" class="object-cover h-full w-full animated-element opacity-0 transition duration-300 ease-in-out" alt="bali-map">
+            <img src="{{ asset('images/bali-map.webp') }}" class="object-cover h-full w-full animated-element opacity-0 transition duration-300 ease-in-out lazy" alt="bali-map">
         </div>
     </div>
     

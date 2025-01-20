@@ -17,7 +17,7 @@
         @foreach ($projects as $project)
         <div class="flex flex-col px-4 md:px-8 lg:px-0 w-full max-w-[700px] mb-10 border-t border-gray-400 md:border-none py-12 md:py-auto @if($loop->last) border-b @endif">    
           <div class="relative w-full">
-              <img loading="lazy" src="{{ asset('storage/' . $project->image) }}" class="object-cover w-full aspect-[1.63] animated-element opacity-0 transition duration-300 ease-in-out" alt="Project visual representation" />
+              <img loading="lazy" src="{{ asset('storage/' . $project->image) }}" class="object-cover w-full aspect-[1.63] animated-element opacity-0 transition duration-300 ease-in-out lazy" alt="Project visual representation" />
               
               
               <!-- Button container positioned at the bottom-right for large screens and centered on mobile -->

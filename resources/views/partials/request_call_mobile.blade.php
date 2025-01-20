@@ -7,7 +7,7 @@
       loading="lazy" 
       src="{{ asset('images/cover-2.webp') }}" 
       alt="Investment market visualization" 
-      class="object-cover w-full h-[50vh] max-md:h-auto"
+      class="object-cover w-full h-[50vh] max-md:h-auto lazy"
     >
   </div>
 
@@ -18,7 +18,7 @@
           <!-- Logo -->
           <div class="flex items-center">
             <a href="/">
-              <img src="{{ asset('images/logo.webp') }}" alt="Logo" class="h-12 ml-5 md:h-16 w-auto"> <!-- Replace with your image URL and size -->
+              <img src="{{ asset('images/logo.webp') }}" alt="Logo" class="h-12 ml-5 md:h-16 w-auto lazy"> <!-- Replace with your image URL and size -->
             </a>
           </div>
   
@@ -65,7 +65,7 @@
             <div class="flex flex-col w-[15%]">
               <div class="country-code-select bg-transparent text-white p-2 cursor-pointer flex items-center justify-between">
                 <span class="text-sm font-light inline-flex items-center no-select">
-                  <img src="{{ asset('flags/ID.svg') }}" class="w-9 h-9 mr-2" alt="flags-id">
+                  <img src="{{ asset('flags/ID.svg') }}" class="w-9 h-9 mr-2 lazy" alt="flags-id">
                 </span>
                 <svg class="w-4 h-4 mt-1 arrow-up" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6" />

@@ -14,7 +14,7 @@
   <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
     <!-- Logo -->
     <div class="flex justify-center">
-      <img src="/images/logo-substract.webp" alt="Logo" class="w-20 h-20 mb-4">
+      <img src="/images/logo-substract.webp" alt="Logo" class="w-20 h-20 mb-4 lazy">
     </div>
 
     <h2 class="text-2xl font-bold text-center text-gray-800">Admin Panel</h2>
