@@ -149,5 +149,6 @@ return [
     "article_you_might_interested_text_2" => "menarik bagi Anda",
 
 
-    "request_call_header_text" => "Tinggalkan detail Anda dengan nomor yang benar dan spesialis kami akan memberikan saran mengenai pertanyaan yang Anda miliki."
+    "request_call_header_text" => "Tinggalkan detail Anda dengan nomor yang benar dan spesialis kami akan memberikan saran mengenai pertanyaan yang Anda miliki.",
+    "title_meta_home" => "Properti Komersial di Bali"
 ];

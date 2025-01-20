@@ -20,7 +20,7 @@
 @endsection
 
 @section('title')
-    D'Land Property - {{ __('landing.navbar_home') }}
+    D'Land Property - {{ __('landing.title_meta_home') }}
 @endsection
 
 @section('content')

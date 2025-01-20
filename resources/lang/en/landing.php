@@ -149,5 +149,5 @@ return [
     "article_you_might_interested_text_2" => "interested",
 
     "request_call_header_text" => "Leave your details with the correct number and our specialists will advise you on any questions you may have",
-
+    "title_meta_home" => "Commercial Real Estate in Bali"
 ];
