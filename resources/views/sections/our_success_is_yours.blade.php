@@ -19,7 +19,7 @@
             <div class="text-7xl lg:text-8xl font-light text-gray-300 mb-4 lg:mb-0">
               <span class="inset-0 text-transparent text-white -z-10 outline-layer-sans animated-element opacity-0 transition duration-300 ease-in-out">10%</span>
             </div>
-            <h3 class="mt-8 text-xl tracking-wider leading-none animated-element opacity-0 transition duration-300 ease-in-out">{{ __('landing.capital_gain_text') }}</h3>
+            <h3 class="mt-8 lg:text-xl text-lg tracking-wider leading-none animated-element opacity-0 transition duration-300 ease-in-out">{{ __('landing.capital_gain_text') }}</h3>
           </div>
         </div>
       
@@ -33,7 +33,7 @@
             <div class="text-7xl lg:text-8xl font-light text-gray-300 mb-4 lg:mb-0">
               <span class="inset-0 text-transparent text-white -z-10 outline-layer-sans animated-element opacity-0 transition duration-300 ease-in-out">13%</span>
             </div>
-            <h3 class="mt-8 text-xl tracking-wider leading-none animated-element opacity-0 transition duration-300 ease-in-out">{{ __('landing.rental_cash_flow_text') }}</h3>
+            <h3 class="mt-8 lg:text-xl text-lg tracking-wider leading-none animated-element opacity-0 transition duration-300 ease-in-out">{{ __('landing.rental_cash_flow_text') }}</h3>
           </div>
         </div>
       
@@ -42,7 +42,7 @@
           <div class="text-7xl lg:text-8xl font-light text-gray-300 mb-4 lg:mb-0">
             <span class="inset-0 text-transparent text-white -z-10 outline-layer-sans animated-element opacity-0 transition duration-300 ease-in-out">70%</span>
           </div>
-          <h3 class="mt-8 text-xl tracking-wider leading-none animated-element opacity-0 transition duration-300 ease-in-out">{{ __('landing.occupancy_rate_text') }}</h3>
+          <h3 class="mt-8 lg:text-xl text-lg tracking-wider leading-none animated-element opacity-0 transition duration-300 ease-in-out">{{ __('landing.occupancy_rate_text') }}</h3>
         </div>
       
         <!-- Fourth Item (aligned with Third Item on Mobile) -->
