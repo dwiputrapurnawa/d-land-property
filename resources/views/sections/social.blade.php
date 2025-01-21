@@ -50,7 +50,7 @@
 <div class="md:hidden relative"> <!-- Parent container remains relative -->
 
   {{-- Instagram Container --}}
-  <div class="absolute -top-52 left-1/2 -translate-x-1/2 flex flex-col z-50 items-center text-center w-4/5">
+  <div class="absolute -top-52 left-1/2 -translate-x-1/2 flex flex-col z-10 items-center text-center w-4/5">
     <div class="bg-white bg-opacity-10 p-12 lg:pt-32 rounded-lg backdrop-filter backdrop-blur-lg h-full flex flex-col">
       <h3 class="text-4xl lg:text-5xl font-light mb-8 animated-element opacity-0 transition duration-300 ease-in-out">
         {{ __('landing.social_title_1') }} <span class="italic font-century font-light">{{ __('landing.social_title_2') }}</span>
