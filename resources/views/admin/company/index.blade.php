@@ -30,11 +30,11 @@
            <span id="file-name" class="mt-2 text-sm text-gray-500">No file chosen</span>
        </div>
     <!-- Company Name -->
-    <div>
+    {{-- <div>
       <label class="block text-gray-700 font-semibold" for="name">Company Name</label>
       <input type="text" id="name" name="name" placeholder="Enter your company name"
         class="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="{{ $company->name }}">
-    </div>
+    </div> --}}
 
     <!-- Address -->
     <div>

@@ -24,7 +24,6 @@ class CompanyController extends Controller
         try {
             // Validate the form input
             $validated = $request->validate([
-                'name' => 'required|string|max:255',
                 'address' => 'required|string',
                 'phone' => 'required|string',
                 'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -43,7 +42,6 @@ class CompanyController extends Controller
 
             // Insert data into the database
             Company::where("id", "=", $id)->update([
-                'name' => $validated['name'],
                 'address' => $validated['address'],
                 'phone' => $validated['phone'],
                 'logo' => $imagePath,
