@@ -30,7 +30,7 @@
         <li><button class="underline-animation openRequestCallModalBtn uppercase">{{ __('landing.navbar_request_call') }}</button></li>
       </ul>
     </nav>
-    <div class="w-full lg:w-1/3 mt-10 lg:mt-0 border-l border-zinc-800">
+    <div class="w-full lg:w-1/3 mt-10 lg:mt-0 lg:border-l border-zinc-800">
       <section class="p-10 border-t md:border-none border-zinc-800" itemscope itemtype="http://schema.org/Organization">
         <h3 class="text-base tracking-wider font-[420] font-bold">{{ __('landing.contacts_text') }}</h3>
       
