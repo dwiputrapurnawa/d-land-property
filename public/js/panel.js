@@ -1,5 +1,12 @@
 $(function () {
 
+    $('#closeAlertButton').on('click', function() {
+        $('#updateAlert').hide(); // Hide the alert
+    });
+    $('#closeSuccessAlertButton').on('click', function() {
+        $('#updateSuccessAlert').hide(); // Hide the alert
+    });
+
     $('.lazy').Lazy();
 
     const chipContainer = $("#chip-container"); // The container holding chips and the input

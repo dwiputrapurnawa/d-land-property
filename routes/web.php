@@ -16,6 +16,8 @@ use App\Http\Controllers\PhoneCountryController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectPageController;
 use App\Http\Controllers\ProjectPresentationController;
+use App\Http\Controllers\UpdateWebController;
+use App\Http\Middleware\CheckForUpdates;
 use App\Http\Middleware\IsAdminMiddleware;
 use App\Http\Middleware\LanguageSwitcher;
 use Illuminate\Support\Facades\Route;
@@ -37,7 +39,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 });
 
-Route::prefix('admin')->middleware(IsAdminMiddleware::class)->group(function () {
+Route::prefix('admin')->middleware([IsAdminMiddleware::class, CheckForUpdates::class])->group(function () {
     Route::get('/panel', [PanelController::class, 'index'])->name('admin.panel');
     Route::get('/panel/project', [ProjectController::class, 'index'])->name('admin.project');
     Route::get('/panel/company', [CompanyController::class, 'index'])->name('admin.company');
@@ -60,6 +62,7 @@ Route::prefix('admin')->middleware(IsAdminMiddleware::class)->group(function () 
     Route::get('/get-news', [NewsController::class, 'news_list'])->name('get.news');
     Route::get('/get-consultation', [ConsultationController::class, 'consultations_list'])->name('get.consultation');
     Route::get('/get-project-presentation', [ProjectPresentationController::class, 'project_presentation_list'])->name('get.project.presentation');
+    Route::get('/update-web', [UpdateWebController::class, 'update'])->name('update.web');
 });
 
 Route::get('/projects', [ProjectPageController::class, 'index'])->middleware(LanguageSwitcher::class)->name('projects.page');

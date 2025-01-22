@@ -26,6 +26,34 @@
 </head>
 <body class="bg-gray-100">
 
+  @if (session('update_available'))
+  <div id="updateAlert" class="bg-yellow-500 text-white p-4 text-center relative">
+      <span>{{ session('update_available') }}</span>
+      
+      <!-- Update Now Button -->
+      <a href="{{ route('update.web') }}" 
+         class="bg-white text-yellow-500 font-bold py-1 px-4 rounded ml-4 hover:bg-gray-200 transition">
+          Update Now
+      </a>
+
+      <!-- Close Button -->
+      <button id="closeAlertButton" class="absolute top-0 right-0 mt-1 mr-2 text-white text-xl font-bold">&times;</button>
+  </div>
+@endif
+
+@if (session('success'))
+    <div id="updateSuccessAlert" class="bg-green-500 text-white p-4 text-center relative">
+        <span>{{ session('success') }}</span>
+        
+        <!-- Close button -->
+        <button id="closeSuccessAlertButton" class="absolute top-0 right-0 mt-1 mr-2 text-white text-xl font-bold">&times;</button>
+    </div>
+@endif
+
+
+
+
+
   <input type="hidden" name="upload-img" value="{{ route('upload.image') }}">
 
   <!-- Sidebar -->
@@ -43,6 +71,8 @@
         <a href="{{ route("admin.company") }}" class="px-4 py-2 hover:bg-blue-700 {{ Route::is('admin.company') ? 'bg-blue-700' : '' }}">Company</a>
         <a href="{{ route("admin.logout") }}" class="px-4 py-2 hover:bg-blue-700">Logout</a>
       </nav>
+
+      <h1 class="text-white text-lg px-4 py-2 mt-auto text-left">v1.0</h1>
     </aside>
 
     <!-- Main Content -->
