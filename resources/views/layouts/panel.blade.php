@@ -72,7 +72,10 @@
         <a href="{{ route("admin.logout") }}" class="px-4 py-2 hover:bg-blue-700">Logout</a>
       </nav>
 
-      <h1 class="text-white text-lg px-4 py-2 mt-auto text-left">v1.0</h1>
+      <!-- Software Version in Sidebar -->
+      <div class="mt-auto p-4 bg-blue-700 text-center">
+        <span class="text-white text-lg font-semibold">v1.0</span>
+    </div>
     </aside>
 
     <!-- Main Content -->
