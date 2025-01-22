@@ -113,7 +113,7 @@
 
       <!-- Software Version in Sidebar -->
       <div class="mt-auto p-4 bg-blue-700 text-center">
-        <span class="text-white text-lg font-semibold">v1.0</span>
+        <span class="text-white text-lg font-semibold">v1.1</span>
     </div>
     </aside>
 
