@@ -12,7 +12,7 @@ class UpdateWebController extends Controller
         // Ensure the script runs in the correct project directory
         $output = shell_exec('cd ' . base_path() . ' && git pull origin main 2>&1');
 
-        return back()->with([
+        return redirect()->route('admin.panel')->with([
             'success' => 'System successfully updated to the latest version! Your application is now up-to-date.',
             'update_output' => nl2br($output), // Store output for display
         ]);
